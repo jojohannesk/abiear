@@ -9,3 +9,11 @@ const hier = dirname(fileURLToPath(import.meta.url));
 export function fixture<T = unknown>(name: string): T {
   return JSON.parse(readFileSync(join(hier, "..", "fixtures", name), "utf8")) as T;
 }
+
+/** JSON mit sortierten Schlüsseln — wie der Swift-Encoder schreibt. */
+export function stabil(wert: unknown): string {
+  return JSON.stringify(wert, (_k, v) =>
+    v && typeof v === "object" && !Array.isArray(v)
+      ? Object.fromEntries(Object.keys(v as object).sort().map((k) => [k, (v as Record<string, unknown>)[k]]))
+      : v);
+}
