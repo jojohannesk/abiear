@@ -10,10 +10,15 @@ export function fixture<T = unknown>(name: string): T {
   return JSON.parse(readFileSync(join(hier, "..", "fixtures", name), "utf8")) as T;
 }
 
-/** JSON mit sortierten Schlüsseln — wie der Swift-Encoder schreibt. */
+/**
+ * JSON mit sortierten Schlüsseln, ohne `null`-Felder — wie der Swift-Encoder
+ * schreibt (Optionale ohne Wert lässt er weg).
+ */
 export function stabil(wert: unknown): string {
   return JSON.stringify(wert, (_k, v) =>
     v && typeof v === "object" && !Array.isArray(v)
-      ? Object.fromEntries(Object.keys(v as object).sort().map((k) => [k, (v as Record<string, unknown>)[k]]))
+      ? Object.fromEntries(Object.keys(v as object).sort()
+          .filter((k) => (v as Record<string, unknown>)[k] !== null)
+          .map((k) => [k, (v as Record<string, unknown>)[k]]))
       : v);
 }

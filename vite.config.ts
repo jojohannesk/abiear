@@ -1,6 +1,10 @@
 import { defineConfig } from "vitest/config";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 
+// Die Goldmaster-Fixtures sind in Europe/Berlin gerechnet; die Prüfungen
+// laufen in derselben Zeitzone, egal wo der Rechner steht.
+process.env.TZ = "Europe/Berlin";
+
 export default defineConfig({
   plugins: [svelte()],
   // GitHub Pages liefert unter einem Unterpfad; der Pfad kommt aus dem Bau.
