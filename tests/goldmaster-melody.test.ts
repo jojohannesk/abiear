@@ -6,6 +6,7 @@ import { Rand } from "../src/kern/Random";
 import { MelodyGenerator } from "../src/kern/MelodyGenerator";
 import { contourOfBar, movesInBar, notesPerBar } from "../src/kern/MelodicMove";
 import { neutralProfile } from "../src/kern/AdaptiveProfile";
+import { AbcNotation } from "../src/kern/AbcNotation";
 import type { DictationLevel } from "../src/kern/DictationLevel";
 import { fixture, stabil } from "./fixtures";
 
@@ -41,8 +42,11 @@ for (const name of ["melody-leicht", "melody-mittel", "melody-abitur", "melody-p
           moves: Array.from({ length: bars }, (_, b) => movesInBar(m, b)),
           contours: Array.from({ length: bars }, (_, b) => contourOfBar(m, b)),
           tonicDegree: m.notes.length ? MelodyGenerator.tonicDegree(m.notes[0].midiNumber, m.key) : null,
+          abc: AbcNotation.melodyToAbc(m),
+          beschreibung: AbcNotation.melodyBeschreibung(m),
         };
-        const soll = { key: d.key, notes: d.notes, moves: d.moves, contours: d.contours, tonicDegree: d.tonicDegree };
+        const soll = { key: d.key, notes: d.notes, moves: d.moves, contours: d.contours, tonicDegree: d.tonicDegree,
+          abc: d.abc, beschreibung: d.beschreibung };
         if (stabil(ist) !== stabil(soll)) {
           abweichungen++;
           if (!erste) erste = `Seed ${d.seed}:\n${stabil(ist)}\n≠\n${stabil(soll)}`;

@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import { Rand } from "../src/kern/Random";
 import { RhythmGenerator } from "../src/kern/RhythmGenerator";
 import { neutralProfile } from "../src/kern/AdaptiveProfile";
+import { AbcNotation } from "../src/kern/AbcNotation";
 import type { DictationLevel } from "../src/kern/DictationLevel";
 import { fixture, stabil } from "./fixtures";
 
@@ -24,11 +25,16 @@ for (const name of ["rhythm-leicht", "rhythm-mittel", "rhythm-abitur", "rhythm-p
       let erste = "";
       for (const d of file.dictations) {
         Rand.source = Rand.seeded(BigInt(d.seed));
-        const ist = RhythmGenerator.generate(file.level, profile)
-          .map((bar) => bar.map((f) => ({ id: f.id, startBeat: f.startBeat })));
-        if (stabil(ist) !== stabil(d.bars)) {
+        const g = RhythmGenerator.generate(file.level, profile);
+        const ist = {
+          bars: g.map((bar) => bar.map((f) => ({ id: f.id, startBeat: f.startBeat }))),
+          abc: AbcNotation.rhythmToAbc(g),
+          beschreibung: AbcNotation.rhythmBeschreibung(g),
+        };
+        const soll = { bars: d.bars, abc: d.abc, beschreibung: d.beschreibung };
+        if (stabil(ist) !== stabil(soll)) {
           abweichungen++;
-          if (!erste) erste = `Seed ${d.seed}: ${JSON.stringify(ist)} ≠ ${JSON.stringify(d.bars)}`;
+          if (!erste) erste = `Seed ${d.seed}:\n${stabil(ist)}\n≠\n${stabil(soll)}`;
         }
       }
       expect(abweichungen, erste).toBe(0);
