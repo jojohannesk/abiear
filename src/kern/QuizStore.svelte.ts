@@ -207,6 +207,11 @@ export class QuizStore {
     this.statistikGeaendert();
   }
 
+  /** Die aktuelle Zeit — injizierbar, damit die Prüfungen ein festes „jetzt" haben. */
+  jetztDatum(): Date {
+    return this.jetzt();
+  }
+
   get currentTask(): QuizTask | null {
     return this.currentIdx >= 0 && this.currentIdx < this.tasks.length ? this.tasks[this.currentIdx] : null;
   }

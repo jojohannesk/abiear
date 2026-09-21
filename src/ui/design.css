@@ -1,0 +1,162 @@
+/* Gestaltungsgrundlage. Aus `Views/DesignSystem.swift`.
+
+   Leitbild ist ein Studiogerät, nicht eine Website: dunkelgrauer Grund, ein
+   einziger Akzent (das Cyan des Icons), Tiefe durch Haarlinien statt
+   Schatten, kleine Radien, Ziffern fester Breite. Die App läuft nur im
+   Dunkelmodus — die Farben sind feste Werte. */
+
+:root {
+  color-scheme: dark;
+
+  --base: #15171b;
+  --raised: #1e2126;
+  --sunken: #272b31;
+  --paper: #f6f5f1;
+
+  --hairline: rgba(255, 255, 255, 0.09);
+  --hairline-strong: rgba(255, 255, 255, 0.18);
+
+  --text: #eff2f6;
+  --text-secondary: #a2a9b4;
+  --text-tertiary: #8f96a1;
+
+  --accent: #00d1da;
+  --accent-dim: rgba(0, 209, 218, 0.18);
+  --on-accent: #151b24;
+
+  --positive: #4fc08a;
+  --negative: #e6705f;
+
+  /* Maße */
+  --space-xxs: 3px;
+  --space-xs: 6px;
+  --space-s: 10px;
+  --space-m: 14px;
+  --space-l: 20px;
+  --space-xl: 28px;
+  --radius-control: 11px;
+  --radius-card: 16px;
+  --touch-min: 44px;
+  --touch-primary: 52px;
+  --inhaltsbreite: 520px;
+
+  /* Schrift: SF Pro auf Apple-Geräten, sonst die Systemgrotesk. Die Stufen
+     entsprechen den Textstilen (title 28, title3 20, callout 16,
+     subheadline 15, footnote 13, caption2 11). */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: 28px;
+  --font-title: 20px;
+  --font-headline: 16px;
+  --font-body: 15px;
+  --font-small: 13px;
+  --font-tiny: 11px;
+  --label-tracking: 1.5px;
+
+  --sicher-oben: env(safe-area-inset-top, 0px);
+  --sicher-unten: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--base);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--font-body);
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+body { position: fixed; inset: 0; overflow: hidden; }
+
+#app { height: 100%; display: flex; flex-direction: column; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+button:disabled { cursor: default; }
+
+/* Textstile */
+.t-display { font-size: var(--font-display); font-weight: 600; letter-spacing: -0.3px; }
+.t-title { font-size: var(--font-title); font-weight: 600; }
+.t-headline { font-size: var(--font-headline); font-weight: 600; }
+.t-body { font-size: var(--font-body); font-weight: 400; }
+.t-body-medium { font-size: var(--font-body); font-weight: 500; }
+.t-small { font-size: var(--font-small); font-weight: 400; }
+.t-small-medium { font-size: var(--font-small); font-weight: 500; }
+.t-tiny { font-size: var(--font-tiny); font-weight: 400; }
+/* Versalzeile mit weitem Satz */
+.t-label {
+  font-size: var(--font-tiny);
+  font-weight: 600;
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.ziffern { font-variant-numeric: tabular-nums; }
+
+.c-text { color: var(--text); }
+.c-secondary { color: var(--text-secondary); }
+.c-tertiary { color: var(--text-tertiary); }
+.c-accent { color: var(--accent); }
+.c-positive { color: var(--positive); }
+.c-negative { color: var(--negative); }
+
+/* Karte: dunkle Fläche mit Haarlinie, kein Schatten. */
+.karte {
+  background: var(--raised);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+}
+.karte--sunken { background: var(--sunken); }
+.karte--control { border-radius: var(--radius-control); }
+
+/* Druckzustand: sehr knappes Einsinken. */
+.druck { transition: transform 0.12s ease-out, opacity 0.12s ease-out; }
+.druck:active { transform: scale(0.985); opacity: 0.6; }
+.druck--flach:active { transform: none; }
+
+/* Seiten: ein scrollender Inhalt in der Inhaltsbreite */
+.seite {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+.inhalt {
+  width: 100%;
+  max-width: var(--inhaltsbreite);
+  margin: 0 auto;
+  padding: 0 var(--space-l);
+}
+
+.haarlinie { height: 1px; background: var(--hairline); }
+
+/* Inhaltsbreite: Telefon 520, Tablet im Hochformat 680 */
+@media (min-width: 700px) and (orientation: portrait) {
+  :root { --inhaltsbreite: 680px; }
+}
+
+/* Bewegung nur, wenn erwünscht */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
