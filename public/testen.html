@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>AbiEar testen</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #15171b;
+    --raised: #1e2126;
+    --text: #eff2f6;
+    --text-secondary: #a2a9b4;
+    --text-tertiary: #8f96a1;
+    --accent: #00d1da;
+    --on-accent: #151b24;
+    --hairline: rgba(255,255,255,0.09);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    padding: 0 20px;
+  }
+  main { max-width: 640px; margin: 0 auto; padding: 48px 0 80px; }
+  header { margin-bottom: 36px; }
+  h1 { font-size: 1.7rem; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.3px; }
+  .kicker { font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-tertiary); margin: 0; }
+  section { margin-bottom: 32px; }
+  h2 { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); font-weight: 600; margin: 0 0 8px; }
+  p, li { margin: 0; color: var(--text-secondary); }
+  p + p { margin-top: 10px; }
+  ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+  strong { color: var(--text); font-weight: 600; }
+  a { color: var(--accent); }
+  .start {
+    display: inline-flex; align-items: center; justify-content: center;
+    height: 52px; padding: 0 28px; border-radius: 11px;
+    background: var(--accent); color: var(--on-accent); font-weight: 600; text-decoration: none;
+    margin-top: 14px;
+  }
+  .karte { background: var(--raised); border: 1px solid var(--hairline); border-radius: 16px; padding: 16px; }
+  .karte + .karte { margin-top: 10px; }
+  .karte h3 { margin: 0 0 4px; font-size: 1rem; color: var(--text); }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--hairline); font-size: 0.85rem; color: var(--text-tertiary); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="kicker">Für Lehrkräfte · Testfassung</p>
+    <h1>AbiEar testen</h1>
+    <p>AbiEar ist ein Übungsprogramm für die Gehörbildung im Abitur Musik Baden-Württemberg: Intervalle, Akkorde, Rhythmus- und Melodiediktat — nach dem Leitfaden fachpraktisches Abitur Musik. Die Fassung hier läuft im Browser auf jedem Gerät und ist inhaltlich dieselbe wie die iPhone-App.</p>
+    <a class="start" href="./">AbiEar öffnen</a>
+  </header>
+
+  <section>
+    <h2>Am besten so</h2>
+    <p>Auf dem Telefon: die Seite öffnen und über „Teilen“ → „Zum Home-Bildschirm“ (iPhone) bzw. „App installieren“ (Android) ablegen. Dann läuft sie bildschirmfüllend und auch offline. Am Computer geht es im Browser ebenso, am ehesten in Chrome, Safari oder Firefox in aktueller Fassung.</p>
+    <p>Kopfhörer oder Lautsprecher an — beim ersten Tippen wird der Klang freigeschaltet, das verlangt der Browser.</p>
+  </section>
+
+  <section>
+    <h2>Was sich anzusehen lohnt</h2>
+    <div class="karte">
+      <h3>Schnell üben</h3>
+      <p>Die Zwei-Minuten-Einheit: drei Intervalle, drei Akkorde, ein Takt Rhythmus. Der Einstieg, den Schülerinnen und Schüler täglich antippen sollen.</p>
+    </div>
+    <div class="karte">
+      <h3>Rhythmus- und Melodiediktat</h3>
+      <p>Elf Durchgänge wie in der Prüfung, mitgeschrieben im Gerät: Notenwert antippen, Tonhöhe in der Tonleiterspalte wählen, Lücken lassen und später füllen. Die Punkte werden schlagweise gegen die Lösung gerechnet — nichts wird selbst eingeschätzt.</p>
+    </div>
+    <div class="karte">
+      <h3>Komplettprüfung</h3>
+      <p>Alle vier Teile hintereinander, in der Reihenfolge der Prüfung, ohne Rückmeldung je Aufgabe und ohne gezieltes Üben — die Punktzahl soll mit einer echten Prüfung vergleichbar bleiben.</p>
+    </div>
+    <div class="karte">
+      <h3>Lernen und Statistik</h3>
+      <p>Unter „Lernen“ stehen Vorgehen und Hörhilfen je Bereich, unter „Statistik“ die eigenen Schwächen — mit der Stichprobe daneben, damit eine Quote nie ohne ihre Grundlage steht. Der adaptive Modus schaltet sich nach zwanzig Durchgängen frei.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Was in der Browser-Fassung anders ist</h2>
+    <ul>
+      <li>Die tägliche Erinnerung kann im Browser nur erscheinen, solange die Seite geöffnet ist. In der App auf dem Gerät ist sie eine echte Mitteilung.</li>
+      <li>Die Übungsstatistik liegt im Speicher des Browsers. Wer die Website-Daten löscht, löscht sie mit. Es gibt kein Konto und keinen Server — nichts verlässt das Gerät.</li>
+      <li>Ein leises Vibrieren beim Tippen gibt es nur auf Android.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Rückmeldung</h2>
+    <p>Was fehlt, was stört, was in Ihrem Unterricht anders gesagt wird — alles ist willkommen. Am hilfreichsten sind konkrete Stellen: welcher Bildschirm, welche Aufgabe, was erwartet, was passiert.</p>
+    <p>Kontakt: <a href="mailto:johannes.javor@icloud.com">johannes.javor@icloud.com</a></p>
+  </section>
+
+  <footer>
+    <p>Die Inhalte folgen dem „Leitfaden fachpraktisches Abitur Musik“ des Landes Baden-Württemberg; maßgeblich bleibt der Leitfaden, nicht diese App. Notensatz mit abcjs (MIT), Klaviertöne aus dem Salamander Grand Piano (CC-BY 3.0) — die Lizenzhinweise stehen in der App unter „Mehr“ → „Über“.</p>
+  </footer>
+</main>
+</body>
+</html>
