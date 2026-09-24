@@ -2,7 +2,17 @@
 
 Die iOS-App in TypeScript und Svelte 5: als Web-App die Testfassung für
 Lehrkräfte, als Capacitor-Paket später die Android-App. Der Plan und die
-Begründungen stehen in [`../Plan-Web.md`](../Plan-Web.md).
+Begründungen stehen im Hauptprojekt in `Plan-Web.md`.
+
+**Dieser Ordner ist zugleich das Demo-Repository.** Im Hauptprojekt liegt er
+unter `Web/`; `Werkzeuge/demo-hochladen.sh` schneidet ihn mit
+`git subtree split` heraus und schiebt ihn nach
+[github.com/jojohannesk/abiear](https://github.com/jojohannesk/abiear),
+wo der Workflow in `.github/workflows/pages.yml` baut und auf GitHub Pages
+veröffentlicht: <https://jojohannesk.github.io/abiear/> — der Leitfaden für
+Lehrkräfte liegt daneben unter `/testen.html`. Das Demo-Repository ist eine
+**Ableitung**: dort direkt zu ändern lohnt nicht, der nächste Lauf
+überschreibt es.
 
 ## Arbeiten
 
@@ -15,7 +25,10 @@ npm run build        # dist/, installierbar und offline (PWA)
 ```
 
 `npm run build` mit `ABIEAR_BASE=/abiear/` baut für einen Unterpfad — so
-macht es der Workflow in `.github/workflows/web.yml` für GitHub Pages.
+macht es der Workflow für GitHub Pages. Ohne die Variable baut er für die
+Wurzel; `npm run preview` zeigt das Ergebnis dann unter
+<http://localhost:4173>. **Als Datei geöffnet läuft die App nicht** — der
+Browser lädt keine Module über `file://`; es braucht immer einen Server.
 
 **Auf diesem Mac:** `node_modules` ist ein Symlink auf
 `node_modules.nosync`. Der Desktop liegt in iCloud Drive, und bei fast

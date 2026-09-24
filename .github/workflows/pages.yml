@@ -1,0 +1,53 @@
+# Baut die Web-Fassung und veröffentlicht sie auf GitHub Pages.
+#
+# Diese Datei gilt im **Demo-Repository**, dessen Wurzel der Inhalt von
+# `Web/` ist (siehe `Werkzeuge/demo-hochladen.sh`). Im Hauptprojekt liegt
+# sie unter `Web/.github/` und tut dort nichts.
+#
+# Voraussetzung im Repository: Settings → Pages → Source „GitHub Actions".
+# Die Seite liegt dann unter https://<konto>.github.io/<repo>/ — der
+# Unterpfad wird beim Bau als Basis mitgegeben (`ABIEAR_BASE`).
+name: Web-Fassung
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+        env:
+          ABIEAR_BASE: /${{ github.event.repository.name }}/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  veroeffentlichen:
+    needs: bauen
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
