@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- DesignSystem.swift: Palette.base -->
+    <color name="grund">#15171B</color>
+    <!-- Grund des App-Symbols (AppIcon.png) -->
+    <color name="symbolgrund">#1B2430</color>
+</resources>

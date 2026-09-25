@@ -15,6 +15,7 @@
   import SecondaryButton from "../Bausteine/SecondaryButton.svelte";
   import SegmentedBar from "../Bausteine/SegmentedBar.svelte";
   import Notenbild from "../Bausteine/Notenbild.svelte";
+  import { beiZurueck } from "../../plattform/Zurueck";
 
   interface Props { store: QuizStore }
   let { store }: Props = $props();
@@ -63,6 +64,9 @@
     return m ? "Lösung. " + AbcNotation.melodyBeschreibung(m) : "Lösung";
   }
   const melodyKey = $derived(store.tasks.find((x) => x.kind === "melody")?.melodyData?.key ?? null);
+
+  // Android-Zurück: wie „Zurück zum Menü“ — die Auswertung hat kein X.
+  $effect(() => beiZurueck(() => store.returnToStart(), "bildschirm"));
 
   function pointClass(points: number): string {
     return points === 2 ? "p2" : points === 1 ? "p1" : "p0";

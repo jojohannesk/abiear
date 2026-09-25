@@ -281,7 +281,19 @@ export class StatisticsStore {
     this.lastError = null;
     this.isReadOnly = false;
 
-    const text = await this.ablage.lesen(STATISTICS_FILE);
+    // Da, aber nicht lesbar (Dateisystem unter Android): nicht mit leerem
+    // Stand weitermachen und dann darüberschreiben — lieber nichts speichern.
+    let text: string | null;
+    try {
+      text = await this.ablage.lesen(STATISTICS_FILE);
+    } catch {
+      this.file = leereDatei();
+      this.isReadOnly = true;
+      this.lastError = "Die Statistikdatei ist unlesbar und konnte nicht "
+        + "beiseitegelegt werden. Es wird nichts gespeichert.";
+      this.revision++;
+      return;
+    }
     if (text === null) {
       this.file = leereDatei();
       this.revision++;

@@ -6,6 +6,7 @@
   import { TrainingModes } from "../kern/QuizTask";
   import type { Einstellungen } from "../plattform/Einstellungen";
   import type { Erinnerungen } from "../plattform/Erinnerungen.svelte";
+  import { zurueckAnEbene } from "../plattform/Zurueck";
   import TabLeiste from "./TabLeiste.svelte";
   import type { Tab } from "./Symbole";
   import Icon from "./Bausteine/Icon.svelte";
@@ -18,8 +19,14 @@
   import QuizView from "./Lauf/QuizView.svelte";
   import ResultView from "./Lauf/ResultView.svelte";
 
-  interface Props { store: QuizStore; einstellungen: Einstellungen; erinnerungen: Erinnerungen }
-  let { store, einstellungen, erinnerungen }: Props = $props();
+  interface Props {
+    store: QuizStore;
+    einstellungen: Einstellungen;
+    erinnerungen: Erinnerungen;
+    /** Android: hängt die Zurück-Taste ein; `false` heißt „App in den Hintergrund“. */
+    zurueckTaste?: (zurueck: () => boolean) => void;
+  }
+  let { store, einstellungen, erinnerungen, zurueckTaste }: Props = $props();
 
   const tabs: Tab[] = ["ueben", "lernen", "statistik", "mehr"];
   function gemerkterTab(): Tab {
@@ -49,9 +56,22 @@
     }, 80);
   }
 
+  /** Unter allen Ebenen: ein anderer Tab führt zurück zu „Üben“, erst dort
+   *  verlässt Zurück die App — wie bei Android-Apps mit unterer Leiste. */
+  function zurueck(): boolean {
+    if (zurueckAnEbene()) return true;
+    if (store.screen.art === "start" && tab !== "ueben") { zeigeTab("ueben"); return true; }
+    return false;
+  }
+
+  function taste(e: KeyboardEvent) {
+    if (e.key === "Escape") zurueckAnEbene(true);
+  }
+
   const lernKinds = TrainingModes.kacheln.flatMap((m) => TrainingModes.kinds(m));
 
   onMount(() => {
+    zurueckTaste?.(zurueck);
     void store.laden().then(() => {
       geladen = true;
       void erinnerungen.statusPruefen().then(() => erinnerungen.neuPlanen(store.insights));
@@ -75,6 +95,8 @@
     if (store.screen.art === "start") requestAnimationFrame(() => zeigeTab(tab, false));
   });
 </script>
+
+<svelte:window onkeydown={taste} />
 
 {#if store.audio.startFehler}
   <div class="tonband">

@@ -13,4 +13,6 @@ export const Impressum = {
   },
 };
 
-export const VERSION = "1.0 (Web)";
+import { Fassung } from "./Fassung";
+
+export const VERSION = Fassung.version;

@@ -1,8 +1,9 @@
 <script lang="ts">
   // Ein Blatt von unten, wie `.sheet` in SwiftUI: bildschirmfüllend auf dem
-  // Telefon, in Inhaltsbreite auf großen Bildschirmen. Escape und ein Tipp
-  // auf den Rand schließen, wenn `dismissable`.
+  // Telefon, in Inhaltsbreite auf großen Bildschirmen. Zurück (Escape,
+  // Android-Taste) und ein Tipp auf den Rand schließen, wenn `dismissable`.
   import type { Snippet } from "svelte";
+  import { beiZurueck } from "../../plattform/Zurueck";
 
   interface Props {
     offen: boolean;
@@ -12,12 +13,11 @@
   }
   let { offen, dismissable = true, onClose, children }: Props = $props();
 
-  function taste(e: KeyboardEvent) {
-    if (e.key === "Escape" && dismissable && offen) onClose?.();
-  }
+  $effect(() => {
+    if (!offen) return;
+    return beiZurueck(() => { if (dismissable) onClose?.(); });
+  });
 </script>
-
-<svelte:window onkeydown={taste} />
 
 {#if offen}
   <div class="rand" role="presentation" onclick={(e) => { if (e.target === e.currentTarget && dismissable) onClose?.(); }}>

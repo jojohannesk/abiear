@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kleines Symbol in der Statusleiste: Android zeigt nur die Deckkraft. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24">
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.6" android:pathData="M2.500,12.000a9.500,9.500 0 1,0 19.000,0a9.500,9.500 0 1,0 -19.000,0z" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.6" android:pathData="M5.800,12.000a6.200,6.200 0 1,0 12.400,0a6.200,6.200 0 1,0 -12.400,0z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M8.800,12.000a3.200,3.200 0 1,0 6.400,0a3.200,3.200 0 1,0 -6.400,0z" />
+</vector>

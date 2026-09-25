@@ -2,6 +2,7 @@
   // Schalter und Uhrzeit der täglichen Erinnerung. Aus `Views/ErinnerungView.swift`.
   import type { StatisticsInsights } from "../../kern/StatisticsInsights";
   import type { Erinnerungen } from "../../plattform/Erinnerungen.svelte";
+  import { Fassung } from "../../plattform/Fassung";
   import Icon from "../Bausteine/Icon.svelte";
 
   interface Props { erinnerungen: Erinnerungen; insights: StatisticsInsights }
@@ -31,7 +32,7 @@
       <span class="t-body-medium c-text">Ans Üben erinnern</span>
       <span class="rechts">
         {#if erinnerungen.zustand === "vomSystemAbgelehnt"}
-          <span class="t-tiny c-negative">Im Browser nicht erlaubt</span>
+          <span class="t-tiny c-negative">{Fassung.erinnerungAbgelehnt}</span>
         {:else}
           <span class="schalter t-small-medium" class:an={erinnerungen.zustand === "an"}>{erinnerungen.zustand === "an" ? "An" : "Aus"}</span>
         {/if}
@@ -50,7 +51,11 @@
     {/if}
 
     {#if erinnerungen.zustand === "vomSystemAbgelehnt"}
-      <p class="t-tiny c-tertiary">Erlaube Mitteilungen für diese Seite in den Einstellungen deines Browsers und tippe dann erneut auf den Schalter.</p>
+      {#if erinnerungen.einstellungenOeffnen}
+        <button class="einstellungen t-small c-accent" onclick={erinnerungen.einstellungenOeffnen}>Mitteilungen in den Einstellungen erlauben</button>
+      {:else}
+        <p class="t-tiny c-tertiary">{Fassung.erinnerungErlauben}</p>
+      {/if}
     {/if}
   </div>
 </section>
@@ -66,5 +71,6 @@
   .schalter { width: 48px; height: 28px; display: grid; place-items: center; border-radius: 999px; background: var(--sunken); color: var(--text-secondary); }
   .schalter.an { background: var(--accent); color: var(--on-accent); }
   .uhrzeit { display: flex; align-items: center; justify-content: space-between; }
+  .einstellungen { text-align: left; align-self: flex-start; min-height: var(--touch-min); }
   input[type="time"] { font: inherit; color: var(--text); background: var(--sunken); border: 1px solid var(--hairline); border-radius: 8px; padding: 6px 10px; color-scheme: dark; }
 </style>

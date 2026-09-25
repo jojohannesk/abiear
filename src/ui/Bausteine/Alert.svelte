@@ -1,9 +1,16 @@
 <script lang="ts">
   // Ein Alert wie in SwiftUI: Titel, Text, Knöpfe — lässt sich nicht durch
-  // Tippen daneben schließen; hier soll bewusst entschieden werden.
+  // Tippen daneben schließen; hier soll bewusst entschieden werden. Zurück
+  // wählt den Abbrechen-Knopf, wenn es einen gibt.
+  import { beiZurueck } from "../../plattform/Zurueck";
   interface Knopf { titel: string; rolle?: "cancel" | "destructive" | "normal"; onclick: () => void }
   interface Props { offen: boolean; titel: string; text: string; knoepfe: Knopf[] }
   let { offen, titel, text, knoepfe }: Props = $props();
+
+  $effect(() => {
+    if (!offen) return;
+    return beiZurueck(() => { knoepfe.find((k) => k.rolle === "cancel")?.onclick(); });
+  });
 </script>
 
 {#if offen}

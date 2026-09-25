@@ -21,6 +21,7 @@
   import TutorialView from "./TutorialView.svelte";
   import GuideView from "./GuideView.svelte";
   import LernView from "../Lernen/LernView.svelte";
+  import { beiZurueck } from "../../plattform/Zurueck";
 
   interface Props { store: QuizStore; mode: TrainingMode; einstellungen: Einstellungen }
   let { store, mode, einstellungen }: Props = $props();
@@ -85,6 +86,9 @@
     store.laufTempoBPM = null;
     store.screen = { art: "start" };
   }
+
+  // Android-Zurück tut, was das X tut.
+  $effect(() => beiZurueck(schliessen, "bildschirm"));
 </script>
 
 <div class="seite">

@@ -6,11 +6,15 @@ import { VitePWA } from "vite-plugin-pwa";
 // laufen in derselben Zeitzone, egal wo der Rechner steht.
 process.env.TZ = "Europe/Berlin";
 
+// Die Android-Fassung liefert alles aus dem App-Paket: kein Service Worker,
+// der eine alte Fassung aus dem Cache weiterreichen könnte.
+const android = process.env.ABIEAR_ZIEL === "android";
+
 export default defineConfig({
   plugins: [
     svelte(),
     // Installierbar und offline: Seite, abcjs, Samples und Bild im Cache.
-    VitePWA({
+    !android && VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["abcjs-basic-min.js", "piano/*.mp3", "akkordbaum.png", "icon-180.png"],
       manifest: {

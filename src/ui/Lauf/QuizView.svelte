@@ -7,12 +7,16 @@
   import ThinProgress from "../Bausteine/ThinProgress.svelte";
   import GehoerTaskView from "./GehoerTaskView.svelte";
   import DiktatView from "./DiktatView.svelte";
+  import { beiZurueck } from "../../plattform/Zurueck";
 
   interface Props { store: QuizStore }
   let { store }: Props = $props();
 
   const title = $derived(store.isRepeatRound ? "Wiederholung" : store.mode === "mix" ? "Komplettprüfung" : TrainingModes.title(store.mode));
   const task = $derived(store.currentTask);
+
+  // Android-Zurück tut, was das X tut.
+  $effect(() => beiZurueck(() => store.returnToStart(), "bildschirm"));
 </script>
 
 <div class="seite">

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Themensymbol (Android 13+): dieselben Kreise einfarbig, das System färbt. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.62" android:strokeAlpha="0.55" android:pathData="M28.550,54.000a25.450,25.450 0 1,0 50.900,0a25.450,25.450 0 1,0 -50.900,0z" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.69" android:strokeAlpha="0.8" android:pathData="M35.900,54.000a18.100,18.100 0 1,0 36.200,0a18.100,18.100 0 1,0 -36.200,0z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M44.190,54.000a9.810,9.810 0 1,0 19.620,0a9.810,9.810 0 1,0 -19.620,0z" />
+</vector>
