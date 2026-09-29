@@ -46,6 +46,8 @@ Lizenztext: creativecommons.org/licenses/by/3.0`;
           </div>
         </section>
       {/each}
+      <!-- Von Google Play verlangt: keine Verbindung zu einer Behörde. Wortgleich in `AboutView.swift`. -->
+      <p class="t-tiny c-tertiary hinweis">AbiEar ist eine unabhängige Lern-App und steht in keiner Verbindung zu einer Behörde. Verbindlich sind ausschließlich die amtlichen Bestimmungen des Landes Baden-Württemberg.</p>
     </div>
   </div>
 </div>
@@ -58,6 +60,7 @@ Lizenztext: creativecommons.org/licenses/by/3.0`;
   .beschreibung { padding-top: var(--space-s); line-height: 1.5; }
   .credit { display: flex; flex-direction: column; gap: var(--space-s); }
   .block { padding: var(--space-m); display: flex; flex-direction: column; gap: var(--space-xs); }
+  .hinweis { line-height: 1.5; }
   .lizenzname { padding-top: var(--space-xs); }
   .lizenz { margin: 0; padding-top: var(--space-xs); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; line-height: 1.5; white-space: pre-wrap; }
 </style>
