@@ -4,13 +4,13 @@
   import { TrainingModes, type TrainingMode } from "../../kern/QuizTask";
   import TopBar from "../Bausteine/TopBar.svelte";
 
-  interface Props { mode: TrainingMode; onClose: () => void }
-  let { mode, onClose }: Props = $props();
+  interface Props { mode: TrainingMode; onClose: () => void; mitKopf?: boolean }
+  let { mode, onClose, mitKopf = true }: Props = $props();
   const guide = $derived(DisciplineGuides.forMode(mode));
 </script>
 
 <div class="seite">
-  <TopBar title={TrainingModes.title(mode)} {onClose} />
+  {#if mitKopf}<TopBar title={TrainingModes.title(mode)} {onClose} />{/if}
   <div class="scroll">
     <div class="inhalt guide">
       <p class="karte zusammenfassung t-body c-text">{guide.summary}</p>

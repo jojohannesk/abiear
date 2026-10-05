@@ -16,8 +16,8 @@
   import Notenbild from "../Bausteine/Notenbild.svelte";
   import AkkordBaum from "./AkkordBaum.svelte";
 
-  interface Props { store: QuizStore; kinds: readonly Kind[]; fokus?: string | null; onClose?: (() => void) | null }
-  let { store, kinds, fokus = null, onClose = null }: Props = $props();
+  interface Props { store: QuizStore; kinds: readonly Kind[]; fokus?: string | null; onClose?: (() => void) | null; mitKopf?: boolean }
+  let { store, kinds, fokus = null, onClose = null, mitKopf = true }: Props = $props();
 
   const grundton = 60;
   const klopfton = 72;
@@ -85,7 +85,7 @@
 </script>
 
 <div class="seite">
-  <TopBar title="Lernen" {onClose} />
+  {#if mitKopf}<TopBar title="Lernen" {onClose} />{/if}
   {#if kinds.length > 1}
     <div class="segmente"><SegmentedBar titles={kinds.map(Kinds.badgeTitle)} selection={auswahl} onselect={(i) => (auswahl = i)} /></div>
   {/if}

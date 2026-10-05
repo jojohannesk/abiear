@@ -7,7 +7,8 @@ import { SpeicherAblage } from "../src/kern/Statistics";
 import { SpeicherEinstellungen } from "../src/plattform/Einstellungen";
 import { StummeAusgabe } from "../src/klang/AudioEngine";
 import { MusicData } from "../src/kern/MusicData";
-import type { Kind } from "../src/kern/QuizTask";
+import { TrainingModes, type Kind, type TrainingMode } from "../src/kern/QuizTask";
+import { HilfeReiters } from "../src/kern/HilfeReiter";
 
 function frischerStore(): QuizStore {
   const store = new QuizStore({ ablage: new SpeicherAblage(), einstellungen: new SpeicherEinstellungen(), audio: new StummeAusgabe() });
@@ -213,5 +214,23 @@ describe("Adaptiver Modus, Tempo, Tagesziel", () => {
     expect(b.melodyLevel).toBe("mittel");
     expect(b.isAdaptive("chord")).toBe(true);
     expect(b.tempoBPM).toBe(48);
+  });
+});
+
+describe("Hilfe in der Aufgabe", () => {
+  const alleKinds: Kind[] = ["interval", "chord", "rhythm", "melody"];
+  const sichtbar: TrainingMode[] = ["intervals", "chords", "rhythm", "melody", "kurz", "mix"];
+
+  it("die Komplettprüfung zeigt kein Lernblatt", () => {
+    for (const k of alleKinds) expect(HilfeReiters.reiter("mix", k)).toEqual(["bedienung", "pruefung"]);
+  });
+
+  it("beim Üben zeigt die Hilfe das Lernblatt", () => {
+    for (const m of sichtbar.filter((m) => m !== "mix"))
+      for (const k of TrainingModes.kinds(m)) expect(HilfeReiters.reiter(m, k)).toEqual(["bedienung", "pruefung", "lernen"]);
+  });
+
+  it("die Hilfe zeigt die Bedienung des Bereichs der Aufgabe", () => {
+    for (const k of alleKinds) expect(TrainingModes.kinds(HilfeReiters.uebungFuer(k))).toEqual([k]);
   });
 });

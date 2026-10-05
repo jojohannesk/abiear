@@ -56,7 +56,7 @@ const rhythm: DisciplineTutorial = {
         + "setzt den Wert an die Schreibmarke und rückt sie weiter — der "
         + "nächste Ton schließt also an." },
     { symbol: "square.grid.3x1.below.line.grid.1x2", title: "Die Schlag-Leiste",
-      text: "Sechzehn Felder unter der Notenzeile, vier je Takt. Gefüllt heißt "
+      text: "Sechzehn nummerierte Felder unter der Notenzeile, vier je Takt. Gefüllt heißt "
         + "belegt, der farbige Rahmen ist die Schreibmarke. Tippe ein Feld "
         + "an, um dort weiterzuschreiben — du kannst Lücken lassen und "
         + "später füllen, genau wie auf Papier." },
@@ -95,7 +95,7 @@ const melody: DisciplineTutorial = {
         + "Töne — darum lässt sich die Tonhöhe antippen, statt sie auf eine "
         + "Notenlinie zu ziehen." },
     { symbol: "square.grid.3x1.below.line.grid.1x2", title: "Die Schlag-Leiste",
-      text: "Sechzehn Felder unter der Notenzeile, vier je Takt. Tippe ein Feld "
+      text: "Sechzehn nummerierte Felder unter der Notenzeile, vier je Takt. Tippe ein Feld "
         + "an, um dort weiterzuschreiben. Du kannst Lücken lassen und später "
         + "füllen — verpasste Stellen halten dich nicht auf." },
     { symbol: "checkmark.circle", title: "Punkte",
@@ -132,7 +132,8 @@ const mix: DisciplineTutorial = {
         + "aber nicht mehr mit einer echten Prüfung vergleichbar." },
     { symbol: "questionmark.circle", title: "Die einzelnen Bereiche",
       text: "Wie Intervalle, Akkorde und die beiden Diktate im Einzelnen "
-        + "bedient werden, steht in der Einführung des jeweiligen Bereichs." },
+        + "bedient werden, steht in der Einführung des jeweiligen Bereichs — "
+        + "und in jeder Aufgabe hinter dem Fragezeichen oben rechts." },
   ],
 };
 

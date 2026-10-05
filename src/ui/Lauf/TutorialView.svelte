@@ -9,13 +9,15 @@
   import PrimaryButton from "../Bausteine/PrimaryButton.svelte";
   import SecondaryButton from "../Bausteine/SecondaryButton.svelte";
 
-  interface Props { mode: TrainingMode; onUnderstood: () => void; onNeverAgain: () => void }
-  let { mode, onUnderstood, onNeverAgain }: Props = $props();
+  // Ohne Knöpfe und ohne Kopf im Hilfe-Blatt einer Aufgabe: dort wird
+  // nachgeschlagen, nicht eingeführt.
+  interface Props { mode: TrainingMode; onUnderstood?: () => void; onNeverAgain?: () => void; mitKopf?: boolean }
+  let { mode, onUnderstood, onNeverAgain, mitKopf = true }: Props = $props();
   const tutorial = $derived(DisciplineTutorials.forMode(mode));
 </script>
 
 <div class="seite">
-  <TopBar title={TrainingModes.title(mode)} />
+  {#if mitKopf}<TopBar title={TrainingModes.title(mode)} />{/if}
   <div class="scroll">
     <div class="inhalt tutorial">
       <div class="kopf">
@@ -33,10 +35,12 @@
       {/each}
     </div>
   </div>
-  <div class="inhalt fuss">
-    <PrimaryButton title="Verstanden" onclick={onUnderstood} />
-    <SecondaryButton title="Nicht mehr anzeigen" onclick={onNeverAgain} />
-  </div>
+  {#if onUnderstood && onNeverAgain}
+    <div class="inhalt fuss">
+      <PrimaryButton title="Verstanden" onclick={onUnderstood} />
+      <SecondaryButton title="Nicht mehr anzeigen" onclick={onNeverAgain} />
+    </div>
+  {/if}
 </div>
 
 <style>
