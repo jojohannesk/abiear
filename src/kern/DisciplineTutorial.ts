@@ -61,9 +61,11 @@ const rhythm: DisciplineTutorial = {
         + "an, um dort weiterzuschreiben — du kannst Lücken lassen und "
         + "später füllen, genau wie auf Papier." },
     { symbol: "dot.square", title: "Punktierung und Triole",
-      text: "Die Punktierung gilt für den nächsten Ton und schaltet sich danach "
-        + "wieder ab. Die Triole setzt mit einem Druck alle drei Töne. Die "
-        + "Rücktaste nimmt zurück, was im hervorgehobenen Schlag steht." },
+      text: "Erst „Punkt“, dann den Wert: die Punktierung gilt für den nächsten "
+        + "Ton und schaltet sich danach wieder ab. Solange sie an ist, zeigen "
+        + "die Tasten punktierte Noten. Die Triole setzt mit einem Druck alle "
+        + "drei Töne. Die Rücktaste nimmt zurück, was im hervorgehobenen "
+        + "Schlag steht." },
     { symbol: "checkmark.circle", title: "Punkte",
       text: "Verglichen wird schlagweise mit der Lösung: kein Fehler zwei "
         + "Punkte, ein falscher Schlag einer, zwei oder mehr null. Notiert "
@@ -82,6 +84,11 @@ const melody: DisciplineTutorial = {
         + "Achtel ist also ein Druck für den Wert und dann ein Druck je Ton. "
         + "Die Triole ist ein Wert wie jeder andere: dreimal antippen füllt "
         + "den Schlag, jeder Ton mit eigener Tonhöhe." },
+    { symbol: "dot.square", title: "Punktierung",
+      text: "Erst „Punkt“, dann die Tonhöhe: die Punktierung gilt für den "
+        + "nächsten Ton und schaltet sich danach wieder ab — der Notenwert "
+        + "bleibt stehen, der Punkt nicht. Solange sie an ist, zeigen die "
+        + "Tasten punktierte Noten." },
     { symbol: "list.bullet.indent", title: "Die Tonleiterspalte",
       text: "Links neben dem System steht die Leiter der Tonart, der Grundton "
         + "hervorgehoben. Die Melodie ist leitereigen, es gibt also nur diese "

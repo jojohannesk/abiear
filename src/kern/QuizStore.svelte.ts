@@ -465,6 +465,16 @@ export class QuizStore {
     this.einstellungen.schreiben(TEMPO_KEY, String(bpm));
   }
 
+  /** Einmalige Hinweise der Oberfläche (`hinweis.schlagleiste`) — in Swift
+   *  `@AppStorage` direkt in der Ansicht. */
+  hinweisErledigt(schluessel: string): boolean {
+    return this.einstellungen.lesen(schluessel) === "true";
+  }
+
+  hinweisErledigen(schluessel: string): void {
+    this.einstellungen.schreiben(schluessel, "true");
+  }
+
   /** Übersteuerung für einen Lauf. */
   laufTempoBPM = $state<number | null>(null);
 

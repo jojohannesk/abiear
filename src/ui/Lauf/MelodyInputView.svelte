@@ -1,6 +1,7 @@
 <script lang="ts">
   // Tonleiterspalte, Notenzeile, Schlag-Leiste und Tastenfeld für das
-  // Melodiediktat. Erst der Wert, dann die Tonhöhen.
+  // Melodiediktat. Erst der Wert, dann die Tonhöhen. Der Wert bleibt stehen,
+  // die Punktierung gilt wie beim Rhythmus nur für den nächsten Ton.
   import type { QuizStore } from "../../kern/QuizStore.svelte";
   import type { MelodyDictation } from "../../kern/MusicData";
   import type { DictationLevel } from "../../kern/DictationLevel";
@@ -11,6 +12,8 @@
   import NoteGlyph from "../Bausteine/NoteGlyph.svelte";
   import TripletGlyph from "../Bausteine/TripletGlyph.svelte";
   import Icon from "../Bausteine/Icon.svelte";
+  import PunktTastenLabel from "../Bausteine/PunktTastenLabel.svelte";
+  import PunktHinweis from "../Bausteine/PunktHinweis.svelte";
   import BeatStrip from "./BeatStrip.svelte";
   import PitchColumn from "./PitchColumn.svelte";
   import Taste from "./Taste.svelte";
@@ -33,7 +36,7 @@
 
   function tonhoehe(degree: number) {
     if (triplet) store.placeMelodyTripletMember(degree);
-    else store.placeMelodyNote(degree, value, dotted);
+    else { store.placeMelodyNote(degree, value, dotted); dotted = false; }
   }
 </script>
 
@@ -43,18 +46,19 @@
     <div class="staff">
       <Notenbild abc={AbcNotation.entryToAbcWithKey(entry, melody.key)} staffWidth={300} maxHeight={staffHeight - 20}
         beschreibung={AbcNotation.entryBeschreibung(entry, melody.key)} />
+      <PunktHinweis sichtbar={dotted} />
     </div>
   </div>
-  <BeatStrip {entry} onSelect={(b) => store.moveMelodyCursor(b)} />
+  <BeatStrip {store} {entry} onSelect={(b) => store.moveMelodyCursor(b)} />
   <div class="reihe">
+    <Taste active={dotted} enabled={!triplet} label="Punktierung" onclick={() => (dotted = !dotted)}>
+      <PunktTastenLabel height={20} />
+    </Taste>
     {#each NoteValues.all as wert}
       <Taste active={!triplet && value === wert} label={NoteValues.title(wert)} onclick={() => { value = wert; triplet = false; }}>
-        <NoteGlyph value={wert} height={26} />
+        <NoteGlyph value={wert} dotted={dotted && !triplet} height={26} />
       </Taste>
     {/each}
-    <Taste active={dotted} enabled={!triplet} label="Punktierung" onclick={() => (dotted = !dotted)}>
-      <NoteGlyph value="quarter" dotted height={24} />
-    </Taste>
     <Taste active={triplet} label="Achteltriole" onclick={() => { triplet = !triplet; if (triplet) dotted = false; }}>
       <TripletGlyph height={24} />
     </Taste>
@@ -67,6 +71,6 @@
 <style>
   .eingabe { display: flex; flex-direction: column; gap: var(--space-xxs); }
   .oben { display: flex; gap: var(--space-xs); align-items: flex-start; }
-  .staff { flex: 1; min-width: 0; height: 196px; display: flex; }
+  .staff { flex: 1; min-width: 0; height: 196px; display: flex; position: relative; }
   .reihe { display: flex; gap: var(--space-xs); }
 </style>

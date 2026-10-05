@@ -1,6 +1,7 @@
 <script lang="ts">
   // Notenzeile und Tastenfeld für das Rhythmusdiktat. Notiert wird während
-  // der Wiedergabe; die Punktierung gilt für den nächsten Ton.
+  // der Wiedergabe; die Punktierung gilt für den nächsten Ton und steht vor
+  // den Werten, weil man sie vor dem Wert drückt.
   import type { QuizStore } from "../../kern/QuizStore.svelte";
   import { NoteValues } from "../../kern/DictationEntry";
   import { AbcNotation } from "../../kern/AbcNotation";
@@ -8,6 +9,8 @@
   import NoteGlyph from "../Bausteine/NoteGlyph.svelte";
   import TripletGlyph from "../Bausteine/TripletGlyph.svelte";
   import Icon from "../Bausteine/Icon.svelte";
+  import PunktTastenLabel from "../Bausteine/PunktTastenLabel.svelte";
+  import PunktHinweis from "../Bausteine/PunktHinweis.svelte";
   import BeatStrip from "./BeatStrip.svelte";
   import Taste from "./Taste.svelte";
 
@@ -20,10 +23,14 @@
 <div class="eingabe">
   <div class="staff">
     <Notenbild abc={AbcNotation.entryToAbc(entry)} staffWidth={300} maxHeight={190} beschreibung={AbcNotation.entryBeschreibung(entry, null)} />
+    <PunktHinweis sichtbar={dotted} />
   </div>
-  <BeatStrip {entry} onSelect={(b) => store.moveRhythmCursor(b)} />
+  <BeatStrip {store} {entry} onSelect={(b) => store.moveRhythmCursor(b)} />
   <div class="tastenfeld">
     <div class="reihe">
+      <Taste active={dotted} height={50} label="Punktierung" onclick={() => (dotted = !dotted)}>
+        <PunktTastenLabel height={24} />
+      </Taste>
       {#each NoteValues.all as value}
         <Taste enabled={entry.fits(value, dotted)} height={50} label={dotted ? `Punktierte ${NoteValues.title(value)}` : NoteValues.title(value)}
           onclick={() => { store.appendRhythm(value, dotted); dotted = false; }}>
@@ -32,9 +39,6 @@
       {/each}
     </div>
     <div class="reihe">
-      <Taste active={dotted} height={50} label="Punktierung" onclick={() => (dotted = !dotted)}>
-        <NoteGlyph value="quarter" dotted height={26} />
-      </Taste>
       <Taste enabled={entry.fitsTriplet} height={50} label="Achteltriole" onclick={() => { store.appendRhythmTriplet(); dotted = false; }}>
         <TripletGlyph height={26} />
       </Taste>
@@ -47,7 +51,7 @@
 
 <style>
   .eingabe { display: flex; flex-direction: column; gap: var(--space-xxs); }
-  .staff { height: 176px; display: flex; }
+  .staff { height: 176px; display: flex; position: relative; }
   .tastenfeld { display: flex; flex-direction: column; gap: var(--space-xs); }
   .reihe { display: flex; gap: var(--space-xs); }
 </style>
