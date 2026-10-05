@@ -19,7 +19,8 @@ Nie von Hand ändern; nie in TypeScript „reparieren", was hier steht.
 | `katalog.json` | Zellen, Tonarten, Intervalle, Akkorde, Namen, ABC-Tonnamen je Tonart |
 | `rhythm-<niveau>.json`, `rhythm-profil.json` | 500 bzw. 200 Rhythmusdiktate, je einzeln geseedet (`seed`) |
 | `melody-<niveau>.json`, `melody-profil.json` | 500 bzw. 200 Melodiediktate mit Bewegungen, Kontur, Tonika-Stufe |
-| `gehoer.json` | Aufgabenstruktur je Modus, 100 Läufe, mit Antwortoptionen |
+| `gehoer.json` | Aufgabenstruktur je Modus, 100 Läufe, mit Antwortoptionen; Verlauf vor jedem Fall geleert |
+| `verlauf.json` | Verlaufsfaktoren und Folgen über mehrere Läufe mit Vorgeschichte, samt `verlauf.json` als Text |
 | `scoring.json` | 2 × 300 Bedienfolgen auf der Eingabe mit Ergebnis, Bewertung und Notenbild |
 | `vollstaendig.json` | vollständig eingetippte Lösung: Notenbild gleich, volle Punkte — je Tonart |
 | `statistics.json` | eine Statistikdatei im echten Format (406 Antworten, 144 Takte) |

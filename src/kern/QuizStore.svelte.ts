@@ -14,13 +14,14 @@
 import { Rand } from "./Random";
 import { MusicData, type DictationStep } from "./MusicData";
 import { DictationLevels, type DictationLevel } from "./DictationLevel";
-import { RhythmGenerator, WeightedSampler } from "./RhythmGenerator";
+import { RhythmGenerator } from "./RhythmGenerator";
 import { MelodyGenerator } from "./MelodyGenerator";
 import { contourOfBar, movesInBar } from "./MelodicMove";
 import { DictationEntry, type NoteValue, NoteValues } from "./DictationEntry";
 import { DictationScoring, type BarResult } from "./DictationScoring";
 import { Kinds, neueAufgabe, TrainingModes, type Kind, type QuizTask, type TrainingMode } from "./QuizTask";
 import { NEUTRAL, Profile, type AdaptiveProfile } from "./AdaptiveProfile";
+import { Verlauf, VERLAUF_DATEI } from "./Verlauf";
 import { answerRecord, barRecord, neueUUID, StatisticsStore, type Ablage } from "./Statistics";
 import { StatisticsInsights, type Uebungsserie } from "./StatisticsInsights";
 import { LokalerKalender, type Kalender } from "./Kalender";
@@ -183,10 +184,28 @@ export class QuizStore {
   private sessionId = neueUUID();
   private isRepeatRoundInternal = $state(false);
 
+  /** Was zuletzt drankam (siehe `Verlauf`). Liegt als `verlauf.json` in
+   *  derselben Ablage wie die Statistik. */
+  private verlaufIntern = Verlauf.leer();
+  get verlauf(): Verlauf { return this.verlaufIntern; }
+  private readonly ablage: Ablage;
+
+  /** Nur für Prüfungen und Goldmaster: jeder Fall ohne Vorgeschichte. */
+  verlaufLeeren(): void {
+    this.verlaufIntern = Verlauf.leer();
+    this.verlaufSpeichern();
+  }
+
+  /** Fehler brechen nie den Ablauf — schlimmstenfalls kommt etwas früher wieder. */
+  private verlaufSpeichern(): void {
+    this.ablage.schreiben(VERLAUF_DATEI, this.verlaufIntern.json()).catch(() => {});
+  }
+
   constructor(abh: StoreAbhaengigkeiten) {
     this.audio = abh.audio ?? new StummeAusgabe();
     this.einstellungen = abh.einstellungen ?? new SpeicherEinstellungen();
     this.statistics = new StatisticsStore(abh.ablage);
+    this.ablage = abh.ablage;
     this.erinnerungen = abh.erinnerungen ?? null;
     this.kalender = abh.kalender ?? LokalerKalender;
     this.jetzt = abh.jetzt ?? (() => new Date());
@@ -204,6 +223,7 @@ export class QuizStore {
   /** Lädt die Statistik — einmal beim Start, bevor die Oberfläche steht. */
   async laden(): Promise<void> {
     await this.statistics.load();
+    try { this.verlaufIntern = Verlauf.aus(await this.ablage.lesen(VERLAUF_DATEI)); } catch { /* bleibt leer */ }
     this.statistikGeaendert();
   }
 
@@ -247,13 +267,17 @@ export class QuizStore {
     if (mode === "melody" || mode === "mix") {
       const task = neueAufgabe("melody");
       task.level = this.melodyLevel;
-      task.melodyData = MelodyGenerator.generateDictation(this.melodyLevel, profile);
+      const melody = MelodyGenerator.generateDictation(this.melodyLevel, profile, this.verlaufIntern);
+      this.verlaufIntern.merke(melody.key.name, "tonarten");
+      task.melodyData = melody;
       list.push(task);
     }
 
+    // Gemerkt wird beim Ziehen: schon das zweite Intervall weiß vom ersten.
     if (mode === "intervals" || mode === "mix" || mode === "kurz") {
       for (let i = 0; i < TrainingModes.aufgabenJeGehoerDisziplin(mode); i++) {
-        const rInt = WeightedSampler.sample(MusicData.intervals, (x) => Profile.interval(profile, x.name));
+        const rInt = this.verlaufIntern.ziehe(MusicData.intervals, "intervalle", (x) => x.name, (x) => Profile.interval(profile, x.name));
+        this.verlaufIntern.merke(rInt.name, "intervalle");
         const rRoot = Rand.index(13) + 55;
         const task = neueAufgabe("interval");
         task.name = rInt.name;
@@ -265,7 +289,8 @@ export class QuizStore {
 
     if (mode === "chords" || mode === "mix" || mode === "kurz") {
       for (let i = 0; i < TrainingModes.aufgabenJeGehoerDisziplin(mode); i++) {
-        const rCho = WeightedSampler.sample(MusicData.chords, (x) => Profile.chord(profile, x.name));
+        const rCho = this.verlaufIntern.ziehe(MusicData.chords, "akkorde", (x) => x.name, (x) => Profile.chord(profile, x.name));
+        this.verlaufIntern.merke(rCho.name, "akkorde");
         const rRoot = Rand.index(18) + 55;
         const task = neueAufgabe("chord");
         task.name = rCho.name;
@@ -277,6 +302,7 @@ export class QuizStore {
 
     if (mode === "kurz") rhythmus();
 
+    this.verlaufSpeichern();
     this.tasks = list;
     this.currentIdx = 0;
     this.rhythmEntry = new DictationEntry([], 0, TrainingModes.rhythmusTakte(mode));

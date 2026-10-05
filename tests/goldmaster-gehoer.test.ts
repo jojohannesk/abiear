@@ -27,6 +27,7 @@ describe("gehoer.json", () => {
     it(`${mode}: ${file.runs[mode].length} Läufe gleich`, () => {
       for (const run of file.runs[mode]) {
         Rand.source = Rand.seeded(BigInt(run.seed));
+        store.verlaufLeeren();
         store.generateQuizStructure(mode);
         const ist = {
           rhythmBarCount: store.rhythmEntry.barCount,

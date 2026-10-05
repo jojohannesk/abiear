@@ -17,6 +17,7 @@ import { DictationLevels, type DictationLevel } from "./DictationLevel";
 import { NEUTRAL, Profile, type AdaptiveProfile } from "./AdaptiveProfile";
 import { WeightedSampler } from "./RhythmGenerator";
 import { MelodicMoves } from "./MelodicMove";
+import { Verlauf } from "./Verlauf";
 import { degreeOfMidi, midiOfDegree, mod7 } from "./Stufen";
 
 // MARK: - Bausteine
@@ -735,13 +736,14 @@ export const MelodyGenerator = {
 
   /** Erzeugt ein Melodiediktat als viertaktige Periode. */
   generateDictation(level: DictationLevel = DictationLevels.standard,
-                    profile: AdaptiveProfile = NEUTRAL): MelodyDictation {
+                    profile: AdaptiveProfile = NEUTRAL,
+                    verlauf: Verlauf = Verlauf.leer()): MelodyDictation {
     const diff = difficultyFor(level);
     diff.profile = profile;
 
     const pool = MusicData.keyCatalog.filter((k) => !diff.simpleKeysOnly || Math.abs(k.acc) <= 1);
     for (let t = 0; t < 120; t++) {
-      const key = WeightedSampler.sample(pool, (k) => Profile.key(profile, k.name));
+      const key = verlauf.ziehe(pool, "tonarten", (k) => k.name, (k) => Profile.key(profile, k.name));
       const dictation = MelodyGenerator.tryGenerateMelody(key, level, profile);
       if (dictation) return dictation;
     }
