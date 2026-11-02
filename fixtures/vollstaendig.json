@@ -32,12 +32,12 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: C\nC2 ED B,3 C |F2 EF D2 EG |\nA2 cB G3 A |D3 B, C4 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: C\nCD CB, E2 DC |ED B,3 C G2 |\nFG FE A2 GF |GE D3 B, C2 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: C\nCD E2 FD ED |F2 D2 E2 DG |\nAB c2 FG AB |FG ED C4 |]",
     "gleich" : true,
     "key" : "C-Dur",
     "punkte" : 8,
-    "seed" : 8019,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: C\nCD CB, E2 DC |ED B,3 C G2 |\nFG FE A2 GF |GE D3 B, C2 |]"
+    "seed" : 8015,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: C\nCD E2 FD ED |F2 D2 E2 DG |\nAB c2 FG AB |FG ED C4 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,2 CB, B,2 B,A, |D2 A,2 B,C B,2 |\nA,2 CB, C2 EF |E2 DC B,2 A,2 |]",
@@ -48,12 +48,12 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,2 CB, B,2 B,A, |D2 A,2 B,C B,2 |\nA,2 CB, C2 EF |E2 DC B,2 A,2 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,B, A,B, C2 A,2 |D3 C B,4 |\nEF EC D2 A,2 |E2 B,2 A,4 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,B, A,B, C2 A,2 |D3 C B,4 |\nEF ED C2 E2 |E2 DC B,2 A,2 |]",
     "gleich" : true,
     "key" : "a-Moll",
     "punkte" : 8,
     "seed" : 8107,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,B, A,B, C2 A,2 |D3 C B,4 |\nEF EC D2 A,2 |E2 B,2 A,4 |]"
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,B, A,B, C2 A,2 |D3 C B,4 |\nEF ED C2 E2 |E2 DC B,2 A,2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,2 B,A,3 A,2 |B,2 D2 C3 B, |\nC2 DC3 C2 |EC B,^G, A,4 |]",
@@ -72,12 +72,12 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,3 B, ^G,2 A,2 |C2 A,B, E4 |\nE3 F D2 E2 |EC B,^G, A,4 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,2 CB,3 A,^G, |B,^G, A,^G, B,A, E2 |\nD2 FE3 DC |DC B,^G, A,4 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,B, A,3 C B,D |D3 C B,4 |\nEF E3 C DB, |D3 C B,2 A,2 |]",
     "gleich" : true,
     "key" : "a-Moll",
     "punkte" : 8,
-    "seed" : 8126,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,2 CB,3 A,^G, |B,^G, A,^G, B,A, E2 |\nD2 FE3 DC |DC B,^G, A,4 |]"
+    "seed" : 8123,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Am\nA,B, A,3 C B,D |D3 C B,4 |\nEF E3 C DB, |D3 C B,2 A,2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nB,2 G,3 A, C2 |E2 C2 D4 |\nF2 D3 E G2 |DC B,C A,2 G,2 |]",
@@ -88,6 +88,14 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nB,2 G,3 A, C2 |E2 C2 D4 |\nF2 D3 E G2 |DC B,C A,2 G,2 |]"
   },
   {
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nB,3 B, G,3 A, |C2 F2 E2 DA, |\nE3 E G3 F |D2 B,2 A,2 G,2 |]",
+    "gleich" : true,
+    "key" : "G-Dur",
+    "punkte" : 8,
+    "seed" : 8203,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nB,3 B, G,3 A, |C2 F2 E2 DA, |\nE3 E G3 F |D2 B,2 A,2 G,2 |]"
+  },
+  {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nB,2 D2 C4 |DE F2 D4 |\nE2 G2 F4 |D3 B, A,2 G,2 |]",
     "gleich" : true,
     "key" : "G-Dur",
@@ -96,12 +104,12 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nB,2 D2 C4 |DE F2 D4 |\nE2 G2 F4 |D3 B, A,2 G,2 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nG,2 B,2 A,G, B,A, |A,G, A,2 A,2 D2 |\nC2 E2 DB, CF |D2 B,3 A, G,2 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nB,2 G,A, G,2 B,2 |EA, B,C F2 EF |\nG2 EF D2 E2 |EC B,3 A, G,2 |]",
     "gleich" : true,
     "key" : "G-Dur",
     "punkte" : 8,
-    "seed" : 8235,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nG,2 B,2 A,G, B,A, |A,G, A,2 A,2 D2 |\nC2 E2 DB, CF |D2 B,3 A, G,2 |]"
+    "seed" : 8223,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nB,2 G,A, G,2 B,2 |EA, B,C F2 EF |\nG2 EF D2 E2 |EC B,3 A, G,2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nG,2 B,A, G,G, C2 |A,B, A,G, D4 |\nG,2 B,A, ED F2 |D2 B,A, G,4 |]",
@@ -110,14 +118,6 @@
     "punkte" : 8,
     "seed" : 8242,
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nG,2 B,A, G,G, C2 |A,B, A,G, D4 |\nG,2 B,A, ED F2 |D2 B,A, G,4 |]"
-  },
-  {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nG,B, A,3 G, G,A, |A,B, A,G, A,G, A,2 |\nG,B, A,3 D CE |D2 B,A, G,4 |]",
-    "gleich" : true,
-    "key" : "G-Dur",
-    "punkte" : 8,
-    "seed" : 8245,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: G\nG,B, A,3 G, G,A, |A,B, A,G, A,G, A,2 |\nG,B, A,3 D CE |D2 B,A, G,4 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nE2 G2 F4 |G3 A FG FB |\nc2 e2 ^d4 |BA GF ^D2 E2 |]",
@@ -136,12 +136,12 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nGA GF3 F2 |AB A2 B4 |\nGA Be3 ^d2 |BA GF E4 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG2 EF G2 E2 |A^D E2 FA GB |\n^d2 BF G2 B2 |A2 F^D E4 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG2 EF G2 E2 |A^D E2 FA GB |\n^d2 BA G2 B2 |BG F3 ^D E2 |]",
     "gleich" : true,
     "key" : "e-Moll",
     "punkte" : 8,
     "seed" : 8350,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG2 EF G2 E2 |A^D E2 FA GB |\n^d2 BF G2 B2 |A2 F^D E4 |]"
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG2 EF G2 E2 |A^D E2 FA GB |\n^d2 BA G2 B2 |BG F3 ^D E2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG3 F B4 |Bc BF GA B2 |\nc3 B e4 |B3 G F2 E2 |]",
@@ -152,12 +152,12 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG3 F B4 |Bc BF GA B2 |\nc3 B e4 |B3 G F2 E2 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG2 E3 F BA |cG A3 A B2 |\ne2 c3 B cB |B2 GF E4 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG2 E3 F BA |cG A3 A B2 |\ne2 c3 B FG |G2 F2 ^D2 E2 |]",
     "gleich" : true,
     "key" : "e-Moll",
     "punkte" : 8,
     "seed" : 8359,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG2 E3 F BA |cG A3 A B2 |\ne2 c3 B cB |B2 GF E4 |]"
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Em\nG2 E3 F BA |cG A3 A B2 |\ne2 c3 B FG |G2 F2 ^D2 E2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: D\nD2 FE G2 F2 |EA GF EF A2 |\nF2 AG B2 A2 |A2 FE D4 |]",
@@ -168,20 +168,20 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: D\nD2 FE G2 F2 |EA GF EF A2 |\nF2 AG B2 A2 |A2 FE D4 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: D\nD2 FE3 E2 |EG F2 CD A2 |\nA2 cA3 B2 |G2 AF E2 D2 |]",
-    "gleich" : true,
-    "key" : "D-Dur",
-    "punkte" : 8,
-    "seed" : 8415,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: D\nD2 FE3 E2 |EG F2 CD A2 |\nA2 cA3 B2 |G2 AF E2 D2 |]"
-  },
-  {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: D\nD3 A G2 FE |GB AB cB E2 |\nD3 A c2 Bd |BA GF E2 D2 |]",
     "gleich" : true,
     "key" : "D-Dur",
     "punkte" : 8,
     "seed" : 8418,
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: D\nD3 A G2 FE |GB AB cB E2 |\nD3 A c2 Bd |BA GF E2 D2 |]"
+  },
+  {
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: D\nDC DC F2 ED |E2 E3 F A2 |\nFE FE G/A/G Fc |G2 AF E2 D2 |]",
+    "gleich" : true,
+    "key" : "D-Dur",
+    "punkte" : 8,
+    "seed" : 8430,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: D\nDC DC F2 ED |E2 E3 F A2 |\nFE FE G/A/G Fc |G2 AF E2 D2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: D\nD2 F3 E AG |E2 A2 GF A2 |\nD2 F3 B Ac |AG FE C2 D2 |]",
@@ -224,20 +224,20 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Bm\nB,D C^A, B,2 ED |C2 CD E2 FC |\nB,D CG F2 GB |FE DC ^A,2 B,2 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Bm\nB,2 B,D C2 G2 |DE C2 DE F2 |\nF2 FE B2 ^A2 |F3 D C2 B,2 |]",
-    "gleich" : true,
-    "key" : "h-Moll",
-    "punkte" : 8,
-    "seed" : 8526,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Bm\nB,2 B,D C2 G2 |DE C2 DE F2 |\nF2 FE B2 ^A2 |F3 D C2 B,2 |]"
-  },
-  {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Bm\nB,2 D2 C2 B,E |C3 D ^A,4 |\nB,2 DC/D/ E2 GF |E2 C2 ^A,2 B,2 |]",
     "gleich" : true,
     "key" : "h-Moll",
     "punkte" : 8,
     "seed" : 8530,
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Bm\nB,2 D2 C2 B,E |C3 D ^A,4 |\nB,2 DC/D/ E2 GF |E2 C2 ^A,2 B,2 |]"
+  },
+  {
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Bm\nB,2 D2 C2 DE |C2 DC F4 |\nD2 F2 G2 FE |D2 C3 ^A, B,2 |]",
+    "gleich" : true,
+    "key" : "h-Moll",
+    "punkte" : 8,
+    "seed" : 8551,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Bm\nB,2 D2 C2 DE |C2 DC F4 |\nD2 F2 G2 FE |D2 C3 ^A, B,2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nA2 F3 G F2 |F2 G2 A2 Bc |\nf2 d3 e d2 |c2 AG E2 F2 |]",
@@ -256,20 +256,12 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nA2 cB F3 G |B2 GA B3 e |\nd2 fe B3 c |B2 G3 E F2 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nA2 F3 G cB |d2 Bc ed ec |\nf2 d3 B cd |cA GE F4 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nAc B2 e2 dA |Bc B2 d3 e |\nce d2 f2 ec |dc BA G2 F2 |]",
     "gleich" : true,
     "key" : "F-Dur",
     "punkte" : 8,
-    "seed" : 8627,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nA2 F3 G cB |d2 Bc ed ec |\nf2 d3 B cd |cA GE F4 |]"
-  },
-  {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nA2 FG F4 |BA B2 c2 dc |\ne2 cd c4 |c2 A3 G F2 |]",
-    "gleich" : true,
-    "key" : "F-Dur",
-    "punkte" : 8,
-    "seed" : 8634,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nA2 FG F4 |BA B2 c2 dc |\ne2 cd c4 |c2 A3 G F2 |]"
+    "seed" : 8638,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nAc B2 e2 dA |Bc B2 d3 e |\nce d2 f2 ec |dc BA G2 F2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nF2 A2 G2 cB |AG c2 B3 c |\nB2 d2 c2 fe |AG E2 F4 |]",
@@ -278,6 +270,14 @@
     "punkte" : 8,
     "seed" : 8641,
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nF2 A2 G2 cB |AG c2 B3 c |\nB2 d2 c2 fe |AG E2 F4 |]"
+  },
+  {
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nFB3 A2 G2 |G2 cB cB c2 |\ncf3 e2 d2 |B2 G3 E F2 |]",
+    "gleich" : true,
+    "key" : "F-Dur",
+    "punkte" : 8,
+    "seed" : 8644,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F\nFB3 A2 G2 |G2 cB cB c2 |\ncf3 e2 d2 |B2 G3 E F2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Dm\nD2 FE ^C2 D2 |GF DE G2 FE |\nD2 FA G2 B2 |A3 F E2 D2 |]",
@@ -304,12 +304,12 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Dm\nF2 D2 EG F2 |A3 B A4 |\n^c2 A2 Bd ^c2 |AF E2 D4 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Dm\nF2 A2 GE FE |G2 E3 F EA |\nB2 d2 ^cA BA |AG F2 E2 D2 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Bb\nB,A, B,3 A, A,2 |EB, C3 A, B,C |\nFE D3 A, B,2 |DE C2 B,4 |]",
     "gleich" : true,
-    "key" : "d-Moll",
+    "key" : "B-Dur",
     "punkte" : 8,
-    "seed" : 8747,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Dm\nF2 A2 GE FE |G2 E3 F EA |\nB2 d2 ^cA BA |AG F2 E2 D2 |]"
+    "seed" : 8802,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Bb\nB,A, B,3 A, A,2 |EB, C3 A, B,C |\nFE D3 A, B,2 |DE C2 B,4 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Bb\nB,C DC B,A, B,2 |D2 F2 E2 F2 |\nEF GF ED E2 |ED C2 B,4 |]",
@@ -344,22 +344,6 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Bb\nB,C3 F2 EC |D2 C2 F2 EF |\nB,C3 D2 FG |C3 A, B,4 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Bb\nB,2 D3 C FE |DE C2 D3 F |\nE2 G3 F BA |FD C2 B,4 |]",
-    "gleich" : true,
-    "key" : "B-Dur",
-    "punkte" : 8,
-    "seed" : 8810,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Bb\nB,2 D3 C FE |DE C2 D3 F |\nE2 G3 F BA |FD C2 B,4 |]"
-  },
-  {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nB,C G,3 A, G,2 |C2 A,3 B, A,D |\n^FG D3 E D2 |DC B,3 A, G,2 |]",
-    "gleich" : true,
-    "key" : "g-Moll",
-    "punkte" : 8,
-    "seed" : 8908,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nB,C G,3 A, G,2 |C2 A,3 B, A,D |\n^FG D3 E D2 |DC B,3 A, G,2 |]"
-  },
-  {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nB,2 DC3 G,2 |CD E2 E2 D2 |\nE2 G^F3 C2 |CD B,3 A, G,2 |]",
     "gleich" : true,
     "key" : "g-Moll",
@@ -384,12 +368,20 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nG,A, G,2 CB, E2 |A,2 C2 B,2 D2 |\nB,C B,2 ED G2 |D2 B,A, G,4 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nG,B, A,2 G,A, G,2 |A,G, A,3 G, D2 |\nCE D2 CD C2 |D2 B,2 A,2 G,2 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nG,G, G,3 A, G,2 |A,3/2B,/ CB, A,3 D |\nDD D3 E D2 |D3 B, A,2 G,2 |]",
     "gleich" : true,
     "key" : "g-Moll",
     "punkte" : 8,
-    "seed" : 8927,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nG,B, A,2 G,A, G,2 |A,G, A,3 G, D2 |\nCE D2 CD C2 |D2 B,2 A,2 G,2 |]"
+    "seed" : 8945,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nG,G, G,3 A, G,2 |A,3/2B,/ CB, A,3 D |\nDD D3 E D2 |D3 B, A,2 G,2 |]"
+  },
+  {
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nG,B, A,B, C2 DB, |A,2 D2 CB, D2 |\nCE DC B,2 A,C |DC B,A, G,4 |]",
+    "gleich" : true,
+    "key" : "g-Moll",
+    "punkte" : 8,
+    "seed" : 8947,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Gm\nG,B, A,B, C2 DB, |A,2 D2 CB, D2 |\nCE DC B,2 A,C |DC B,A, G,4 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: A\nA,2 CB,3 D2 |D2 B,3 C G2 |\nE2 GF3 A2 |E2 B,2 A,4 |]",
@@ -424,12 +416,20 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: A\nCG,3 A,3 G, |B,2 A,2 CD FE |\nAE3 F3 E |EC B,3 G, A,2 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: A\nCC G,2 A,B, C2 |E3 F GF E2 |\nFF A2 G2 F2 |D2 B,G, A,4 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: A\nC3 A, B,4 |FD E2 FD E2 |\nA3 F G4 |C2 B,2 A,4 |]",
     "gleich" : true,
     "key" : "A-Dur",
     "punkte" : 8,
-    "seed" : 9026,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: A\nCC G,2 A,B, C2 |E3 F GF E2 |\nFF A2 G2 F2 |D2 B,G, A,4 |]"
+    "seed" : 9030,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: A\nC3 A, B,4 |FD E2 FD E2 |\nA3 F G4 |C2 B,2 A,4 |]"
+  },
+  {
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nF^E F2 GA G2 |BG A^E F2 Gc |\ncB cd/c/ BA B2 |A2 G2 ^E2 F2 |]",
+    "gleich" : true,
+    "key" : "fis-Moll",
+    "punkte" : 8,
+    "seed" : 9102,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nF^E F2 GA G2 |BG A^E F2 Gc |\ncB cd/c/ BA B2 |A2 G2 ^E2 F2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nF2 F2 AG c2 |Ac B2 cB G2 |\nB2 B2 dc f2 |c2 G2 F4 |]",
@@ -440,12 +440,20 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nF2 F2 AG c2 |Ac B2 cB G2 |\nB2 B2 dc f2 |c2 G2 F4 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nF2 F2 A2 Gd |BG A2 c4 |\nc2 c2 c2 f^e |c2 AG F4 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nF2 A2 G3 F |AA BA G3 c |\nd2 f2 B3 c |G2 ^E2 F4 |]",
     "gleich" : true,
     "key" : "fis-Moll",
     "punkte" : 8,
-    "seed" : 9145,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nF2 F2 A2 Gd |BG A2 c4 |\nc2 c2 c2 f^e |c2 AG F4 |]"
+    "seed" : 9142,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nF2 A2 G3 F |AA BA G3 c |\nd2 f2 B3 c |G2 ^E2 F4 |]"
+  },
+  {
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nAB FG A2 F2 |B3 A d2 c2 |\n^ef cB A2 c2 |c2 A3 G F2 |]",
+    "gleich" : true,
+    "key" : "fis-Moll",
+    "punkte" : 8,
+    "seed" : 9146,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nAB FG A2 F2 |B3 A d2 c2 |\n^ef cB A2 c2 |c2 A3 G F2 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: F#m\nA2 cB3 A2 |cd cG AF Gc |\nA2 c^e3 f2 |c2 AG F4 |]",
@@ -488,20 +496,20 @@
     "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Eb\nEA G2 AG AB |FG Ac BA BF |\nEA G2 AB ce |BG F2 D2 E2 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Eb\nE2 GF E2 D2 |GB Ac B3 F |\nc2 ed c2 B2 |cB AG F2 E2 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Eb\nE3 G F2 G2 |G2 A2 G2 B2 |\nE3 G B2 c2 |G2 FD E4 |]",
     "gleich" : true,
     "key" : "Es-Dur",
     "punkte" : 8,
-    "seed" : 9239,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Eb\nE2 GF E2 D2 |GB Ac B3 F |\nc2 ed c2 B2 |cB AG F2 E2 |]"
+    "seed" : 9240,
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Eb\nE3 G F2 G2 |G2 A2 G2 B2 |\nE3 G B2 c2 |G2 FD E4 |]"
   },
   {
-    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Cm\nED CF E2 G2 |G3 A G4 |\nAG FG A2 c2 |G2 E3 D C2 |]",
+    "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Cm\nED CF E2 G2 |G3 A G4 |\nAG FF c2 =B2 |G3 D C4 |]",
     "gleich" : true,
     "key" : "c-Moll",
     "punkte" : 8,
     "seed" : 9305,
-    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Cm\nED CF E2 G2 |G3 A G4 |\nAG FG A2 c2 |G2 E3 D C2 |]"
+    "solutionAbc" : "X:1\nM:4/4\nL:1/8\nK: Cm\nED CF E2 G2 |G3 A G4 |\nAG FF c2 =B2 |G3 D C4 |]"
   },
   {
     "entryAbc" : "X:1\nM:4/4\nL:1/8\nK: Cm\nE3 G F2 G2 |F2 C3 D G2 |\nE3 G c2 =B2 |FE D3 =B, C2 |]",

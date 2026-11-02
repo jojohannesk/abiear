@@ -93,6 +93,10 @@ interface Difficulty {
   /** Ansatz für die Parallelperiode; gemessen so gewählt, dass im Ergebnis
    *  rund ein Viertel herauskommt. Leicht: nie. */
   parallelChance: number;
+  /** Wie oft Takt 3 das Motiv wörtlich wiederholt (strenge Form). */
+  literalRestatement: number;
+  /** Anteil der Varianten mit gespiegeltem Schweif (Gegenbewegung). */
+  mirrorTail: number;
   ambitus: AmbitusRule;
   profile: AdaptiveProfile;
   strictPeak: boolean;
@@ -104,14 +108,17 @@ function difficultyFor(level: DictationLevel): Difficulty {
     case "leicht":
       return { level, maxLeap: 2, maxLeapSemitones: 4, allowedDurations: new Set([0.5, 1.0, 2.0]),
         figureProbability: 0, anchoredToTonic: true, simpleKeysOnly: true, parallelChance: 0,
+        literalRestatement: 0.85, mirrorTail: 0,
         ambitus: "fifthAboveTonic", profile: NEUTRAL, strictPeak: false, degreeWindow: null };
     case "mittel":
       return { level, maxLeap: 4, maxLeapSemitones: 7, allowedDurations: null,
         figureProbability: 0.20, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.29,
+        literalRestatement: 0.7, mirrorTail: 0.5,
         ambitus: "octaveFromTonic", profile: NEUTRAL, strictPeak: true, degreeWindow: null };
     case "abitur":
       return { level, maxLeap: 4, maxLeapSemitones: 7, allowedDurations: null,
         figureProbability: 0.55, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.34,
+        literalRestatement: 0.6, mirrorTail: 0.5,
         ambitus: "ninthAnchoredToTonic", profile: NEUTRAL, strictPeak: true, degreeWindow: null };
   }
 }
@@ -345,7 +352,7 @@ function continuationBar(target: number, startDegree: number, barIndex: number,
 /** Takt 3: das Motiv wird aufgegriffen — meist wörtlich transponiert. */
 function restatementBar(motif: Motif, start: number, previousDegree: number | null,
                         schema: readonly number[], key: MusicKey, difficulty: Difficulty): Bar | null {
-  const literal = motif.rhythm.length < 4 || Rand.next() < 0.85;
+  const literal = motif.rhythm.length < 4 || Rand.next() < difficulty.literalRestatement;
   if (literal) {
     const degrees = motif.steps.map((s) => start + s);
     if (isValidBar(degrees, previousDegree, key, difficulty)) {
@@ -357,6 +364,18 @@ function restatementBar(motif: Motif, start: number, previousDegree: number | nu
   const headLength = Math.max(2, Math.floor(noteCount / 2));
   if (headLength > noteCount - 1) return null;
   const degrees = motif.steps.slice(0, headLength).map((s) => start + s);
+
+  // Gegenbewegung: der Schweif geht die Motivschritte gespiegelt.
+  if (difficulty.mirrorTail > 0 && Rand.next() < difficulty.mirrorTail) {
+    const mirrored = [...degrees];
+    for (let k = headLength; k < noteCount; k++) {
+      mirrored.push(mirrored[k - 1] - (motif.steps[k] - motif.steps[k - 1]));
+    }
+    if (isValidBar(mirrored, previousDegree, key, difficulty)) {
+      return { rhythm: motif.rhythm, degrees: mirrored };
+    }
+  }
+
   const tail = buildLine(motif.rhythm.slice(headLength - 1), 2, degrees[headLength - 1],
                          null, false, null, schema, key, difficulty);
   if (!tail) return null;
