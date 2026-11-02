@@ -76,7 +76,12 @@ function inRange(r: Range, x: number): boolean {
   return x >= r.lower && x <= r.upper;
 }
 
-/** Spielraum je Schwierigkeitsgrad. `mittel` ist der Nullpunkt. */
+/** Gestalt der Periode: streng (Takt 1 → 3 steigt) oder parallel (der
+ *  Nachsatz setzt auf der Höhe des Vordersatzes ein, der Gipfel kommt im
+ *  Schweif von Takt 3). Siehe `MelodyGenerator.Form` in Swift. */
+type Form = "streng" | "parallel";
+
+/** Spielraum je Schwierigkeitsgrad. */
 interface Difficulty {
   level: DictationLevel;
   maxLeap: number;
@@ -85,6 +90,9 @@ interface Difficulty {
   figureProbability: number;
   anchoredToTonic: boolean;
   simpleKeysOnly: boolean;
+  /** Ansatz für die Parallelperiode; gemessen so gewählt, dass im Ergebnis
+   *  rund ein Viertel herauskommt. Leicht: nie. */
+  parallelChance: number;
   ambitus: AmbitusRule;
   profile: AdaptiveProfile;
   strictPeak: boolean;
@@ -95,15 +103,15 @@ function difficultyFor(level: DictationLevel): Difficulty {
   switch (level) {
     case "leicht":
       return { level, maxLeap: 2, maxLeapSemitones: 4, allowedDurations: new Set([0.5, 1.0, 2.0]),
-        figureProbability: 0, anchoredToTonic: true, simpleKeysOnly: true,
+        figureProbability: 0, anchoredToTonic: true, simpleKeysOnly: true, parallelChance: 0,
         ambitus: "fifthAboveTonic", profile: NEUTRAL, strictPeak: false, degreeWindow: null };
     case "mittel":
       return { level, maxLeap: 4, maxLeapSemitones: 7, allowedDurations: null,
-        figureProbability: 0.20, anchoredToTonic: false, simpleKeysOnly: false,
+        figureProbability: 0.20, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.29,
         ambitus: "octaveFromTonic", profile: NEUTRAL, strictPeak: true, degreeWindow: null };
     case "abitur":
       return { level, maxLeap: 4, maxLeapSemitones: 7, allowedDurations: null,
-        figureProbability: 0.55, anchoredToTonic: false, simpleKeysOnly: false,
+        figureProbability: 0.55, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.34,
         ambitus: "ninthAnchoredToTonic", profile: NEUTRAL, strictPeak: true, degreeWindow: null };
   }
 }
@@ -200,7 +208,8 @@ function alignment(motif: Motif, start: number, barIndex: number, schema: readon
 /** Baut die Stufenfolge eines Taktes — der einzige Ort, an dem Ton für Ton entschieden wird. */
 function buildLine(rhythm: readonly RhythmSlot[], barIndex: number, startDegree: number,
                    endTarget: number | null, descending: boolean, previousDegree: number | null,
-                   schema: readonly number[], key: MusicKey, difficulty: Difficulty): number[] | null {
+                   schema: readonly number[], key: MusicKey, difficulty: Difficulty,
+                   ascending = false): number[] | null {
 
   if (previousDegree !== null) {
     if (!isSingableStep(previousDegree, startDegree, key, difficulty)) return null;
@@ -248,6 +257,8 @@ function buildLine(rhythm: readonly RhythmSlot[], barIndex: number, startDegree:
       if (barMax - barMin > 5) continue;
 
       if (descending && cand > startDegree) continue;
+      // Der Schweif zum Gipfel sackt nicht unter seinen Anfang.
+      if (ascending && cand < startDegree - 1) continue;
 
       let w: number;
       switch (Math.abs(move)) {
@@ -269,6 +280,7 @@ function buildLine(rhythm: readonly RhythmSlot[], barIndex: number, startDegree:
       }
 
       if (descending) w *= move < 0 ? 4.0 : 0.25;
+      if (ascending) w *= move > 0 ? 3.0 : 0.4;
 
       if (!key.isMajor && mod7(cand) === 6 && endTarget === null) w *= 0.25;
 
@@ -350,6 +362,35 @@ function restatementBar(motif: Motif, start: number, previousDegree: number | nu
   if (!tail) return null;
   degrees.push(...tail.slice(1));
 
+  if (!isValidBar(degrees, previousDegree, key, difficulty)) return null;
+  return { rhythm: motif.rhythm, degrees };
+}
+
+/** Takt 3 der Parallelperiode: der Motivkopf wörtlich auf der Höhe von
+ *  Takt 1, der Schweif steigt zum Gipfel — eine Sekunde bis Quarte über dem
+ *  Vordersatz, nie über dem Ambitus, höchstens im Terzschritt erreicht. */
+function parallelBar(motif: Motif, start: number, vordersatzMax: number, tonic: number,
+                     previousDegree: number | null, schema: readonly number[], key: MusicKey,
+                     difficulty: Difficulty): Bar | null {
+  const noteCount = motif.rhythm.length;
+  const headLength = Math.max(2, Math.floor(noteCount / 2));
+  if (headLength > noteCount - 1) return null;
+  const degrees = motif.steps.slice(0, headLength).map((s) => start + s);
+
+  const lowest = vordersatzMax + 1;
+  const highest = Math.min(vordersatzMax + 3, tonic + Ambitus.highestAboveTonic(difficulty.ambitus));
+  if (lowest > highest) return null;
+  const peaks: number[] = [];
+  for (let p = lowest; p <= highest; p++) peaks.push(p);
+  const peak = Rand.element(peaks);
+  if (midi(peak, key) > hardMax) return null;
+
+  const tail = buildLine(motif.rhythm.slice(headLength - 1), 2, degrees[headLength - 1],
+                         peak, false, null, schema, key, difficulty, true);
+  if (!tail) return null;
+  degrees.push(...tail.slice(1));
+
+  if (Math.abs(degrees[degrees.length - 1] - degrees[degrees.length - 2]) > 2) return null;
   if (!isValidBar(degrees, previousDegree, key, difficulty)) return null;
   return { rhythm: motif.rhythm, degrees };
 }
@@ -515,7 +556,7 @@ function isValidBar(degrees: readonly number[], previousDegree: number | null,
 
 // MARK: - Ebene 4: musikalische Prüfung
 
-function passesMusicalChecks(bars: readonly Bar[], key: MusicKey, difficulty: Difficulty): boolean {
+function passesMusicalChecks(bars: readonly Bar[], form: Form, key: MusicKey, difficulty: Difficulty): boolean {
   const allDegrees = bars.flatMap((b) => b.degrees);
   const allMidi = allDegrees.map((d) => midi(d, key));
 
@@ -526,7 +567,12 @@ function passesMusicalChecks(bars: readonly Bar[], key: MusicKey, difficulty: Di
   }
 
   const means = bars.map((bar) => bar.degrees.reduce((a, b) => a + b, 0) / bar.degrees.length);
-  if (!(means[0] < means[1] && means[1] < means[2] && means[3] < means[2])) return false;
+  if (form === "streng") {
+    if (!(means[0] < means[1] && means[1] < means[2] && means[3] < means[2])) return false;
+  } else {
+    if (!(means[0] < means[2] && means[3] < means[2]
+          && Math.max(...bars[2].degrees) === Math.max(...allDegrees))) return false;
+  }
 
   const peak = Math.max(...allMidi);
   const peakIndex = allMidi.indexOf(peak);
@@ -759,6 +805,7 @@ export const MelodyGenerator = {
     // --- Ebene 1: Bauplan
     const schema = Rand.element(MusicData.harmonySchemas);
     const start0 = diff.anchoredToTonic ? 0 : (Rand.next() < 0.65 ? 0 : 2);
+    const form: Form = diff.parallelChance > 0 && Rand.next() < diff.parallelChance ? "parallel" : "streng";
 
     if (diff.anchoredToTonic) {
       diff.degreeWindow = { lower: start0 - 1, upper: start0 + Ambitus.highestAboveTonic(diff.ambitus) };
@@ -774,12 +821,25 @@ export const MelodyGenerator = {
 
     const start1 = chooseTransposition(start0, motif, 1, schema, keyCopy);
     if (start1 === null) return null;
-    const start2 = chooseTransposition(start1, motif, 2, schema, keyCopy);
-    if (start2 === null) return null;
+    let start2: number;
+    if (form === "streng") {
+      const s2 = chooseTransposition(start1, motif, 2, schema, keyCopy);
+      if (s2 === null) return null;
+      start2 = s2;
+    } else {
+      start2 = start0;
+    }
 
     const halfCadence = nearestDegree(weightedPick(MusicData.halfCadenceDegrees), start1 + 1);
-    const finalTarget = diff.anchoredToTonic ? start0 : 7 * Math.floor((start2 - 1) / 7);
-    if (start2 - finalTarget < 2) return null;
+    let finalTarget: number;
+    if (diff.anchoredToTonic) {
+      finalTarget = start0;
+    } else if (form === "parallel") {
+      finalTarget = 7 * Math.floor(start0 / 7);
+    } else {
+      finalTarget = 7 * Math.floor((start2 - 1) / 7);
+      if (start2 - finalTarget < 2) return null;
+    }
     for (const d of [halfCadence, finalTarget]) {
       const m = midi(d, keyCopy);
       if (m < hardMin || m > hardMax) return null;
@@ -790,7 +850,10 @@ export const MelodyGenerator = {
                                  stepPattern(bar1Degrees), schema, keyCopy, diff);
     if (!bar2) return null;
 
-    const bar3 = restatementBar(motif, start2, bar2.degrees[bar2.degrees.length - 1], schema, keyCopy, diff);
+    const bar3 = form === "streng"
+      ? restatementBar(motif, start2, bar2.degrees[bar2.degrees.length - 1], schema, keyCopy, diff)
+      : parallelBar(motif, start2, Math.max(...bar1Degrees, ...bar2.degrees), finalTarget,
+                    bar2.degrees[bar2.degrees.length - 1], schema, keyCopy, diff);
     if (!bar3) return null;
 
     const bar4 = cadenceBar(finalTarget, bar3.degrees[bar3.degrees.length - 1], diff, schema, keyCopy);
@@ -801,7 +864,7 @@ export const MelodyGenerator = {
     insertRhythmicFigure(bars, keyCopy, diff);
 
     // --- Ebene 4: Prüfung
-    if (!passesMusicalChecks(bars, keyCopy, diff)) return null;
+    if (!passesMusicalChecks(bars, form, keyCopy, diff)) return null;
 
     const notes: MelodyNote[] = [];
     bars.forEach((bar, m) => {
