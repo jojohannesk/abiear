@@ -1,115 +1,115 @@
 {
   "adaptiveProfile" : {
     "chords" : {
-      "Dur" : 1.864460479085781,
-      "Dur mit Sixte ajoutée" : 1.4597702928611231,
-      "Dur7 (Dominantseptakkord)" : 2.232729856648542,
-      "DurMaj7" : 1.1695405857222463,
-      "Moll" : 1.864460479085781,
-      "Moll mit Sixte ajoutée" : 1.9295873800356302,
-      "Moll7" : 1.4597702928611231,
-      "Verminderter Septakkord" : 1.846743235712959,
-      "Übermäßig" : 2.1694349372525337
+      "Dur" : 1.0820112103363102,
+      "Dur mit Sixte ajoutée" : 1.5929727149389479,
+      "Dur7 (Dominantseptakkord)" : 2.114767067856402,
+      "DurMaj7" : 1.6451412656868665,
+      "Moll" : 1.6355395209142185,
+      "Moll mit Sixte ajoutée" : 1.985540927591578,
+      "Moll7" : 1.3977682596934176,
+      "Verminderter Septakkord" : 1.5824486622701195,
+      "Übermäßig" : 2.136972942851836
     },
     "figures" : {
-      "2 Achtel" : 0.7445962626886056,
-      "2 Sechzehntel + Achtel" : 0.8520630998218494,
-      "4 Sechzehntel" : 0.8884927696047719,
-      "Achtel + 2 Sechzehntel" : 0.8537627624182632,
-      "Achtel + Punktierte Viertel" : 0.8911568221216863,
-      "Achteltriole" : 0.9319657254546089,
-      "Halbe Note" : 0.9287917346684739,
-      "Punktierte Achtel + Sechzehntel" : 0.7855235949507734,
-      "Punktierte Viertel + Achtel" : 0.8520630998218494,
-      "Sechzehntel + Achtel + Sechzehntel" : 0.9879287920663309,
-      "Sechzehntel + Punktierte Achtel" : 0.7420167728408997,
-      "Viertel" : 0.7260439800487857
+      "2 Achtel" : 0.8623581593858793,
+      "2 Sechzehntel + Achtel" : 0.9111301254949331,
+      "4 Sechzehntel" : 0.7918858045800807,
+      "Achtel + 2 Sechzehntel" : 0.9732610607624949,
+      "Achtel + Punktierte Viertel" : 1.1218908597557913,
+      "Achteltriole" : 0.6488724453840731,
+      "Halbe Note" : 0.9980147589636641,
+      "Punktierte Achtel + Sechzehntel" : 0.8715212240472271,
+      "Punktierte Viertel + Achtel" : 1.0851378185428584,
+      "Sechzehntel + Achtel + Sechzehntel" : 1.0493901892206978,
+      "Sechzehntel + Punktierte Achtel" : 0.7198556882279684,
+      "Viertel" : 0.6214856009770062
     },
     "intervals" : {
-      "Große Sekunde" : 1.3301665898971287,
-      "Große Septime" : 1.4240134716261326,
-      "Große Sexte" : 2.0015941002189876,
-      "Große Terz" : 1.804724712804707,
-      "Kleine Sekunde" : 1.0902617841240596,
-      "Kleine Septime" : 2.081712805706522,
+      "Große Sekunde" : 1.2765629734370267,
+      "Große Septime" : 1.5990435398686076,
+      "Große Sexte" : 2.207841916343125,
+      "Große Terz" : 1.6900237985567328,
+      "Kleine Sekunde" : 1.1964929795182275,
+      "Kleine Septime" : 2.023623564023536,
       "Kleine Sexte" : 2.093381437257344,
-      "Kleine Terz" : 1.675779023370701,
-      "Reine Oktave" : 1.930614957808346,
-      "Reine Quarte" : 1.6526601046598552,
-      "Reine Quinte" : 1.556513528574082,
-      "Tritonus" : 1.476376435976464
+      "Kleine Terz" : 2.339559077188443,
+      "Reine Oktave" : 2.2234370265629733,
+      "Reine Quarte" : 1.9597174686262666,
+      "Reine Quinte" : 2.1703658864675814,
+      "Tritonus" : 1.75
     },
     "keys" : {
       "A-Dur" : 1,
-      "B-Dur" : 1.0466558573165787,
-      "C-Dur" : 1,
-      "D-Dur" : 1,
-      "Es-Dur" : 1.148802515926135,
-      "F-Dur" : 1.2155519524388596,
-      "G-Dur" : 1.1883978393821704,
-      "a-Moll" : 1.1204126199643698,
+      "B-Dur" : 1.0480041932102249,
+      "C-Dur" : 1.3844480475611405,
+      "D-Dur" : 0.9622078097554385,
+      "Es-Dur" : 1,
+      "F-Dur" : 1.3,
+      "G-Dur" : 1.156330095971496,
+      "a-Moll" : 1.1311039048777192,
       "c-Moll" : 1,
       "d-Moll" : 1.2155519524388596,
-      "e-Moll" : 1,
+      "e-Moll" : 1.09840335456818,
       "fis-Moll" : 1,
       "g-Moll" : 1,
-      "h-Moll" : 1.1992016772840899
+      "h-Moll" : 1.09840335456818
     },
     "moves" : {
-      "Leitton zum Grundton" : 0.672475719786219,
-      "Quarte abwärts" : 1.2662838214352052,
-      "Quarte aufwärts" : 0.8078362896336867,
-      "Quinte abwärts" : 1.322035058887976,
-      "Quinte aufwärts" : 0.9879287920663309,
-      "Sekunde abwärts" : 0.6537440879563523,
-      "Sekunde aufwärts" : 0.7554003552324924,
-      "Terz abwärts" : 0.8358811293363093,
-      "Terz aufwärts" : 0.7559057840723631,
-      "Tonwiederholung" : 1.0851378185428584
+      "Leitton zum Grundton" : 1.1776976045710936,
+      "Quarte abwärts" : 0.8031259468740533,
+      "Quarte aufwärts" : 0.8031259468740533,
+      "Quinte abwärts" : 1.2081551265749626,
+      "Quinte aufwärts" : 0.8469252109582708,
+      "Sekunde abwärts" : 0.5771574048590087,
+      "Sekunde aufwärts" : 0.6073841278685097,
+      "Terz abwärts" : 0.8884927696047719,
+      "Terz aufwärts" : 0.9470874185525477,
+      "Tonwiederholung" : 1.3908252399287397
     }
   },
   "contourStats" : [
     {
-      "accuracy" : 0.5625,
-      "attempts" : 16,
-      "correct" : 9,
-      "name" : "Bogen aufwärts",
-      "smoothed" : 0.550399161357955
-    },
-    {
-      "accuracy" : 0.5769230769230769,
-      "attempts" : 26,
-      "correct" : 15,
-      "name" : "Sprung mit Ausgleich",
-      "smoothed" : 0.5670205350919522
-    },
-    {
-      "accuracy" : 0.6666666666666666,
-      "attempts" : 12,
-      "correct" : 8,
-      "name" : "Streng abwärts",
-      "smoothed" : 0.6262498737501262
-    },
-    {
-      "accuracy" : 0.75,
-      "attempts" : 4,
-      "correct" : 3,
-      "name" : "Streng aufwärts",
-      "smoothed" : 0.6275249948990002
-    },
-    {
-      "accuracy" : 0.6842105263157895,
-      "attempts" : 38,
-      "correct" : 26,
-      "name" : "Umspielend",
-      "smoothed" : 0.6672976176819242
-    },
-    {
-      "accuracy" : 0.875,
-      "attempts" : 16,
-      "correct" : 14,
+      "accuracy" : 0.5,
+      "attempts" : 8,
+      "correct" : 4,
       "name" : "Bogen abwärts",
-      "smoothed" : 0.80239496814773
+      "smoothed" : 0.5
+    },
+    {
+      "accuracy" : 0.5,
+      "attempts" : 4,
+      "correct" : 2,
+      "name" : "Streng aufwärts",
+      "smoothed" : 0.5
+    },
+    {
+      "accuracy" : 0.5666666666666667,
+      "attempts" : 30,
+      "correct" : 17,
+      "name" : "Bogen aufwärts",
+      "smoothed" : 0.5590988605739681
+    },
+    {
+      "accuracy" : 0.7692307692307693,
+      "attempts" : 26,
+      "correct" : 20,
+      "name" : "Sprung mit Ausgleich",
+      "smoothed" : 0.7345718728218327
+    },
+    {
+      "accuracy" : 0.78125,
+      "attempts" : 32,
+      "correct" : 25,
+      "name" : "Umspielend",
+      "smoothed" : 0.7511048613901166
+    },
+    {
+      "accuracy" : 0.9166666666666666,
+      "attempts" : 12,
+      "correct" : 11,
+      "name" : "Streng abwärts",
+      "smoothed" : 0.8156246843753155
     }
   ],
   "erinnerungsTermine" : [
@@ -178,88 +178,88 @@
   ],
   "figureStats" : [
     {
-      "accuracy" : 1,
-      "attempts" : 6,
-      "correct" : 6,
-      "name" : "Sechzehntel + Achtel + Sechzehntel",
-      "smoothed" : 0.8048284831734677
+      "accuracy" : 0.7857142857142857,
+      "attempts" : 28,
+      "correct" : 22,
+      "name" : "Achtel + Punktierte Viertel",
+      "smoothed" : 0.7512436560976835
+    },
+    {
+      "accuracy" : 0.8,
+      "attempts" : 30,
+      "correct" : 24,
+      "name" : "Punktierte Viertel + Achtel",
+      "smoothed" : 0.7659448725828566
     },
     {
       "accuracy" : 0.8571428571428571,
-      "attempts" : 42,
-      "correct" : 36,
-      "name" : "Achteltriole",
-      "smoothed" : 0.8272137098181565
+      "attempts" : 14,
+      "correct" : 12,
+      "name" : "Sechzehntel + Achtel + Sechzehntel",
+      "smoothed" : 0.7802439243117208
     },
     {
-      "accuracy" : 0.8518518518518519,
-      "attempts" : 54,
+      "accuracy" : 0.8214285714285714,
+      "attempts" : 56,
       "correct" : 46,
       "name" : "Halbe Note",
-      "smoothed" : 0.8284833061326105
+      "smoothed" : 0.8007940964145344
     },
     {
-      "accuracy" : 0.8823529411764706,
-      "attempts" : 34,
-      "correct" : 30,
-      "name" : "Achtel + Punktierte Viertel",
-      "smoothed" : 0.8435372711513255
-    },
-    {
-      "accuracy" : 0.8666666666666667,
-      "attempts" : 60,
-      "correct" : 52,
-      "name" : "4 Sechzehntel",
-      "smoothed" : 0.8446028921580913
-    },
-    {
-      "accuracy" : 0.8947368421052632,
+      "accuracy" : 0.8421052631578947,
       "attempts" : 38,
-      "correct" : 34,
+      "correct" : 32,
       "name" : "Achtel + 2 Sechzehntel",
-      "smoothed" : 0.8584948950326947
+      "smoothed" : 0.8106955756950021
     },
     {
-      "accuracy" : 0.9166666666666666,
-      "attempts" : 24,
-      "correct" : 22,
+      "accuracy" : 0.9,
+      "attempts" : 20,
+      "correct" : 18,
       "name" : "2 Sechzehntel + Achtel",
-      "smoothed" : 0.8591747600712603
+      "smoothed" : 0.8355479498020267
     },
     {
-      "accuracy" : 0.9166666666666666,
-      "attempts" : 24,
-      "correct" : 22,
-      "name" : "Punktierte Viertel + Achtel",
-      "smoothed" : 0.8591747600712603
-    },
-    {
-      "accuracy" : 0.9166666666666666,
-      "attempts" : 48,
-      "correct" : 44,
+      "accuracy" : 0.8888888888888888,
+      "attempts" : 36,
+      "correct" : 32,
       "name" : "Punktierte Achtel + Sechzehntel",
-      "smoothed" : 0.8857905620196906
+      "smoothed" : 0.8513915103811092
     },
     {
-      "accuracy" : 0.9152542372881356,
-      "attempts" : 118,
-      "correct" : 108,
+      "accuracy" : 0.8679245283018868,
+      "attempts" : 106,
+      "correct" : 92,
       "name" : "2 Achtel",
-      "smoothed" : 0.9021614949245578
+      "smoothed" : 0.8550567362456483
+    },
+    {
+      "accuracy" : 0.90625,
+      "attempts" : 64,
+      "correct" : 58,
+      "name" : "4 Sechzehntel",
+      "smoothed" : 0.8832456781679677
     },
     {
       "accuracy" : 1,
-      "attempts" : 16,
-      "correct" : 16,
+      "attempts" : 18,
+      "correct" : 18,
       "name" : "Sechzehntel + Punktierte Achtel",
-      "smoothed" : 0.9031932908636401
+      "smoothed" : 0.9120577247088126
     },
     {
-      "accuracy" : 0.921875,
-      "attempts" : 128,
-      "correct" : 118,
+      "accuracy" : 0.967741935483871,
+      "attempts" : 62,
+      "correct" : 60,
+      "name" : "Achteltriole",
+      "smoothed" : 0.9404510218463707
+    },
+    {
+      "accuracy" : 0.9661016949152542,
+      "attempts" : 118,
+      "correct" : 114,
       "name" : "Viertel",
-      "smoothed" : 0.9095824079804857
+      "smoothed" : 0.9514057596091975
     }
   ],
   "geuebteTage" : [
@@ -310,27 +310,34 @@
   "jetzt" : "2026-09-20T08:30:00Z",
   "keyPracticeWeights" : {
     "A-Dur" : 1,
-    "B-Dur" : 1.0466558573165787,
-    "C-Dur" : 1,
-    "D-Dur" : 1,
-    "Es-Dur" : 1.148802515926135,
-    "F-Dur" : 1.2155519524388596,
-    "G-Dur" : 1.1883978393821704,
-    "a-Moll" : 1.1204126199643698,
+    "B-Dur" : 1.0480041932102249,
+    "C-Dur" : 1.3844480475611405,
+    "D-Dur" : 0.9622078097554385,
+    "Es-Dur" : 1,
+    "F-Dur" : 1.3,
+    "G-Dur" : 1.156330095971496,
+    "a-Moll" : 1.1311039048777192,
     "c-Moll" : 1,
     "d-Moll" : 1.2155519524388596,
-    "e-Moll" : 1,
+    "e-Moll" : 1.09840335456818,
     "fis-Moll" : 1,
     "g-Moll" : 1,
-    "h-Moll" : 1.1992016772840899
+    "h-Moll" : 1.09840335456818
   },
   "keyStats" : [
     {
-      "accuracy" : 0.625,
+      "accuracy" : 0.375,
       "attempts" : 8,
-      "correct" : 5,
+      "correct" : 3,
+      "name" : "C-Dur",
+      "smoothed" : 0.4155519524388596
+    },
+    {
+      "accuracy" : 0.5,
+      "attempts" : 8,
+      "correct" : 4,
       "name" : "F-Dur",
-      "smoothed" : 0.5844480475611404
+      "smoothed" : 0.5
     },
     {
       "accuracy" : 0.625,
@@ -340,39 +347,46 @@
       "smoothed" : 0.5844480475611404
     },
     {
-      "accuracy" : 0.625,
-      "attempts" : 16,
-      "correct" : 10,
-      "name" : "h-Moll",
-      "smoothed" : 0.60079832271591
-    },
-    {
-      "accuracy" : 0.625,
-      "attempts" : 32,
-      "correct" : 20,
-      "name" : "G-Dur",
-      "smoothed" : 0.6116021606178296
-    },
-    {
-      "accuracy" : 0.6875,
-      "attempts" : 16,
-      "correct" : 11,
-      "name" : "Es-Dur",
-      "smoothed" : 0.651197484073865
-    },
-    {
-      "accuracy" : 0.7083333333333334,
+      "accuracy" : 0.6666666666666666,
       "attempts" : 24,
-      "correct" : 17,
-      "name" : "a-Moll",
-      "smoothed" : 0.6795873800356301
+      "correct" : 16,
+      "name" : "G-Dur",
+      "smoothed" : 0.6436699040285041
     },
     {
-      "accuracy" : 0.875,
+      "accuracy" : 0.75,
       "attempts" : 8,
-      "correct" : 7,
+      "correct" : 6,
+      "name" : "a-Moll",
+      "smoothed" : 0.6688960951222808
+    },
+    {
+      "accuracy" : 0.75,
+      "attempts" : 16,
+      "correct" : 12,
+      "name" : "e-Moll",
+      "smoothed" : 0.70159664543182
+    },
+    {
+      "accuracy" : 0.75,
+      "attempts" : 16,
+      "correct" : 12,
+      "name" : "h-Moll",
+      "smoothed" : 0.70159664543182
+    },
+    {
+      "accuracy" : 0.8125,
+      "attempts" : 16,
+      "correct" : 13,
       "name" : "B-Dur",
-      "smoothed" : 0.7533441426834212
+      "smoothed" : 0.7519958067897751
+    },
+    {
+      "accuracy" : 1,
+      "attempts" : 8,
+      "correct" : 8,
+      "name" : "D-Dur",
+      "smoothed" : 0.8377921902445615
     }
   ],
   "kinds" : {
@@ -402,17 +416,22 @@
       "barsWithoutLevel" : 0,
       "confusions" : [
         {
-          "count" : 15,
+          "count" : 9,
           "mistaken" : "DurMaj7",
           "solution" : "Dur7 (Dominantseptakkord)"
         },
         {
-          "count" : 10,
+          "count" : 9,
           "mistaken" : "Moll7",
           "solution" : "Dur7 (Dominantseptakkord)"
         },
         {
           "count" : 9,
+          "mistaken" : "Dur7 (Dominantseptakkord)",
+          "solution" : "Moll mit Sixte ajoutée"
+        },
+        {
+          "count" : 8,
           "mistaken" : "Moll7",
           "solution" : "Moll mit Sixte ajoutée"
         },
@@ -420,16 +439,11 @@
           "count" : 8,
           "mistaken" : "Dur",
           "solution" : "Übermäßig"
-        },
-        {
-          "count" : 7,
-          "mistaken" : "Dur",
-          "solution" : "Verminderter Septakkord"
         }
       ],
       "funFacts" : [
         "Du hast hier schon 29 Durchgänge geübt.",
-        "Am schwersten fällt dir Dur7 (Dominantseptakkord)."
+        "Am sichersten: Dur — 11 von 13."
       ],
       "geuebteTage" : [
         "2026-07-07T22:00:00Z",
@@ -465,263 +479,263 @@
       "isAdaptiveUnlocked" : true,
       "itemStats" : [
         {
-          "accuracy" : 0.2857142857142857,
-          "attempts" : 35,
-          "correct" : 10,
-          "name" : "Dur7 (Dominantseptakkord)",
-          "smoothed" : 0.30690805734058324
-        },
-        {
-          "accuracy" : 0.3,
-          "attempts" : 20,
-          "correct" : 6,
+          "accuracy" : 0.3181818181818182,
+          "attempts" : 22,
+          "correct" : 7,
           "name" : "Übermäßig",
-          "smoothed" : 0.3322260250989866
+          "smoothed" : 0.3452108228592657
         },
         {
-          "accuracy" : 0.4166666666666667,
-          "attempts" : 24,
-          "correct" : 10,
+          "accuracy" : 0.3333333333333333,
+          "attempts" : 27,
+          "correct" : 9,
+          "name" : "Dur7 (Dominantseptakkord)",
+          "smoothed" : 0.3540931728574393
+        },
+        {
+          "accuracy" : 0.39285714285714285,
+          "attempts" : 28,
+          "correct" : 11,
           "name" : "Moll mit Sixte ajoutée",
-          "smoothed" : 0.428165047985748
+          "smoothed" : 0.40578362896336867
         },
         {
-          "accuracy" : 0.4444444444444444,
+          "accuracy" : 0.55,
+          "attempts" : 20,
+          "correct" : 11,
+          "name" : "DurMaj7",
+          "smoothed" : 0.5419434937252534
+        },
+        {
+          "accuracy" : 0.5555555555555556,
           "attempts" : 18,
-          "correct" : 8,
-          "name" : "Dur",
-          "smoothed" : 0.4542158083656875
-        },
-        {
-          "accuracy" : 0.4444444444444444,
-          "attempts" : 18,
-          "correct" : 8,
-          "name" : "Moll",
-          "smoothed" : 0.4542158083656875
-        },
-        {
-          "accuracy" : 0.45454545454545453,
-          "attempts" : 22,
           "correct" : 10,
-          "name" : "Verminderter Septakkord",
-          "smoothed" : 0.46130270571481646
+          "name" : "Moll",
+          "smoothed" : 0.5457841916343126
         },
         {
-          "accuracy" : 0.6363636363636364,
-          "attempts" : 22,
-          "correct" : 14,
+          "accuracy" : 0.5714285714285714,
+          "attempts" : 28,
+          "correct" : 16,
           "name" : "Dur mit Sixte ajoutée",
-          "smoothed" : 0.6160918828555507
+          "smoothed" : 0.5628109140244208
         },
         {
-          "accuracy" : 0.6363636363636364,
-          "attempts" : 22,
+          "accuracy" : 0.5769230769230769,
+          "attempts" : 26,
+          "correct" : 15,
+          "name" : "Verminderter Septakkord",
+          "smoothed" : 0.5670205350919522
+        },
+        {
+          "accuracy" : 0.6666666666666666,
+          "attempts" : 21,
           "correct" : 14,
           "name" : "Moll7",
-          "smoothed" : 0.6160918828555507
+          "smoothed" : 0.640892696122633
         },
         {
-          "accuracy" : 0.7727272727272727,
-          "attempts" : 22,
-          "correct" : 17,
-          "name" : "DurMaj7",
-          "smoothed" : 0.7321837657111014
+          "accuracy" : 0.8461538461538461,
+          "attempts" : 13,
+          "correct" : 11,
+          "name" : "Dur",
+          "smoothed" : 0.767195515865476
         }
       ],
       "itemStatsJeNiveau" : {
         "abitur" : [
           {
-            "accuracy" : 0.2857142857142857,
-            "attempts" : 35,
-            "correct" : 10,
-            "name" : "Dur7 (Dominantseptakkord)",
-            "smoothed" : 0.30690805734058324
-          },
-          {
-            "accuracy" : 0.3,
-            "attempts" : 20,
-            "correct" : 6,
+            "accuracy" : 0.3181818181818182,
+            "attempts" : 22,
+            "correct" : 7,
             "name" : "Übermäßig",
-            "smoothed" : 0.3322260250989866
+            "smoothed" : 0.3452108228592657
           },
           {
-            "accuracy" : 0.4166666666666667,
-            "attempts" : 24,
-            "correct" : 10,
+            "accuracy" : 0.3333333333333333,
+            "attempts" : 27,
+            "correct" : 9,
+            "name" : "Dur7 (Dominantseptakkord)",
+            "smoothed" : 0.3540931728574393
+          },
+          {
+            "accuracy" : 0.39285714285714285,
+            "attempts" : 28,
+            "correct" : 11,
             "name" : "Moll mit Sixte ajoutée",
-            "smoothed" : 0.428165047985748
+            "smoothed" : 0.40578362896336867
           },
           {
-            "accuracy" : 0.4444444444444444,
+            "accuracy" : 0.55,
+            "attempts" : 20,
+            "correct" : 11,
+            "name" : "DurMaj7",
+            "smoothed" : 0.5419434937252534
+          },
+          {
+            "accuracy" : 0.5555555555555556,
             "attempts" : 18,
-            "correct" : 8,
-            "name" : "Dur",
-            "smoothed" : 0.4542158083656875
-          },
-          {
-            "accuracy" : 0.4444444444444444,
-            "attempts" : 18,
-            "correct" : 8,
-            "name" : "Moll",
-            "smoothed" : 0.4542158083656875
-          },
-          {
-            "accuracy" : 0.45454545454545453,
-            "attempts" : 22,
             "correct" : 10,
-            "name" : "Verminderter Septakkord",
-            "smoothed" : 0.46130270571481646
+            "name" : "Moll",
+            "smoothed" : 0.5457841916343126
           },
           {
-            "accuracy" : 0.6363636363636364,
-            "attempts" : 22,
-            "correct" : 14,
+            "accuracy" : 0.5714285714285714,
+            "attempts" : 28,
+            "correct" : 16,
             "name" : "Dur mit Sixte ajoutée",
-            "smoothed" : 0.6160918828555507
+            "smoothed" : 0.5628109140244208
           },
           {
-            "accuracy" : 0.6363636363636364,
-            "attempts" : 22,
+            "accuracy" : 0.5769230769230769,
+            "attempts" : 26,
+            "correct" : 15,
+            "name" : "Verminderter Septakkord",
+            "smoothed" : 0.5670205350919522
+          },
+          {
+            "accuracy" : 0.6666666666666666,
+            "attempts" : 21,
             "correct" : 14,
             "name" : "Moll7",
-            "smoothed" : 0.6160918828555507
+            "smoothed" : 0.640892696122633
           },
           {
-            "accuracy" : 0.7727272727272727,
-            "attempts" : 22,
-            "correct" : 17,
-            "name" : "DurMaj7",
-            "smoothed" : 0.7321837657111014
+            "accuracy" : 0.8461538461538461,
+            "attempts" : 13,
+            "correct" : 11,
+            "name" : "Dur",
+            "smoothed" : 0.767195515865476
           }
         ],
         "leicht" : [
           {
-            "accuracy" : 0.2857142857142857,
-            "attempts" : 35,
-            "correct" : 10,
-            "name" : "Dur7 (Dominantseptakkord)",
-            "smoothed" : 0.30690805734058324
-          },
-          {
-            "accuracy" : 0.3,
-            "attempts" : 20,
-            "correct" : 6,
+            "accuracy" : 0.3181818181818182,
+            "attempts" : 22,
+            "correct" : 7,
             "name" : "Übermäßig",
-            "smoothed" : 0.3322260250989866
+            "smoothed" : 0.3452108228592657
           },
           {
-            "accuracy" : 0.4166666666666667,
-            "attempts" : 24,
-            "correct" : 10,
+            "accuracy" : 0.3333333333333333,
+            "attempts" : 27,
+            "correct" : 9,
+            "name" : "Dur7 (Dominantseptakkord)",
+            "smoothed" : 0.3540931728574393
+          },
+          {
+            "accuracy" : 0.39285714285714285,
+            "attempts" : 28,
+            "correct" : 11,
             "name" : "Moll mit Sixte ajoutée",
-            "smoothed" : 0.428165047985748
+            "smoothed" : 0.40578362896336867
           },
           {
-            "accuracy" : 0.4444444444444444,
+            "accuracy" : 0.55,
+            "attempts" : 20,
+            "correct" : 11,
+            "name" : "DurMaj7",
+            "smoothed" : 0.5419434937252534
+          },
+          {
+            "accuracy" : 0.5555555555555556,
             "attempts" : 18,
-            "correct" : 8,
-            "name" : "Dur",
-            "smoothed" : 0.4542158083656875
-          },
-          {
-            "accuracy" : 0.4444444444444444,
-            "attempts" : 18,
-            "correct" : 8,
-            "name" : "Moll",
-            "smoothed" : 0.4542158083656875
-          },
-          {
-            "accuracy" : 0.45454545454545453,
-            "attempts" : 22,
             "correct" : 10,
-            "name" : "Verminderter Septakkord",
-            "smoothed" : 0.46130270571481646
+            "name" : "Moll",
+            "smoothed" : 0.5457841916343126
           },
           {
-            "accuracy" : 0.6363636363636364,
-            "attempts" : 22,
-            "correct" : 14,
+            "accuracy" : 0.5714285714285714,
+            "attempts" : 28,
+            "correct" : 16,
             "name" : "Dur mit Sixte ajoutée",
-            "smoothed" : 0.6160918828555507
+            "smoothed" : 0.5628109140244208
           },
           {
-            "accuracy" : 0.6363636363636364,
-            "attempts" : 22,
+            "accuracy" : 0.5769230769230769,
+            "attempts" : 26,
+            "correct" : 15,
+            "name" : "Verminderter Septakkord",
+            "smoothed" : 0.5670205350919522
+          },
+          {
+            "accuracy" : 0.6666666666666666,
+            "attempts" : 21,
             "correct" : 14,
             "name" : "Moll7",
-            "smoothed" : 0.6160918828555507
+            "smoothed" : 0.640892696122633
           },
           {
-            "accuracy" : 0.7727272727272727,
-            "attempts" : 22,
-            "correct" : 17,
-            "name" : "DurMaj7",
-            "smoothed" : 0.7321837657111014
+            "accuracy" : 0.8461538461538461,
+            "attempts" : 13,
+            "correct" : 11,
+            "name" : "Dur",
+            "smoothed" : 0.767195515865476
           }
         ],
         "mittel" : [
           {
-            "accuracy" : 0.2857142857142857,
-            "attempts" : 35,
-            "correct" : 10,
-            "name" : "Dur7 (Dominantseptakkord)",
-            "smoothed" : 0.30690805734058324
-          },
-          {
-            "accuracy" : 0.3,
-            "attempts" : 20,
-            "correct" : 6,
+            "accuracy" : 0.3181818181818182,
+            "attempts" : 22,
+            "correct" : 7,
             "name" : "Übermäßig",
-            "smoothed" : 0.3322260250989866
+            "smoothed" : 0.3452108228592657
           },
           {
-            "accuracy" : 0.4166666666666667,
-            "attempts" : 24,
-            "correct" : 10,
+            "accuracy" : 0.3333333333333333,
+            "attempts" : 27,
+            "correct" : 9,
+            "name" : "Dur7 (Dominantseptakkord)",
+            "smoothed" : 0.3540931728574393
+          },
+          {
+            "accuracy" : 0.39285714285714285,
+            "attempts" : 28,
+            "correct" : 11,
             "name" : "Moll mit Sixte ajoutée",
-            "smoothed" : 0.428165047985748
+            "smoothed" : 0.40578362896336867
           },
           {
-            "accuracy" : 0.4444444444444444,
+            "accuracy" : 0.55,
+            "attempts" : 20,
+            "correct" : 11,
+            "name" : "DurMaj7",
+            "smoothed" : 0.5419434937252534
+          },
+          {
+            "accuracy" : 0.5555555555555556,
             "attempts" : 18,
-            "correct" : 8,
-            "name" : "Dur",
-            "smoothed" : 0.4542158083656875
-          },
-          {
-            "accuracy" : 0.4444444444444444,
-            "attempts" : 18,
-            "correct" : 8,
-            "name" : "Moll",
-            "smoothed" : 0.4542158083656875
-          },
-          {
-            "accuracy" : 0.45454545454545453,
-            "attempts" : 22,
             "correct" : 10,
-            "name" : "Verminderter Septakkord",
-            "smoothed" : 0.46130270571481646
+            "name" : "Moll",
+            "smoothed" : 0.5457841916343126
           },
           {
-            "accuracy" : 0.6363636363636364,
-            "attempts" : 22,
-            "correct" : 14,
+            "accuracy" : 0.5714285714285714,
+            "attempts" : 28,
+            "correct" : 16,
             "name" : "Dur mit Sixte ajoutée",
-            "smoothed" : 0.6160918828555507
+            "smoothed" : 0.5628109140244208
           },
           {
-            "accuracy" : 0.6363636363636364,
-            "attempts" : 22,
+            "accuracy" : 0.5769230769230769,
+            "attempts" : 26,
+            "correct" : 15,
+            "name" : "Verminderter Septakkord",
+            "smoothed" : 0.5670205350919522
+          },
+          {
+            "accuracy" : 0.6666666666666666,
+            "attempts" : 21,
             "correct" : 14,
             "name" : "Moll7",
-            "smoothed" : 0.6160918828555507
+            "smoothed" : 0.640892696122633
           },
           {
-            "accuracy" : 0.7727272727272727,
-            "attempts" : 22,
-            "correct" : 17,
-            "name" : "DurMaj7",
-            "smoothed" : 0.7321837657111014
+            "accuracy" : 0.8461538461538461,
+            "attempts" : 13,
+            "correct" : 11,
+            "name" : "Dur",
+            "smoothed" : 0.767195515865476
           }
         ]
       },
@@ -729,15 +743,15 @@
 
       ],
       "practiceWeights" : {
-        "Dur" : 1.864460479085781,
-        "Dur mit Sixte ajoutée" : 1.4597702928611231,
-        "Dur7 (Dominantseptakkord)" : 2.232729856648542,
-        "DurMaj7" : 1.1695405857222463,
-        "Moll" : 1.864460479085781,
-        "Moll mit Sixte ajoutée" : 1.9295873800356302,
-        "Moll7" : 1.4597702928611231,
-        "Verminderter Septakkord" : 1.846743235712959,
-        "Übermäßig" : 2.1694349372525337
+        "Dur" : 1.0820112103363102,
+        "Dur mit Sixte ajoutée" : 1.5929727149389479,
+        "Dur7 (Dominantseptakkord)" : 2.114767067856402,
+        "DurMaj7" : 1.6451412656868665,
+        "Moll" : 1.6355395209142185,
+        "Moll mit Sixte ajoutée" : 1.985540927591578,
+        "Moll7" : 1.3977682596934176,
+        "Verminderter Septakkord" : 1.5824486622701195,
+        "Übermäßig" : 2.136972942851836
       },
       "runCount" : 29,
       "runsUntilAdaptive" : 0,
@@ -752,13 +766,13 @@
       },
       "tagesvergleich" : {
         "gestern" : 0.5714285714285714,
-        "heute" : 0.8571428571428571,
-        "text" : "Akkord: heute besser als gestern."
+        "heute" : 0.5714285714285714,
+        "text" : "Akkord: wie gestern."
       },
       "trend" : [
         {
           "samples" : 21,
-          "value" : 0.14285714285714285,
+          "value" : 0.47619047619047616,
           "weekStart" : "2026-07-26T22:00:00Z"
         },
         {
@@ -768,17 +782,17 @@
         },
         {
           "samples" : 21,
-          "value" : 0.47619047619047616,
+          "value" : 0.42857142857142855,
           "weekStart" : "2026-08-09T22:00:00Z"
         },
         {
           "samples" : 21,
-          "value" : 0.47619047619047616,
+          "value" : 0.6190476190476191,
           "weekStart" : "2026-08-16T22:00:00Z"
         },
         {
           "samples" : 14,
-          "value" : 0.5,
+          "value" : 0.5714285714285714,
           "weekStart" : "2026-08-23T22:00:00Z"
         },
         {
@@ -793,7 +807,7 @@
         },
         {
           "samples" : 21,
-          "value" : 0.6666666666666666,
+          "value" : 0.6190476190476191,
           "weekStart" : "2026-09-13T22:00:00Z"
         }
       ]
@@ -824,34 +838,34 @@
       "barsWithoutLevel" : 0,
       "confusions" : [
         {
-          "count" : 7,
-          "mistaken" : "Kleine Septime",
-          "solution" : "Große Sexte"
+          "count" : 9,
+          "mistaken" : "Reine Quinte",
+          "solution" : "Reine Quarte"
         },
         {
-          "count" : 7,
+          "count" : 8,
+          "mistaken" : "Reine Oktave",
+          "solution" : "Kleine Septime"
+        },
+        {
+          "count" : 8,
           "mistaken" : "Kleine Septime",
           "solution" : "Kleine Sexte"
         },
         {
-          "count" : 7,
+          "count" : 8,
+          "mistaken" : "Große Terz",
+          "solution" : "Kleine Terz"
+        },
+        {
+          "count" : 8,
           "mistaken" : "Große Sexte",
           "solution" : "Reine Quinte"
-        },
-        {
-          "count" : 6,
-          "mistaken" : "Große Septime",
-          "solution" : "Große Sexte"
-        },
-        {
-          "count" : 6,
-          "mistaken" : "Reine Quarte",
-          "solution" : "Große Terz"
         }
       ],
       "funFacts" : [
         "Du hast hier schon 29 Durchgänge geübt.",
-        "Am sichersten: Kleine Sekunde — 14 von 17."
+        "Am schwersten fällt dir Kleine Terz."
       ],
       "geuebteTage" : [
         "2026-07-07T22:00:00Z",
@@ -887,6 +901,34 @@
       "isAdaptiveUnlocked" : true,
       "itemStats" : [
         {
+          "accuracy" : 0.18181818181818182,
+          "attempts" : 11,
+          "correct" : 2,
+          "name" : "Kleine Terz",
+          "smoothed" : 0.2641763691246227
+        },
+        {
+          "accuracy" : 0.25,
+          "attempts" : 12,
+          "correct" : 3,
+          "name" : "Reine Oktave",
+          "smoothed" : 0.31062518937481065
+        },
+        {
+          "accuracy" : 0.2777777777777778,
+          "attempts" : 18,
+          "correct" : 5,
+          "name" : "Große Sexte",
+          "smoothed" : 0.31686323346274997
+        },
+        {
+          "accuracy" : 0.2857142857142857,
+          "attempts" : 14,
+          "correct" : 4,
+          "name" : "Reine Quinte",
+          "smoothed" : 0.3318536454129674
+        },
+        {
           "accuracy" : 0.3333333333333333,
           "attempts" : 18,
           "correct" : 6,
@@ -894,86 +936,86 @@
           "smoothed" : 0.3626474250970625
         },
         {
-          "accuracy" : 0.3333333333333333,
-          "attempts" : 15,
-          "correct" : 5,
+          "accuracy" : 0.3684210526315789,
+          "attempts" : 19,
+          "correct" : 7,
           "name" : "Kleine Septime",
-          "smoothed" : 0.36731487771739124
-        },
-        {
-          "accuracy" : 0.38095238095238093,
-          "attempts" : 21,
-          "correct" : 8,
-          "name" : "Große Sexte",
-          "smoothed" : 0.39936235991240493
+          "smoothed" : 0.3905505743905856
         },
         {
           "accuracy" : 0.4,
-          "attempts" : 10,
-          "correct" : 4,
-          "name" : "Reine Oktave",
-          "smoothed" : 0.4277540168766616
+          "attempts" : 20,
+          "correct" : 8,
+          "name" : "Reine Quarte",
+          "smoothed" : 0.41611301254949334
         },
         {
-          "accuracy" : 0.47368421052631576,
-          "attempts" : 19,
+          "accuracy" : 0.5,
+          "attempts" : 20,
+          "correct" : 10,
+          "name" : "Tritonus",
+          "smoothed" : 0.5
+        },
+        {
+          "accuracy" : 0.5294117647058824,
+          "attempts" : 17,
           "correct" : 9,
           "name" : "Große Terz",
-          "smoothed" : 0.47811011487811717
+          "smoothed" : 0.5239904805773069
         },
         {
-          "accuracy" : 0.5384615384615384,
-          "attempts" : 13,
-          "correct" : 7,
-          "name" : "Kleine Terz",
-          "smoothed" : 0.5296883906517196
-        },
-        {
-          "accuracy" : 0.5555555555555556,
-          "attempts" : 9,
-          "correct" : 5,
-          "name" : "Reine Quarte",
-          "smoothed" : 0.5389359581360579
-        },
-        {
-          "accuracy" : 0.5909090909090909,
-          "attempts" : 22,
-          "correct" : 13,
-          "name" : "Reine Quinte",
-          "smoothed" : 0.5773945885703672
-        },
-        {
-          "accuracy" : 0.631578947368421,
-          "attempts" : 19,
+          "accuracy" : 0.5714285714285714,
+          "attempts" : 21,
           "correct" : 12,
-          "name" : "Tritonus",
-          "smoothed" : 0.6094494256094144
-        },
-        {
-          "accuracy" : 0.6521739130434783,
-          "attempts" : 23,
-          "correct" : 15,
           "name" : "Große Septime",
-          "smoothed" : 0.630394611349547
+          "smoothed" : 0.5603825840525569
         },
         {
-          "accuracy" : 0.7058823529411765,
-          "attempts" : 17,
-          "correct" : 12,
+          "accuracy" : 0.75,
+          "attempts" : 12,
+          "correct" : 9,
           "name" : "Große Sekunde",
-          "smoothed" : 0.6679333640411486
+          "smoothed" : 0.6893748106251893
         },
         {
-          "accuracy" : 0.8235294117647058,
-          "attempts" : 17,
-          "correct" : 14,
+          "accuracy" : 0.7619047619047619,
+          "attempts" : 21,
+          "correct" : 16,
           "name" : "Kleine Sekunde",
-          "smoothed" : 0.7638952863503762
+          "smoothed" : 0.721402808192709
         }
       ],
       "itemStatsJeNiveau" : {
         "abitur" : [
           {
+            "accuracy" : 0.18181818181818182,
+            "attempts" : 11,
+            "correct" : 2,
+            "name" : "Kleine Terz",
+            "smoothed" : 0.2641763691246227
+          },
+          {
+            "accuracy" : 0.25,
+            "attempts" : 12,
+            "correct" : 3,
+            "name" : "Reine Oktave",
+            "smoothed" : 0.31062518937481065
+          },
+          {
+            "accuracy" : 0.2777777777777778,
+            "attempts" : 18,
+            "correct" : 5,
+            "name" : "Große Sexte",
+            "smoothed" : 0.31686323346274997
+          },
+          {
+            "accuracy" : 0.2857142857142857,
+            "attempts" : 14,
+            "correct" : 4,
+            "name" : "Reine Quinte",
+            "smoothed" : 0.3318536454129674
+          },
+          {
             "accuracy" : 0.3333333333333333,
             "attempts" : 18,
             "correct" : 6,
@@ -981,85 +1023,85 @@
             "smoothed" : 0.3626474250970625
           },
           {
-            "accuracy" : 0.3333333333333333,
-            "attempts" : 15,
-            "correct" : 5,
+            "accuracy" : 0.3684210526315789,
+            "attempts" : 19,
+            "correct" : 7,
             "name" : "Kleine Septime",
-            "smoothed" : 0.36731487771739124
-          },
-          {
-            "accuracy" : 0.38095238095238093,
-            "attempts" : 21,
-            "correct" : 8,
-            "name" : "Große Sexte",
-            "smoothed" : 0.39936235991240493
+            "smoothed" : 0.3905505743905856
           },
           {
             "accuracy" : 0.4,
-            "attempts" : 10,
-            "correct" : 4,
-            "name" : "Reine Oktave",
-            "smoothed" : 0.4277540168766616
+            "attempts" : 20,
+            "correct" : 8,
+            "name" : "Reine Quarte",
+            "smoothed" : 0.41611301254949334
           },
           {
-            "accuracy" : 0.47368421052631576,
-            "attempts" : 19,
+            "accuracy" : 0.5,
+            "attempts" : 20,
+            "correct" : 10,
+            "name" : "Tritonus",
+            "smoothed" : 0.5
+          },
+          {
+            "accuracy" : 0.5294117647058824,
+            "attempts" : 17,
             "correct" : 9,
             "name" : "Große Terz",
-            "smoothed" : 0.47811011487811717
+            "smoothed" : 0.5239904805773069
           },
           {
-            "accuracy" : 0.5384615384615384,
-            "attempts" : 13,
-            "correct" : 7,
-            "name" : "Kleine Terz",
-            "smoothed" : 0.5296883906517196
-          },
-          {
-            "accuracy" : 0.5555555555555556,
-            "attempts" : 9,
-            "correct" : 5,
-            "name" : "Reine Quarte",
-            "smoothed" : 0.5389359581360579
-          },
-          {
-            "accuracy" : 0.5909090909090909,
-            "attempts" : 22,
-            "correct" : 13,
-            "name" : "Reine Quinte",
-            "smoothed" : 0.5773945885703672
-          },
-          {
-            "accuracy" : 0.631578947368421,
-            "attempts" : 19,
+            "accuracy" : 0.5714285714285714,
+            "attempts" : 21,
             "correct" : 12,
-            "name" : "Tritonus",
-            "smoothed" : 0.6094494256094144
-          },
-          {
-            "accuracy" : 0.6521739130434783,
-            "attempts" : 23,
-            "correct" : 15,
             "name" : "Große Septime",
-            "smoothed" : 0.630394611349547
+            "smoothed" : 0.5603825840525569
           },
           {
-            "accuracy" : 0.7058823529411765,
-            "attempts" : 17,
-            "correct" : 12,
+            "accuracy" : 0.75,
+            "attempts" : 12,
+            "correct" : 9,
             "name" : "Große Sekunde",
-            "smoothed" : 0.6679333640411486
+            "smoothed" : 0.6893748106251893
           },
           {
-            "accuracy" : 0.8235294117647058,
-            "attempts" : 17,
-            "correct" : 14,
+            "accuracy" : 0.7619047619047619,
+            "attempts" : 21,
+            "correct" : 16,
             "name" : "Kleine Sekunde",
-            "smoothed" : 0.7638952863503762
+            "smoothed" : 0.721402808192709
           }
         ],
         "leicht" : [
           {
+            "accuracy" : 0.18181818181818182,
+            "attempts" : 11,
+            "correct" : 2,
+            "name" : "Kleine Terz",
+            "smoothed" : 0.2641763691246227
+          },
+          {
+            "accuracy" : 0.25,
+            "attempts" : 12,
+            "correct" : 3,
+            "name" : "Reine Oktave",
+            "smoothed" : 0.31062518937481065
+          },
+          {
+            "accuracy" : 0.2777777777777778,
+            "attempts" : 18,
+            "correct" : 5,
+            "name" : "Große Sexte",
+            "smoothed" : 0.31686323346274997
+          },
+          {
+            "accuracy" : 0.2857142857142857,
+            "attempts" : 14,
+            "correct" : 4,
+            "name" : "Reine Quinte",
+            "smoothed" : 0.3318536454129674
+          },
+          {
             "accuracy" : 0.3333333333333333,
             "attempts" : 18,
             "correct" : 6,
@@ -1067,85 +1109,85 @@
             "smoothed" : 0.3626474250970625
           },
           {
-            "accuracy" : 0.3333333333333333,
-            "attempts" : 15,
-            "correct" : 5,
+            "accuracy" : 0.3684210526315789,
+            "attempts" : 19,
+            "correct" : 7,
             "name" : "Kleine Septime",
-            "smoothed" : 0.36731487771739124
-          },
-          {
-            "accuracy" : 0.38095238095238093,
-            "attempts" : 21,
-            "correct" : 8,
-            "name" : "Große Sexte",
-            "smoothed" : 0.39936235991240493
+            "smoothed" : 0.3905505743905856
           },
           {
             "accuracy" : 0.4,
-            "attempts" : 10,
-            "correct" : 4,
-            "name" : "Reine Oktave",
-            "smoothed" : 0.4277540168766616
+            "attempts" : 20,
+            "correct" : 8,
+            "name" : "Reine Quarte",
+            "smoothed" : 0.41611301254949334
           },
           {
-            "accuracy" : 0.47368421052631576,
-            "attempts" : 19,
+            "accuracy" : 0.5,
+            "attempts" : 20,
+            "correct" : 10,
+            "name" : "Tritonus",
+            "smoothed" : 0.5
+          },
+          {
+            "accuracy" : 0.5294117647058824,
+            "attempts" : 17,
             "correct" : 9,
             "name" : "Große Terz",
-            "smoothed" : 0.47811011487811717
+            "smoothed" : 0.5239904805773069
           },
           {
-            "accuracy" : 0.5384615384615384,
-            "attempts" : 13,
-            "correct" : 7,
-            "name" : "Kleine Terz",
-            "smoothed" : 0.5296883906517196
-          },
-          {
-            "accuracy" : 0.5555555555555556,
-            "attempts" : 9,
-            "correct" : 5,
-            "name" : "Reine Quarte",
-            "smoothed" : 0.5389359581360579
-          },
-          {
-            "accuracy" : 0.5909090909090909,
-            "attempts" : 22,
-            "correct" : 13,
-            "name" : "Reine Quinte",
-            "smoothed" : 0.5773945885703672
-          },
-          {
-            "accuracy" : 0.631578947368421,
-            "attempts" : 19,
+            "accuracy" : 0.5714285714285714,
+            "attempts" : 21,
             "correct" : 12,
-            "name" : "Tritonus",
-            "smoothed" : 0.6094494256094144
-          },
-          {
-            "accuracy" : 0.6521739130434783,
-            "attempts" : 23,
-            "correct" : 15,
             "name" : "Große Septime",
-            "smoothed" : 0.630394611349547
+            "smoothed" : 0.5603825840525569
           },
           {
-            "accuracy" : 0.7058823529411765,
-            "attempts" : 17,
-            "correct" : 12,
+            "accuracy" : 0.75,
+            "attempts" : 12,
+            "correct" : 9,
             "name" : "Große Sekunde",
-            "smoothed" : 0.6679333640411486
+            "smoothed" : 0.6893748106251893
           },
           {
-            "accuracy" : 0.8235294117647058,
-            "attempts" : 17,
-            "correct" : 14,
+            "accuracy" : 0.7619047619047619,
+            "attempts" : 21,
+            "correct" : 16,
             "name" : "Kleine Sekunde",
-            "smoothed" : 0.7638952863503762
+            "smoothed" : 0.721402808192709
           }
         ],
         "mittel" : [
           {
+            "accuracy" : 0.18181818181818182,
+            "attempts" : 11,
+            "correct" : 2,
+            "name" : "Kleine Terz",
+            "smoothed" : 0.2641763691246227
+          },
+          {
+            "accuracy" : 0.25,
+            "attempts" : 12,
+            "correct" : 3,
+            "name" : "Reine Oktave",
+            "smoothed" : 0.31062518937481065
+          },
+          {
+            "accuracy" : 0.2777777777777778,
+            "attempts" : 18,
+            "correct" : 5,
+            "name" : "Große Sexte",
+            "smoothed" : 0.31686323346274997
+          },
+          {
+            "accuracy" : 0.2857142857142857,
+            "attempts" : 14,
+            "correct" : 4,
+            "name" : "Reine Quinte",
+            "smoothed" : 0.3318536454129674
+          },
+          {
             "accuracy" : 0.3333333333333333,
             "attempts" : 18,
             "correct" : 6,
@@ -1153,81 +1195,53 @@
             "smoothed" : 0.3626474250970625
           },
           {
-            "accuracy" : 0.3333333333333333,
-            "attempts" : 15,
-            "correct" : 5,
+            "accuracy" : 0.3684210526315789,
+            "attempts" : 19,
+            "correct" : 7,
             "name" : "Kleine Septime",
-            "smoothed" : 0.36731487771739124
-          },
-          {
-            "accuracy" : 0.38095238095238093,
-            "attempts" : 21,
-            "correct" : 8,
-            "name" : "Große Sexte",
-            "smoothed" : 0.39936235991240493
+            "smoothed" : 0.3905505743905856
           },
           {
             "accuracy" : 0.4,
-            "attempts" : 10,
-            "correct" : 4,
-            "name" : "Reine Oktave",
-            "smoothed" : 0.4277540168766616
+            "attempts" : 20,
+            "correct" : 8,
+            "name" : "Reine Quarte",
+            "smoothed" : 0.41611301254949334
           },
           {
-            "accuracy" : 0.47368421052631576,
-            "attempts" : 19,
+            "accuracy" : 0.5,
+            "attempts" : 20,
+            "correct" : 10,
+            "name" : "Tritonus",
+            "smoothed" : 0.5
+          },
+          {
+            "accuracy" : 0.5294117647058824,
+            "attempts" : 17,
             "correct" : 9,
             "name" : "Große Terz",
-            "smoothed" : 0.47811011487811717
+            "smoothed" : 0.5239904805773069
           },
           {
-            "accuracy" : 0.5384615384615384,
-            "attempts" : 13,
-            "correct" : 7,
-            "name" : "Kleine Terz",
-            "smoothed" : 0.5296883906517196
-          },
-          {
-            "accuracy" : 0.5555555555555556,
-            "attempts" : 9,
-            "correct" : 5,
-            "name" : "Reine Quarte",
-            "smoothed" : 0.5389359581360579
-          },
-          {
-            "accuracy" : 0.5909090909090909,
-            "attempts" : 22,
-            "correct" : 13,
-            "name" : "Reine Quinte",
-            "smoothed" : 0.5773945885703672
-          },
-          {
-            "accuracy" : 0.631578947368421,
-            "attempts" : 19,
+            "accuracy" : 0.5714285714285714,
+            "attempts" : 21,
             "correct" : 12,
-            "name" : "Tritonus",
-            "smoothed" : 0.6094494256094144
-          },
-          {
-            "accuracy" : 0.6521739130434783,
-            "attempts" : 23,
-            "correct" : 15,
             "name" : "Große Septime",
-            "smoothed" : 0.630394611349547
+            "smoothed" : 0.5603825840525569
           },
           {
-            "accuracy" : 0.7058823529411765,
-            "attempts" : 17,
-            "correct" : 12,
+            "accuracy" : 0.75,
+            "attempts" : 12,
+            "correct" : 9,
             "name" : "Große Sekunde",
-            "smoothed" : 0.6679333640411486
+            "smoothed" : 0.6893748106251893
           },
           {
-            "accuracy" : 0.8235294117647058,
-            "attempts" : 17,
-            "correct" : 14,
+            "accuracy" : 0.7619047619047619,
+            "attempts" : 21,
+            "correct" : 16,
             "name" : "Kleine Sekunde",
-            "smoothed" : 0.7638952863503762
+            "smoothed" : 0.721402808192709
           }
         ]
       },
@@ -1235,18 +1249,18 @@
 
       ],
       "practiceWeights" : {
-        "Große Sekunde" : 1.3301665898971287,
-        "Große Septime" : 1.4240134716261326,
-        "Große Sexte" : 2.0015941002189876,
-        "Große Terz" : 1.804724712804707,
-        "Kleine Sekunde" : 1.0902617841240596,
-        "Kleine Septime" : 2.081712805706522,
+        "Große Sekunde" : 1.2765629734370267,
+        "Große Septime" : 1.5990435398686076,
+        "Große Sexte" : 2.207841916343125,
+        "Große Terz" : 1.6900237985567328,
+        "Kleine Sekunde" : 1.1964929795182275,
+        "Kleine Septime" : 2.023623564023536,
         "Kleine Sexte" : 2.093381437257344,
-        "Kleine Terz" : 1.675779023370701,
-        "Reine Oktave" : 1.930614957808346,
-        "Reine Quarte" : 1.6526601046598552,
-        "Reine Quinte" : 1.556513528574082,
-        "Tritonus" : 1.476376435976464
+        "Kleine Terz" : 2.339559077188443,
+        "Reine Oktave" : 2.2234370265629733,
+        "Reine Quarte" : 1.9597174686262666,
+        "Reine Quinte" : 2.1703658864675814,
+        "Tritonus" : 1.75
       },
       "runCount" : 29,
       "runsUntilAdaptive" : 0,
@@ -1262,17 +1276,17 @@
       "trend" : [
         {
           "samples" : 21,
-          "value" : 0.47619047619047616,
+          "value" : 0.14285714285714285,
           "weekStart" : "2026-07-26T22:00:00Z"
         },
         {
           "samples" : 14,
-          "value" : 0.42857142857142855,
+          "value" : 0.2857142857142857,
           "weekStart" : "2026-08-02T22:00:00Z"
         },
         {
           "samples" : 21,
-          "value" : 0.38095238095238093,
+          "value" : 0.42857142857142855,
           "weekStart" : "2026-08-09T22:00:00Z"
         },
         {
@@ -1282,22 +1296,22 @@
         },
         {
           "samples" : 21,
-          "value" : 0.7142857142857143,
+          "value" : 0.5714285714285714,
           "weekStart" : "2026-08-23T22:00:00Z"
         },
         {
           "samples" : 14,
-          "value" : 0.6428571428571429,
+          "value" : 0.42857142857142855,
           "weekStart" : "2026-08-30T22:00:00Z"
         },
         {
           "samples" : 21,
-          "value" : 0.6666666666666666,
+          "value" : 0.5238095238095238,
           "weekStart" : "2026-09-06T22:00:00Z"
         },
         {
           "samples" : 28,
-          "value" : 0.75,
+          "value" : 0.8214285714285714,
           "weekStart" : "2026-09-13T22:00:00Z"
         }
       ]
@@ -1306,7 +1320,7 @@
       "barStats" : [
         {
           "assessed" : 14,
-          "averagePoints" : 1.2857142857142858,
+          "averagePoints" : 1.4285714285714286,
           "bar" : 0
         },
         {
@@ -1316,7 +1330,7 @@
         },
         {
           "assessed" : 14,
-          "averagePoints" : 1.5714285714285714,
+          "averagePoints" : 1.7142857142857142,
           "bar" : 2
         },
         {
@@ -1331,7 +1345,7 @@
       ],
       "funFacts" : [
         "Du hast hier schon 14 Diktate gemacht.",
-        "Am sichersten: Sekunde abwärts — 180 von 190."
+        "Am sichersten: Sekunde abwärts — 184 von 188."
       ],
       "geuebteTage" : [
         "2026-07-08T22:00:00Z",
@@ -1368,11 +1382,11 @@
         {
           "level" : "leicht",
           "stats" : {
-            "accuracy" : 0.625,
+            "accuracy" : 0.7,
             "attempts" : 40,
-            "correct" : 25,
+            "correct" : 28,
             "name" : "Leicht",
-            "smoothed" : 0.614046932593701
+            "smoothed" : 0.6824750921499215
           }
         },
         {
@@ -1388,25 +1402,25 @@
         {
           "level" : "abitur",
           "stats" : {
-            "accuracy" : 0.65625,
+            "accuracy" : 0.6875,
             "attempts" : 32,
-            "correct" : 21,
+            "correct" : 22,
             "name" : "Abi-Niveau",
-            "smoothed" : 0.639502700772287
+            "smoothed" : 0.6674032409267443
           }
         }
       ],
       "practiceWeights" : {
-        "Leitton zum Grundton" : 0.672475719786219,
-        "Quarte abwärts" : 1.2662838214352052,
-        "Quarte aufwärts" : 0.8078362896336867,
-        "Quinte abwärts" : 1.322035058887976,
-        "Quinte aufwärts" : 0.9879287920663309,
-        "Sekunde abwärts" : 0.6537440879563523,
-        "Sekunde aufwärts" : 0.7554003552324924,
-        "Terz abwärts" : 0.8358811293363093,
-        "Terz aufwärts" : 0.7559057840723631,
-        "Tonwiederholung" : 1.0851378185428584
+        "Leitton zum Grundton" : 1.1776976045710936,
+        "Quarte abwärts" : 0.8031259468740533,
+        "Quarte aufwärts" : 0.8031259468740533,
+        "Quinte abwärts" : 1.2081551265749626,
+        "Quinte aufwärts" : 0.8469252109582708,
+        "Sekunde abwärts" : 0.5771574048590087,
+        "Sekunde aufwärts" : 0.6073841278685097,
+        "Terz abwärts" : 0.8884927696047719,
+        "Terz aufwärts" : 0.9470874185525477,
+        "Tonwiederholung" : 1.3908252399287397
       },
       "runCount" : 14,
       "runsUntilAdaptive" : 6,
@@ -1422,12 +1436,12 @@
       "trend" : [
         {
           "samples" : 8,
-          "value" : 0.6875,
+          "value" : 0.5625,
           "weekStart" : "2026-07-26T22:00:00Z"
         },
         {
           "samples" : 4,
-          "value" : 0.75,
+          "value" : 1,
           "weekStart" : "2026-08-02T22:00:00Z"
         },
         {
@@ -1437,7 +1451,7 @@
         },
         {
           "samples" : 8,
-          "value" : 0.6875,
+          "value" : 0.5625,
           "weekStart" : "2026-08-16T22:00:00Z"
         },
         {
@@ -1447,17 +1461,17 @@
         },
         {
           "samples" : 4,
-          "value" : 0.5,
+          "value" : 0.75,
           "weekStart" : "2026-08-30T22:00:00Z"
         },
         {
           "samples" : 8,
-          "value" : 0.5625,
+          "value" : 0.875,
           "weekStart" : "2026-09-06T22:00:00Z"
         },
         {
           "samples" : 4,
-          "value" : 0.75,
+          "value" : 1,
           "weekStart" : "2026-09-13T22:00:00Z"
         }
       ]
@@ -1466,22 +1480,22 @@
       "barStats" : [
         {
           "assessed" : 22,
-          "averagePoints" : 1.5909090909090908,
+          "averagePoints" : 1.2727272727272727,
           "bar" : 0
         },
         {
           "assessed" : 22,
-          "averagePoints" : 1.6363636363636365,
+          "averagePoints" : 1.4090909090909092,
           "bar" : 1
         },
         {
           "assessed" : 22,
-          "averagePoints" : 1.3181818181818181,
+          "averagePoints" : 1.5909090909090908,
           "bar" : 2
         },
         {
           "assessed" : 22,
-          "averagePoints" : 1.5454545454545454,
+          "averagePoints" : 1.6818181818181819,
           "bar" : 3
         }
       ],
@@ -1491,7 +1505,7 @@
       ],
       "funFacts" : [
         "Du hast hier schon 22 Diktate gemacht.",
-        "Am sichersten: Viertel — 118 von 128."
+        "Am sichersten: Viertel — 114 von 118."
       ],
       "geuebteTage" : [
         "2026-07-07T22:00:00Z",
@@ -1536,11 +1550,11 @@
         {
           "level" : "leicht",
           "stats" : {
-            "accuracy" : 0.7083333333333334,
+            "accuracy" : 0.75,
             "attempts" : 48,
-            "correct" : 34,
+            "correct" : 36,
             "name" : "Leicht",
-            "smoothed" : 0.6928952810098454
+            "smoothed" : 0.7314743372118144
           }
         },
         {
@@ -1556,27 +1570,27 @@
         {
           "level" : "abitur",
           "stats" : {
-            "accuracy" : 0.8125,
+            "accuracy" : 0.6458333333333334,
             "attempts" : 48,
-            "correct" : 39,
+            "correct" : 31,
             "name" : "Abi-Niveau",
-            "smoothed" : 0.789342921514768
+            "smoothed" : 0.6350266967068918
           }
         }
       ],
       "practiceWeights" : {
-        "2 Achtel" : 0.7445962626886056,
-        "2 Sechzehntel + Achtel" : 0.8520630998218494,
-        "4 Sechzehntel" : 0.8884927696047719,
-        "Achtel + 2 Sechzehntel" : 0.8537627624182632,
-        "Achtel + Punktierte Viertel" : 0.8911568221216863,
-        "Achteltriole" : 0.9319657254546089,
-        "Halbe Note" : 0.9287917346684739,
-        "Punktierte Achtel + Sechzehntel" : 0.7855235949507734,
-        "Punktierte Viertel + Achtel" : 0.8520630998218494,
-        "Sechzehntel + Achtel + Sechzehntel" : 0.9879287920663309,
-        "Sechzehntel + Punktierte Achtel" : 0.7420167728408997,
-        "Viertel" : 0.7260439800487857
+        "2 Achtel" : 0.8623581593858793,
+        "2 Sechzehntel + Achtel" : 0.9111301254949331,
+        "4 Sechzehntel" : 0.7918858045800807,
+        "Achtel + 2 Sechzehntel" : 0.9732610607624949,
+        "Achtel + Punktierte Viertel" : 1.1218908597557913,
+        "Achteltriole" : 0.6488724453840731,
+        "Halbe Note" : 0.9980147589636641,
+        "Punktierte Achtel + Sechzehntel" : 0.8715212240472271,
+        "Punktierte Viertel + Achtel" : 1.0851378185428584,
+        "Sechzehntel + Achtel + Sechzehntel" : 1.0493901892206978,
+        "Sechzehntel + Punktierte Achtel" : 0.7198556882279684,
+        "Viertel" : 0.6214856009770062
       },
       "runCount" : 22,
       "runsUntilAdaptive" : 0,
@@ -1592,7 +1606,7 @@
       "trend" : [
         {
           "samples" : 12,
-          "value" : 0.6666666666666666,
+          "value" : 0.7083333333333334,
           "weekStart" : "2026-07-26T22:00:00Z"
         },
         {
@@ -1617,17 +1631,17 @@
         },
         {
           "samples" : 8,
-          "value" : 0.8125,
+          "value" : 0.6875,
           "weekStart" : "2026-08-30T22:00:00Z"
         },
         {
           "samples" : 8,
-          "value" : 0.8125,
+          "value" : 0.625,
           "weekStart" : "2026-09-06T22:00:00Z"
         },
         {
           "samples" : 12,
-          "value" : 0.7083333333333334,
+          "value" : 0.7916666666666666,
           "weekStart" : "2026-09-13T22:00:00Z"
         }
       ]
@@ -1635,95 +1649,95 @@
   },
   "moveStats" : [
     {
-      "accuracy" : 1,
-      "attempts" : 2,
-      "correct" : 2,
-      "name" : "Quinte abwärts",
-      "smoothed" : 0.6711859764448096
-    },
-    {
-      "accuracy" : 0.7272727272727273,
-      "attempts" : 22,
+      "accuracy" : 0.6666666666666666,
+      "attempts" : 24,
       "correct" : 16,
-      "name" : "Quarte abwärts",
-      "smoothed" : 0.6934864714259179
+      "name" : "Tonwiederholung",
+      "smoothed" : 0.6436699040285041
     },
     {
       "accuracy" : 0.8,
-      "attempts" : 30,
-      "correct" : 24,
-      "name" : "Tonwiederholung",
-      "smoothed" : 0.7659448725828566
+      "attempts" : 10,
+      "correct" : 8,
+      "name" : "Quinte abwärts",
+      "smoothed" : 0.716737949370015
     },
     {
-      "accuracy" : 1,
-      "attempts" : 6,
-      "correct" : 6,
-      "name" : "Quinte aufwärts",
-      "smoothed" : 0.8048284831734677
-    },
-    {
-      "accuracy" : 0.8857142857142857,
-      "attempts" : 70,
-      "correct" : 62,
-      "name" : "Terz abwärts",
-      "smoothed" : 0.8656475482654763
-    },
-    {
-      "accuracy" : 0.9285714285714286,
-      "attempts" : 28,
-      "correct" : 26,
-      "name" : "Quarte aufwärts",
-      "smoothed" : 0.8768654841465253
-    },
-    {
-      "accuracy" : 0.9259259259259259,
-      "attempts" : 54,
-      "correct" : 50,
-      "name" : "Terz aufwärts",
-      "smoothed" : 0.8976376863710548
-    },
-    {
-      "accuracy" : 0.9078947368421053,
-      "attempts" : 152,
-      "correct" : 138,
-      "name" : "Sekunde aufwärts",
-      "smoothed" : 0.897839857907003
-    },
-    {
-      "accuracy" : 1,
-      "attempts" : 24,
-      "correct" : 24,
+      "accuracy" : 0.7777777777777778,
+      "attempts" : 18,
+      "correct" : 14,
       "name" : "Leitton zum Grundton",
-      "smoothed" : 0.9310097120855124
+      "smoothed" : 0.7289209581715625
     },
     {
-      "accuracy" : 0.9473684210526315,
-      "attempts" : 190,
-      "correct" : 180,
+      "accuracy" : 0.8378378378378378,
+      "attempts" : 74,
+      "correct" : 62,
+      "name" : "Terz aufwärts",
+      "smoothed" : 0.8211650325789809
+    },
+    {
+      "accuracy" : 0.8666666666666667,
+      "attempts" : 60,
+      "correct" : 52,
+      "name" : "Terz abwärts",
+      "smoothed" : 0.8446028921580913
+    },
+    {
+      "accuracy" : 1,
+      "attempts" : 10,
+      "correct" : 10,
+      "name" : "Quinte aufwärts",
+      "smoothed" : 0.8612299156166917
+    },
+    {
+      "accuracy" : 1,
+      "attempts" : 12,
+      "correct" : 12,
+      "name" : "Quarte abwärts",
+      "smoothed" : 0.8787496212503787
+    },
+    {
+      "accuracy" : 1,
+      "attempts" : 12,
+      "correct" : 12,
+      "name" : "Quarte aufwärts",
+      "smoothed" : 0.8787496212503787
+    },
+    {
+      "accuracy" : 0.9701492537313433,
+      "attempts" : 134,
+      "correct" : 130,
+      "name" : "Sekunde aufwärts",
+      "smoothed" : 0.9570463488525961
+    },
+    {
+      "accuracy" : 0.9787234042553191,
+      "attempts" : 188,
+      "correct" : 184,
       "name" : "Sekunde abwärts",
-      "smoothed" : 0.9385023648174591
+      "smoothed" : 0.9691370380563965
     }
   ],
   "neutralWeight" : 1.75,
   "overview" : [
     {
-      "headline" : 0.541871921182266,
+      "headline" : 0.4482758620689655,
       "kind" : "interval",
       "samples" : 203
     },
     {
-      "headline" : 0.47783251231527096,
+      "headline" : 0.5123152709359606,
       "kind" : "chord",
       "samples" : 203
     },
     {
-      "headline" : 0.7613636363636364,
+      "headline" : 0.7443181818181818,
       "kind" : "rhythm",
       "samples" : 88
     },
     {
-      "headline" : 0.6696428571428571,
+      "headline" : 0.7053571428571429,
       "kind" : "melody",
       "samples" : 56
     }
