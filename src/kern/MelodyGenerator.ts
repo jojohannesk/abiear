@@ -250,6 +250,14 @@ function chooseTransposition(previous: number, motif: Motif, barIndex: number,
     const start = previous + rise;
     if (start > 7) continue;
 
+    // Im engen Fenster (leicht) nur Versetzungen, bei denen das Motiv in
+    // Takt 3 noch hineinpasst.
+    if (difficulty.degreeWindow) {
+      const hoechste = Math.max(...motif.steps), tiefste = Math.min(...motif.steps);
+      const naechster = barIndex === 1 ? start + 1 : start;
+      if (naechster + hoechste > difficulty.degreeWindow.upper || start + tiefste < difficulty.degreeWindow.lower) continue;
+    }
+
     let playable = true;
     for (const s of motif.steps) {
       const m = midi(start + s, key);
@@ -998,7 +1006,9 @@ export const MelodyGenerator = {
     const form: Form = diff.parallelChance > 0 && Rand.next() < diff.parallelChance ? "parallel" : "streng";
 
     if (diff.anchoredToTonic) {
-      diff.degreeWindow = { lower: start0 - 1, upper: start0 + Ambitus.highestAboveTonic(diff.ambitus) };
+      // Genau der Ambitus — mit dem Leitton darunter bevorzugte der Generator
+      // G-Dur (siehe Swift).
+      diff.degreeWindow = { lower: start0, upper: start0 + Ambitus.highestAboveTonic(diff.ambitus) };
     }
 
     // --- Ebene 2: das Motiv (Takt 1)
