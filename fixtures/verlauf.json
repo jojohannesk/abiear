@@ -1062,43 +1062,43 @@
       "seed" : 9001
     },
     {
-      "datei" : "{\"formatVersion\":1,\"zuletzt\":{\"tonarten\":[\"e-Moll\",\"h-Moll\",\"G-Dur\",\"B-Dur\",\"a-Moll\",\"d-Moll\",\"Es-Dur\",\"fis-Moll\",\"F-Dur\",\"A-Dur\",\"C-Dur\"]}}",
+      "datei" : "{\"formatVersion\":1,\"zuletzt\":{\"tonarten\":[\"fis-Moll\",\"Es-Dur\",\"e-Moll\",\"h-Moll\",\"F-Dur\",\"G-Dur\",\"d-Moll\",\"A-Dur\",\"a-Moll\",\"C-Dur\",\"D-Dur\"]}}",
       "laeufe" : [
         [
+          "D-Dur"
+        ],
+        [
           "C-Dur"
-        ],
-        [
-          "G-Dur"
-        ],
-        [
-          "A-Dur"
-        ],
-        [
-          "F-Dur"
-        ],
-        [
-          "fis-Moll"
         ],
         [
           "Es-Dur"
         ],
         [
-          "d-Moll"
-        ],
-        [
           "a-Moll"
         ],
         [
-          "B-Dur"
+          "A-Dur"
+        ],
+        [
+          "d-Moll"
         ],
         [
           "G-Dur"
+        ],
+        [
+          "F-Dur"
         ],
         [
           "h-Moll"
         ],
         [
           "e-Moll"
+        ],
+        [
+          "Es-Dur"
+        ],
+        [
+          "fis-Moll"
         ]
       ],
       "mode" : "melody",
@@ -1352,211 +1352,211 @@
       "seed" : 9003
     },
     {
-      "datei" : "{\"formatVersion\":1,\"zuletzt\":{\"akkorde\":[\"Verminderter Septakkord\",\"Übermäßig\",\"Moll mit Sixte ajoutée\",\"Dur\",\"Dur mit Sixte ajoutée\",\"Dur7 (Dominantseptakkord)\",\"Moll7\",\"DurMaj7\",\"Moll\"],\"intervalle\":[\"Große Terz\",\"Große Sekunde\",\"Große Sexte\",\"Kleine Terz\",\"Kleine Sekunde\",\"Tritonus\",\"Reine Quinte\",\"Große Septime\",\"Kleine Septime\",\"Kleine Sexte\",\"Reine Oktave\",\"Reine Quarte\"],\"tonarten\":[\"a-Moll\",\"A-Dur\",\"G-Dur\",\"D-Dur\",\"d-Moll\",\"F-Dur\",\"Es-Dur\",\"g-Moll\",\"fis-Moll\",\"h-Moll\",\"e-Moll\"]}}",
+      "datei" : "{\"formatVersion\":1,\"zuletzt\":{\"akkorde\":[\"DurMaj7\",\"Moll7\",\"Moll\",\"Übermäßig\",\"Dur7 (Dominantseptakkord)\",\"Dur mit Sixte ajoutée\",\"Dur\",\"Verminderter Septakkord\",\"Moll mit Sixte ajoutée\"],\"intervalle\":[\"Kleine Septime\",\"Reine Oktave\",\"Große Sexte\",\"Reine Quarte\",\"Kleine Terz\",\"Kleine Sexte\",\"Große Sekunde\",\"Kleine Sekunde\",\"Tritonus\",\"Große Septime\",\"Reine Quinte\",\"Große Terz\"],\"tonarten\":[\"A-Dur\",\"G-Dur\",\"Es-Dur\",\"D-Dur\",\"d-Moll\",\"C-Dur\",\"F-Dur\",\"B-Dur\",\"c-Moll\",\"g-Moll\",\"e-Moll\"]}}",
       "laeufe" : [
         [
           "e-Moll",
-          "Kleine Sekunde",
-          "Große Septime",
-          "Kleine Septime",
-          "Große Sexte",
-          "Reine Oktave",
-          "Reine Quarte",
-          "Große Terz",
-          "Dur mit Sixte ajoutée",
-          "Moll mit Sixte ajoutée",
-          "Übermäßig",
-          "Moll7",
-          "Dur",
-          "Dur7 (Dominantseptakkord)",
-          "DurMaj7"
-        ],
-        [
-          "h-Moll",
-          "Reine Quinte",
           "Kleine Terz",
-          "Kleine Sexte",
-          "Große Sekunde",
           "Große Septime",
-          "Kleine Septime",
+          "Große Terz",
+          "Große Sexte",
+          "Kleine Sekunde",
+          "Reine Oktave",
           "Tritonus",
-          "Moll",
+          "Verminderter Septakkord",
+          "Übermäßig",
           "Dur mit Sixte ajoutée",
+          "Moll7",
           "Moll mit Sixte ajoutée",
           "Dur7 (Dominantseptakkord)",
-          "Moll7",
-          "Verminderter Septakkord",
           "Dur"
         ],
         [
-          "A-Dur",
-          "Kleine Sexte",
-          "Kleine Sekunde",
-          "Große Sexte",
-          "Reine Quinte",
-          "Reine Oktave",
+          "G-Dur",
           "Reine Quarte",
+          "Kleine Sexte",
           "Kleine Terz",
-          "DurMaj7",
-          "Dur mit Sixte ajoutée",
-          "Moll mit Sixte ajoutée",
-          "Moll",
-          "Dur7 (Dominantseptakkord)",
-          "Dur",
-          "Übermäßig"
-        ],
-        [
-          "fis-Moll",
           "Kleine Septime",
+          "Reine Quinte",
           "Große Sekunde",
           "Große Terz",
-          "Reine Oktave",
-          "Kleine Sexte",
-          "Große Septime",
-          "Kleine Sekunde",
+          "Moll",
           "DurMaj7",
-          "Moll7",
           "Moll mit Sixte ajoutée",
           "Dur mit Sixte ajoutée",
           "Verminderter Septakkord",
-          "Übermäßig",
-          "DurMaj7"
+          "Moll7",
+          "Übermäßig"
         ],
         [
           "g-Moll",
-          "Reine Quarte",
-          "Tritonus",
           "Große Sexte",
-          "Große Terz",
-          "Reine Quinte",
+          "Kleine Sekunde",
+          "Tritonus",
           "Große Sekunde",
-          "Große Sekunde",
+          "Kleine Septime",
+          "Reine Oktave",
+          "Große Septime",
+          "Moll",
+          "Dur7 (Dominantseptakkord)",
+          "DurMaj7",
+          "Dur mit Sixte ajoutée",
           "Dur7 (Dominantseptakkord)",
           "Dur",
-          "Moll7",
-          "Moll mit Sixte ajoutée",
-          "Dur mit Sixte ajoutée",
+          "Moll mit Sixte ajoutée"
+        ],
+        [
+          "c-Moll",
+          "Kleine Terz",
+          "Reine Quinte",
+          "Kleine Sexte",
+          "Reine Quarte",
+          "Große Sexte",
+          "Große Septime",
+          "Große Terz",
           "Moll",
-          "Dur7 (Dominantseptakkord)"
+          "Moll7",
+          "Übermäßig",
+          "DurMaj7",
+          "Dur",
+          "Dur7 (Dominantseptakkord)",
+          "Verminderter Septakkord"
+        ],
+        [
+          "B-Dur",
+          "Kleine Sekunde",
+          "Tritonus",
+          "Reine Oktave",
+          "Kleine Septime",
+          "Reine Quinte",
+          "Große Sexte",
+          "Große Septime",
+          "Moll mit Sixte ajoutée",
+          "Moll7",
+          "Dur mit Sixte ajoutée",
+          "Dur7 (Dominantseptakkord)",
+          "Moll",
+          "Übermäßig",
+          "Moll7"
+        ],
+        [
+          "F-Dur",
+          "Kleine Terz",
+          "Reine Quarte",
+          "Kleine Sexte",
+          "Große Sekunde",
+          "Tritonus",
+          "Große Terz",
+          "Reine Quinte",
+          "DurMaj7",
+          "Dur",
+          "Verminderter Septakkord",
+          "Dur",
+          "Dur7 (Dominantseptakkord)",
+          "Dur mit Sixte ajoutée",
+          "Übermäßig"
+        ],
+        [
+          "C-Dur",
+          "Reine Oktave",
+          "Große Sexte",
+          "Kleine Sekunde",
+          "Reine Quarte",
+          "Kleine Septime",
+          "Kleine Terz",
+          "Reine Oktave",
+          "Moll",
+          "Dur7 (Dominantseptakkord)",
+          "Moll mit Sixte ajoutée",
+          "Dur",
+          "DurMaj7",
+          "Moll7",
+          "Übermäßig"
+        ],
+        [
+          "d-Moll",
+          "Große Sexte",
+          "Große Sekunde",
+          "Große Septime",
+          "Kleine Sexte",
+          "Kleine Sexte",
+          "Große Terz",
+          "Tritonus",
+          "Verminderter Septakkord",
+          "Dur7 (Dominantseptakkord)",
+          "Übermäßig",
+          "Moll",
+          "Dur mit Sixte ajoutée",
+          "DurMaj7",
+          "Moll mit Sixte ajoutée"
+        ],
+        [
+          "D-Dur",
+          "Reine Quinte",
+          "Kleine Septime",
+          "Große Sexte",
+          "Kleine Terz",
+          "Reine Quarte",
+          "Große Sekunde",
+          "Kleine Sekunde",
+          "Übermäßig",
+          "Dur",
+          "Moll7",
+          "Dur7 (Dominantseptakkord)",
+          "Verminderter Septakkord",
+          "Verminderter Septakkord",
+          "DurMaj7"
         ],
         [
           "Es-Dur",
           "Reine Oktave",
-          "Tritonus",
-          "Kleine Terz",
-          "Reine Quarte",
-          "Kleine Septime",
-          "Große Sexte",
+          "Große Septime",
+          "Große Sekunde",
           "Kleine Sexte",
-          "Moll mit Sixte ajoutée",
-          "Verminderter Septakkord",
-          "Übermäßig",
-          "Moll mit Sixte ajoutée",
-          "Dur",
+          "Große Sexte",
+          "Kleine Septime",
+          "Große Terz",
           "Dur mit Sixte ajoutée",
-          "DurMaj7"
-        ],
-        [
-          "F-Dur",
-          "Reine Quinte",
-          "Kleine Sekunde",
-          "Reine Oktave",
-          "Große Septime",
-          "Kleine Septime",
-          "Tritonus",
-          "Kleine Terz",
-          "Dur",
-          "Dur7 (Dominantseptakkord)",
-          "Moll7",
           "Moll",
+          "Moll7",
           "Moll mit Sixte ajoutée",
           "Verminderter Septakkord",
-          "DurMaj7"
-        ],
-        [
-          "d-Moll",
-          "Reine Quarte",
-          "Große Sexte",
-          "Große Sekunde",
-          "Kleine Sexte",
-          "Reine Quinte",
-          "Kleine Septime",
-          "Kleine Sekunde",
-          "Dur",
-          "Moll7",
-          "Dur7 (Dominantseptakkord)",
           "Verminderter Septakkord",
-          "Übermäßig",
-          "Moll7",
-          "Dur mit Sixte ajoutée"
-        ],
-        [
-          "D-Dur",
-          "Große Terz",
-          "Große Septime",
-          "Tritonus",
-          "Reine Oktave",
-          "Große Terz",
-          "Große Sekunde",
-          "Reine Quarte",
-          "Moll mit Sixte ajoutée",
-          "DurMaj7",
-          "Verminderter Septakkord",
-          "Dur",
-          "Übermäßig",
-          "Moll7",
-          "Dur7 (Dominantseptakkord)"
+          "Dur"
         ],
         [
           "G-Dur",
-          "Kleine Sexte",
-          "Kleine Sekunde",
-          "Große Septime",
-          "Kleine Septime",
+          "Reine Quarte",
+          "Reine Oktave",
           "Reine Quinte",
+          "Große Septime",
           "Tritonus",
-          "Kleine Terz",
-          "Moll mit Sixte ajoutée",
-          "Moll",
+          "Kleine Sekunde",
+          "Kleine Septime",
+          "Dur7 (Dominantseptakkord)",
+          "Übermäßig",
+          "Moll7",
           "Dur mit Sixte ajoutée",
           "DurMaj7",
-          "Dur",
-          "Moll7",
-          "Dur mit Sixte ajoutée"
+          "Moll mit Sixte ajoutée",
+          "Verminderter Septakkord"
         ],
         [
           "A-Dur",
-          "Große Terz",
           "Große Sekunde",
-          "Reine Oktave",
-          "Große Sexte",
           "Kleine Sexte",
+          "Kleine Terz",
+          "Reine Quarte",
+          "Große Sexte",
+          "Reine Oktave",
           "Kleine Septime",
-          "Große Septime",
-          "Übermäßig",
-          "Moll mit Sixte ajoutée",
+          "Dur",
+          "Dur mit Sixte ajoutée",
           "Dur7 (Dominantseptakkord)",
-          "Verminderter Septakkord",
           "Übermäßig",
           "Moll",
-          "DurMaj7"
-        ],
-        [
-          "a-Moll",
-          "Reine Quinte",
-          "Tritonus",
-          "Kleine Sekunde",
-          "Kleine Terz",
-          "Große Sexte",
-          "Große Sekunde",
-          "Große Terz",
           "Moll7",
-          "Dur7 (Dominantseptakkord)",
-          "Dur mit Sixte ajoutée",
-          "Dur",
-          "Moll mit Sixte ajoutée",
-          "Übermäßig",
-          "Verminderter Septakkord"
+          "DurMaj7"
         ]
       ],
       "mode" : "mix",

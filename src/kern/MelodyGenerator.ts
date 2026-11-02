@@ -97,6 +97,8 @@ interface Difficulty {
   literalRestatement: number;
   /** Anteil der Varianten mit gespiegeltem Schweif (Gegenbewegung). */
   mirrorTail: number;
+  /** Wie oft Takt 2 die erste Takthälfte des Motivrhythmus übernimmt. */
+  relatedContinuation: number;
   ambitus: AmbitusRule;
   profile: AdaptiveProfile;
   strictPeak: boolean;
@@ -108,17 +110,17 @@ function difficultyFor(level: DictationLevel): Difficulty {
     case "leicht":
       return { level, maxLeap: 2, maxLeapSemitones: 4, allowedDurations: new Set([0.5, 1.0, 2.0]),
         figureProbability: 0, anchoredToTonic: true, simpleKeysOnly: true, parallelChance: 0,
-        literalRestatement: 0.85, mirrorTail: 0,
+        literalRestatement: 0.85, mirrorTail: 0, relatedContinuation: 0,
         ambitus: "fifthAboveTonic", profile: NEUTRAL, strictPeak: false, degreeWindow: null };
     case "mittel":
       return { level, maxLeap: 4, maxLeapSemitones: 7, allowedDurations: null,
         figureProbability: 0.20, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.29,
-        literalRestatement: 0.7, mirrorTail: 0.5,
+        literalRestatement: 0.7, mirrorTail: 0.5, relatedContinuation: 0.5,
         ambitus: "octaveFromTonic", profile: NEUTRAL, strictPeak: true, degreeWindow: null };
     case "abitur":
       return { level, maxLeap: 4, maxLeapSemitones: 7, allowedDurations: null,
-        figureProbability: 0.55, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.34,
-        literalRestatement: 0.6, mirrorTail: 0.5,
+        figureProbability: 0.30, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.34,
+        literalRestatement: 0.6, mirrorTail: 0.5, relatedContinuation: 0.5,
         ambitus: "ninthAnchoredToTonic", profile: NEUTRAL, strictPeak: true, degreeWindow: null };
   }
 }
@@ -335,9 +337,18 @@ export function longestCommonRun(a: readonly number[], b: readonly number[]): nu
 /** Takt 2: die Fortführung zum Halbschluss — bewusst nicht das Motiv. */
 function continuationBar(target: number, startDegree: number, barIndex: number,
                          previousDegree: number | null, motifSteps: readonly number[],
+                         motifRhythm: readonly RhythmSlot[],
                          schema: readonly number[], key: MusicKey, difficulty: Difficulty): Bar | null {
+  // Rhythmisch verwandt: die erste Takthälfte wie im Motiv, sofern dort kein
+  // Ton über die Taktmitte reicht.
+  let vorgabe: RhythmSlot[] = [];
+  if (difficulty.relatedContinuation > 0 && Rand.next() < difficulty.relatedContinuation) {
+    const haelfte = motifRhythm.filter((r) => r.beat < 2.0);
+    if (Math.abs(haelfte.reduce((a, r) => a + r.dur, 0) - 2.0) < 1e-9) vorgabe = haelfte;
+  }
+
   for (let t = 0; t < 14; t++) {
-    const rhythm = barRhythm("continuation", difficulty);
+    const rhythm = barRhythm("continuation", difficulty, vorgabe);
     if (!rhythm) continue;
     const line = buildLine(rhythm, barIndex, startDegree, target, false, previousDegree, schema, key, difficulty);
     if (!line) continue;
@@ -415,19 +426,32 @@ function parallelBar(motif: Motif, start: number, vordersatzMax: number, tonic: 
 }
 
 /** Setzt höchstens eine Figur aus dem Rhythmusvokabular in die Melodie. */
+/** Setzt höchstens eine Figur aus dem Rhythmusvokabular in die Melodie —
+ *  in Takt 2 oder 4, oder motivisch in Takt 1 und 3 an derselben Stelle,
+ *  nie allein in einem Motivtakt. */
 function insertRhythmicFigure(bars: Bar[], key: MusicKey, difficulty: Difficulty): void {
   if (!(Rand.next() < difficulty.figureProbability)) return;
 
-  const barChoice: DegreeWeight[] = [
-    { degree: 0, weight: 0.10 }, { degree: 1, weight: 0.25 },
-    { degree: 2, weight: 0.35 }, { degree: 3, weight: 0.30 },
+  // 1 = Takt 2, 3 = Takt 4, 0 = Takt 1 und 3 gemeinsam
+  const choice: DegreeWeight[] = [
+    { degree: 1, weight: 0.35 }, { degree: 3, weight: 0.30 }, { degree: 0, weight: 0.35 },
   ];
-  const barIdx = weightedPick(barChoice);
-  const bar = bars[barIdx];
+  const ziel = weightedPick(choice);
+  const motivisch = ziel === 0;
+  const bar = bars[ziel];
 
   const candidates: number[] = [];
   for (let i = 0; i < bar.rhythm.length; i++) {
-    if (bar.rhythm[i].dur === 1.0 && i + 1 < bar.rhythm.length) candidates.push(i);
+    if (bar.rhythm[i].dur !== 1.0 || i + 1 >= bar.rhythm.length) continue;
+    if (motivisch) {
+      const t3 = bars[2];
+      if (t3.rhythm.length !== bar.rhythm.length) continue;
+      if (!t3.rhythm.every((r, k) => r.dur === bar.rhythm[k].dur && r.beat === bar.rhythm[k].beat)) continue;
+      const versatz = t3.degrees[i] - bar.degrees[i];
+      if (t3.degrees[i + 1] - bar.degrees[i + 1] !== versatz) continue;
+      if (i > 0 && t3.degrees[i - 1] - bar.degrees[i - 1] !== versatz) continue;
+    }
+    candidates.push(i);
   }
   if (candidates.length === 0) return;
   const idx = candidates[Rand.index(candidates.length)];
@@ -436,41 +460,53 @@ function insertRhythmicFigure(bars: Bar[], key: MusicKey, difficulty: Difficulty
   if (cells.length === 0) return;
   const cell = WeightedSampler.sample(cells, (c) => c.weight);
 
-  const from = bar.degrees[idx];
-  const target = bar.degrees[idx + 1];
-  const line = figureLine(from, target, cell.offsets.length);
+  const line = figureLine(bar.degrees[idx], bar.degrees[idx + 1], cell.offsets.length);
   if (!line) return;
 
-  const targetIsFinal = barIdx === 3 && idx + 1 === bar.rhythm.length - 1;
-  if (targetIsFinal) {
-    if (Math.abs(line[line.length - 1] - target) !== 1) return;
-  }
+  const eingesetzt = (barIdx: number, line: number[]): Bar | null => {
+    const bar = bars[barIdx];
+    const target = bar.degrees[idx + 1];
+    const targetIsFinal = barIdx === 3 && idx + 1 === bar.rhythm.length - 1;
+    if (targetIsFinal && Math.abs(line[line.length - 1] - target) !== 1) return null;
 
-  const chain: number[] = [];
-  if (idx > 0) chain.push(bar.degrees[idx - 1]);
-  chain.push(...line);
-  chain.push(target);
-  for (let k = 1; k < chain.length; k++) {
-    if (!isSingableStep(chain[k - 1], chain[k], key, difficulty)) return;
-  }
-  for (const g of line) {
-    const m = midi(g, key);
-    if (m < hardMin || m > hardMax) return;
-  }
+    const chain: number[] = [];
+    if (idx > 0) chain.push(bar.degrees[idx - 1]);
+    chain.push(...line);
+    chain.push(target);
+    for (let k = 1; k < chain.length; k++) {
+      if (!isSingableStep(chain[k - 1], chain[k], key, difficulty)) return null;
+    }
+    for (const g of line) {
+      const m = midi(g, key);
+      if (m < hardMin || m > hardMax) return null;
+    }
 
-  const beat = bar.rhythm[idx].beat;
-  const slots: RhythmSlot[] = [];
-  for (let i = 0; i < cell.offsets.length; i++) {
-    const off = cell.offsets[i];
-    const next = i + 1 < cell.offsets.length ? cell.offsets[i + 1] : cell.duration;
-    slots.push({ dur: next - off, beat: beat + off });
-  }
+    const beat = bar.rhythm[idx].beat;
+    const slots: RhythmSlot[] = [];
+    for (let i = 0; i < cell.offsets.length; i++) {
+      const off = cell.offsets[i];
+      const next = i + 1 < cell.offsets.length ? cell.offsets[i + 1] : cell.duration;
+      slots.push({ dur: next - off, beat: beat + off });
+    }
 
-  const newRhythm = bar.rhythm.slice();
-  const newDegrees = bar.degrees.slice();
-  newRhythm.splice(idx, 1, ...slots);
-  newDegrees.splice(idx, 1, ...line);
-  bars[barIdx] = { rhythm: newRhythm, degrees: newDegrees };
+    const newRhythm = bar.rhythm.slice();
+    const newDegrees = bar.degrees.slice();
+    newRhythm.splice(idx, 1, ...slots);
+    newDegrees.splice(idx, 1, ...line);
+    return { rhythm: newRhythm, degrees: newDegrees };
+  };
+
+  const erster = eingesetzt(ziel, line);
+  if (!erster) return;
+  if (motivisch) {
+    const versatz = bars[2].degrees[idx] - bars[0].degrees[idx];
+    const dritter = eingesetzt(2, line.map((g) => g + versatz));
+    if (!dritter) return;
+    bars[0] = erster;
+    bars[2] = dritter;
+    return;
+  }
+  bars[ziel] = erster;
 }
 
 /** Tonfolge einer eingesetzten Figur: Durchgang oder Umspielung. */
@@ -647,9 +683,9 @@ function weighted(g: SlotGroup, w: number): SlotGroup {
 }
 
 /** Baut den Rhythmus eines Taktes; das Motiv braucht mindestens zwei Notenwerte. */
-function barRhythm(role: BarRole, difficulty: Difficulty): RhythmSlot[] | null {
+function barRhythm(role: BarRole, difficulty: Difficulty, prefix: readonly RhythmSlot[] = []): RhythmSlot[] | null {
   for (let t = 0; t < 12; t++) {
-    const candidate = buildBarRhythm(role, difficulty);
+    const candidate = buildBarRhythm(role, difficulty, prefix);
     if (!candidate) continue;
     if (role === "motif" && new Set(candidate.map((s) => s.dur)).size < 2) continue;
     return candidate;
@@ -694,11 +730,11 @@ function rhythmOptions(role: BarRole, level: DictationLevel, pos: number): SlotG
         : [weighted(half, 0.50), weighted(quarter, 0.50)];
     case "motif/abitur":
       return vorn
-        ? [weighted(quarter, 0.24), weighted(twoEighths, 0.30), weighted(dottedQuarterEighth, 0.12),
-           weighted(eighthDottedQuarter, 0.10), weighted(dottedEighthSixteenth, 0.10),
-           weighted(eighthTwoSixteenths, 0.08), weighted(twoSixteenthsEighth, 0.06)]
-        : [weighted(quarter, 0.28), weighted(twoEighths, 0.26), weighted(half, 0.06), weighted(dottedQuarterEighth, 0.14),
-           weighted(dottedEighthSixteenth, 0.12), weighted(fourSixteenths, 0.06), weighted(eighthTwoSixteenths, 0.08)];
+        ? [weighted(quarter, 0.20), weighted(twoEighths, 0.26), weighted(dottedQuarterEighth, 0.12),
+           weighted(eighthDottedQuarter, 0.10), weighted(dottedEighthSixteenth, 0.14),
+           weighted(eighthTwoSixteenths, 0.10), weighted(twoSixteenthsEighth, 0.08)]
+        : [weighted(quarter, 0.24), weighted(twoEighths, 0.24), weighted(half, 0.06), weighted(dottedQuarterEighth, 0.14),
+           weighted(dottedEighthSixteenth, 0.14), weighted(fourSixteenths, 0.06), weighted(eighthTwoSixteenths, 0.10)];
     case "cadence/abitur":
       return vorn
         ? [weighted(twoEighths, 0.34), weighted(quarter, 0.18), weighted(dottedQuarterEighth, 0.12),
@@ -709,9 +745,10 @@ function rhythmOptions(role: BarRole, level: DictationLevel, pos: number): SlotG
   }
 }
 
-function buildBarRhythm(role: BarRole, difficulty: Difficulty): RhythmSlot[] | null {
-  const beats: RhythmSlot[] = [];
-  let pos = 0.0;
+/** `prefix`: schon feststehender Taktanfang; gezogen wird nur der Rest. */
+function buildBarRhythm(role: BarRole, difficulty: Difficulty, prefix: readonly RhythmSlot[] = []): RhythmSlot[] | null {
+  const beats: RhythmSlot[] = [...prefix];
+  let pos = prefix.reduce((a, r) => a + r.dur, 0);
 
   while (pos < 4.0) {
     const remaining = 4.0 - pos;
@@ -866,7 +903,7 @@ export const MelodyGenerator = {
 
     // --- Ebene 3: Ableitungen
     const bar2 = continuationBar(halfCadence, start1, 1, bar1Degrees[bar1Degrees.length - 1],
-                                 stepPattern(bar1Degrees), schema, keyCopy, diff);
+                                 stepPattern(bar1Degrees), motifRhythm, schema, keyCopy, diff);
     if (!bar2) return null;
 
     const bar3 = form === "streng"
