@@ -81,6 +81,16 @@ export const DictationLevels = {
     return level === "abitur" ? 3 : 1;
   },
 
+  /** Wie oft Takt 3 im Rhythmusdiktat bewusst Takt 1 aufgreift. */
+  taktDreiAufgreifen(_level: DictationLevel): number {
+    return 0.3;
+  },
+
+  /** Ob ein ganzer Takt wörtlich wiederkehren darf — im Abitur nie. */
+  woertlicheTaktwiederholung(level: DictationLevel): boolean {
+    return level !== "abitur";
+  },
+
   /** Ob im Diktat mindestens eine Punktierung vorkommen muss. */
   requiresDottedFigure(level: DictationLevel): boolean {
     return level !== "leicht";

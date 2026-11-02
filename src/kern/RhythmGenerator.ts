@@ -58,10 +58,16 @@ function figure(cell: RhythmCell, startBeat: number): RhythmFigure {
 
 const weightOf = (e: PoolEntry) => e.currentWeight;
 
-/** Zieht einen vollständigen 4/4-Takt schlagweise. Mutiert beide Pools. */
-function buildBar(pool1: PoolEntry[], pool2: PoolEntry[]): RhythmFigure[] {
-  const barData: RhythmFigure[] = [];
-  let beat = 0;
+/** Gleiche Zellen auf gleichen Zählzeiten. */
+function gleicherTakt(a: readonly RhythmFigure[], b: readonly RhythmFigure[]): boolean {
+  return a.length === b.length && a.every((f, i) => f.id === b[i].id && f.startBeat === b[i].startBeat);
+}
+
+/** Zieht einen vollständigen 4/4-Takt schlagweise. Mutiert beide Pools.
+ *  `kopf`: schon feststehender Taktanfang (Rückbezug auf Takt 1). */
+function buildBar(pool1: PoolEntry[], pool2: PoolEntry[], kopf: readonly RhythmFigure[] = []): RhythmFigure[] {
+  const barData: RhythmFigure[] = [...kopf];
+  let beat = kopf.reduce((a, f) => a + f.duration, 0);
 
   while (beat < 4) {
     const use2Beat = pool2.length > 0 && (beat === 0 || beat === 2) && Rand.next() < 0.3;
@@ -98,10 +104,11 @@ export const RhythmGenerator = {
   /**
    * Erzeugt vier Takte à 4/4 aus dem Vokabular des gewählten Niveaus.
    *
-   * Schlagweise gedacht: je Zählzeit eine Zelle, keine Motivik. Das
-   * Decay-System halbiert das Gewicht einer gerade verwendeten Zelle und
-   * erholt die übrigen um Faktor 1.3 (gedeckelt auf ihr Basisgewicht); nach
-   * Takt 2 werden alle Gewichte zurückgesetzt.
+   * Schlagweise gedacht: je Zählzeit eine Zelle. Das Decay-System halbiert
+   * das Gewicht einer gerade verwendeten Zelle und erholt die übrigen um
+   * Faktor 1.3 (gedeckelt auf ihr Basisgewicht); nach Takt 2 werden alle
+   * Gewichte zurückgesetzt. Takt 3 greift Takt 1 mitunter auf; im Abitur
+   * kehrt kein Takt wörtlich wieder.
    */
   generate(level: DictationLevel = DictationLevels.standard,
            profile: AdaptiveProfile = NEUTRAL): RhythmFigure[][] {
@@ -127,14 +134,28 @@ export const RhythmGenerator = {
         // Der ganze Takt wird neu gezogen, wenn zu wenige verschiedene
         // Vokabeln drin sind — und der Pool dabei auf den Stand vor dem
         // Takt zurückgesetzt.
+        // Takt 3: Rückbezug auf Takt 1 — wörtlich (nicht im Abitur) oder
+        // mit dessen erster Takthälfte als festem Anfang.
+        let kopf: RhythmFigure[] = [];
+        if (bar === 2 && Rand.next() < DictationLevels.taktDreiAufgreifen(level)) {
+          if (DictationLevels.woertlicheTaktwiederholung(level) && Rand.next() < 0.4) {
+            dictation.push(dictation[0]);
+            continue;
+          }
+          kopf = dictation[0].filter((f) => f.startBeat < 2);
+        }
+
         const saved1 = kopie(pool1);
         const saved2 = kopie(pool2);
         let barData: RhythmFigure[] = [];
 
         for (let barAttempt = 0; barAttempt < 24; barAttempt++) {
           if (barAttempt > 0) { pool1 = kopie(saved1); pool2 = kopie(saved2); }
-          barData = buildBar(pool1, pool2);
-          if (new Set(barData.map((f) => f.id)).size >= minDistinct) break;
+          barData = buildBar(pool1, pool2, kopf);
+          if (new Set(barData.map((f) => f.id)).size < minDistinct) continue;
+          if (kopf.length > 0 && gleicherTakt(barData, dictation[0])) continue;
+          if (!DictationLevels.woertlicheTaktwiederholung(level) && dictation.some((t) => gleicherTakt(t, barData))) continue;
+          break;
         }
 
         dictation.push(barData);
@@ -150,7 +171,13 @@ export const RhythmGenerator = {
       const punktierung = !DictationLevels.requiresDottedFigure(level)
         || alle.some((f) => f.id.startsWith("punk"));
       const triole = !DictationLevels.requiresTriplet(level) || alle.some((f) => f.isTriplet);
-      if (punktierung && triole) break;
+      let verschieden = true;
+      if (!DictationLevels.woertlicheTaktwiederholung(level)) {
+        for (let a = 0; a < 4; a++) for (let b = a + 1; b < 4; b++) {
+          if (gleicherTakt(dictation[a], dictation[b])) verschieden = false;
+        }
+      }
+      if (punktierung && triole && verschieden) break;
       attempts += 1;
     }
 
