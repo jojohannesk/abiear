@@ -101,6 +101,10 @@ interface Difficulty {
   relatedContinuation: number;
   /** Dissonanzen auf schwerer Zeit nur geführt (siehe `dissonanzenKontrolliert`). */
   kontrollierteDissonanz: boolean;
+  /** Sprünge ab der Quarte je Phrase aufgefangen (siehe `spruengeGefangen`). */
+  gefangeneSpruenge: boolean;
+  /** Anläufe, bevor der Notbehelf einspringt. */
+  anlaeufe: number;
   ambitus: AmbitusRule;
   profile: AdaptiveProfile;
   strictPeak: boolean;
@@ -112,17 +116,17 @@ function difficultyFor(level: DictationLevel): Difficulty {
     case "leicht":
       return { level, maxLeap: 2, maxLeapSemitones: 4, allowedDurations: new Set([0.5, 1.0, 2.0]),
         figureProbability: 0, anchoredToTonic: true, simpleKeysOnly: true, parallelChance: 0,
-        literalRestatement: 0.85, mirrorTail: 0, relatedContinuation: 0, kontrollierteDissonanz: false,
+        literalRestatement: 0.85, mirrorTail: 0, relatedContinuation: 0, kontrollierteDissonanz: false, gefangeneSpruenge: false, anlaeufe: 120,
         ambitus: "fifthAboveTonic", profile: NEUTRAL, strictPeak: false, degreeWindow: null };
     case "mittel":
       return { level, maxLeap: 4, maxLeapSemitones: 7, allowedDurations: null,
-        figureProbability: 0.20, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.29,
-        literalRestatement: 0.8, mirrorTail: 0.5, relatedContinuation: 0.5, kontrollierteDissonanz: true,
+        figureProbability: 0.20, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.37,
+        literalRestatement: 0.8, mirrorTail: 0.5, relatedContinuation: 0.5, kontrollierteDissonanz: true, gefangeneSpruenge: true, anlaeufe: 200,
         ambitus: "octaveFromTonic", profile: NEUTRAL, strictPeak: true, degreeWindow: null };
     case "abitur":
       return { level, maxLeap: 4, maxLeapSemitones: 7, allowedDurations: null,
-        figureProbability: 0.30, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.34,
-        literalRestatement: 0.6, mirrorTail: 0.5, relatedContinuation: 0.5, kontrollierteDissonanz: true,
+        figureProbability: 0.30, anchoredToTonic: false, simpleKeysOnly: false, parallelChance: 0.42,
+        literalRestatement: 0.6, mirrorTail: 0.5, relatedContinuation: 0.5, kontrollierteDissonanz: true, gefangeneSpruenge: true, anlaeufe: 200,
         ambitus: "ninthAnchoredToTonic", profile: NEUTRAL, strictPeak: true, degreeWindow: null };
   }
 }
@@ -219,6 +223,25 @@ function barControlled(degrees: readonly number[], rhythm: readonly RhythmSlot[]
   return dissonanzenKontrolliert(degrees, rhythm.map((r) => barIndex * 4.0 + r.beat), schema, true);
 }
 
+// MARK: - Sprünge
+
+/** Wird jeder Sprung ab der Quarte vom nächsten Ton im Schritt in die
+ *  Gegenrichtung aufgefangen? Geprüft wird je Phrase. */
+function spruengeGefangen(folge: readonly number[]): boolean {
+  for (let k = 1; k < folge.length - 1; k++) {
+    const sprung = folge[k] - folge[k - 1];
+    if (Math.abs(sprung) < 3) continue;
+    const weiter = folge[k + 1] - folge[k];
+    if (!(Math.abs(weiter) === 1 && Math.sign(weiter) !== Math.sign(sprung))) return false;
+  }
+  return true;
+}
+
+function sprungGefangen(davor: readonly number[], degrees: readonly number[], difficulty: Difficulty): boolean {
+  if (!difficulty.gefangeneSpruenge) return true;
+  return spruengeGefangen([...davor.slice(-2), ...degrees]);
+}
+
 function chooseTransposition(previous: number, motif: Motif, barIndex: number,
                              schema: readonly number[], key: MusicKey, difficulty: Difficulty): number | null {
   const candidates: DegreeWeight[] = [];
@@ -268,7 +291,7 @@ function alignment(motif: Motif, start: number, barIndex: number, schema: readon
 function buildLine(rhythm: readonly RhythmSlot[], barIndex: number, startDegree: number,
                    endTarget: number | null, descending: boolean, previousDegree: number | null,
                    schema: readonly number[], key: MusicKey, difficulty: Difficulty,
-                   ascending = false): number[] | null {
+                   ascending = false, beforePrevious: number | null = null): number[] | null {
 
   if (previousDegree !== null) {
     if (!isSingableStep(previousDegree, startDegree, key, difficulty)) return null;
@@ -276,6 +299,16 @@ function buildLine(rhythm: readonly RhythmSlot[], barIndex: number, startDegree:
 
   const n = rhythm.length;
   if (n < 2) return null;
+
+  // Sprünge über die Taktgrenze auffangen.
+  let eingangsSprung = 0;
+  if (difficulty.gefangeneSpruenge && previousDegree !== null) {
+    if (beforePrevious !== null && Math.abs(previousDegree - beforePrevious) >= 3) {
+      const m0 = startDegree - previousDegree;
+      if (!(Math.abs(m0) === 1 && Math.sign(m0) !== Math.sign(previousDegree - beforePrevious))) return null;
+    }
+    if (Math.abs(startDegree - previousDegree) >= 3) eingangsSprung = startDegree - previousDegree;
+  }
 
   const degrees = [startDegree];
   let lastMove = 0;
@@ -298,6 +331,8 @@ function buildLine(rhythm: readonly RhythmSlot[], barIndex: number, startDegree:
       if (Math.abs(move) > difficulty.maxLeap || !isSingableStep(prev, endTarget, key, difficulty)) return null;
       if (Math.abs(lastMove) >= 2 && Math.abs(move) >= 2) return null;
       if (fuehren && !resolves(vorvorher, prev, endTarget, beatOf(i), schema)) return null;
+      if (i === 1 && eingangsSprung !== 0
+          && !(Math.abs(move) === 1 && Math.sign(move) !== Math.sign(eingangsSprung))) return null;
       degrees.push(endTarget);
       continue;
     }
@@ -323,6 +358,8 @@ function buildLine(rhythm: readonly RhythmSlot[], barIndex: number, startDegree:
       const barMax = Math.max(barMaxSoFar, cand);
       if (barMax - barMin > 5) continue;
 
+      if (i === 1 && eingangsSprung !== 0
+          && !(Math.abs(move) === 1 && Math.sign(move) !== Math.sign(eingangsSprung))) continue;
       // Eine offene Dissonanz will geführt werden.
       if (fuehren && !resolves(vorvorher, prev, cand, beatOf(i), schema)) continue;
       // Neue Dissonanz auf schwerer Zeit nur, wenn ein Folgeton sie auflösen kann.
@@ -402,7 +439,8 @@ export function longestCommonRun(a: readonly number[], b: readonly number[]): nu
 
 /** Takt 2: die Fortführung zum Halbschluss — bewusst nicht das Motiv. */
 function continuationBar(target: number, startDegree: number, barIndex: number,
-                         previousDegree: number | null, motifSteps: readonly number[],
+                         previousDegree: number | null, beforePrevious: number | null,
+                         motifSteps: readonly number[],
                          motifRhythm: readonly RhythmSlot[],
                          schema: readonly number[], key: MusicKey, difficulty: Difficulty): Bar | null {
   // Rhythmisch verwandt: die erste Takthälfte wie im Motiv, sofern dort kein
@@ -416,14 +454,16 @@ function continuationBar(target: number, startDegree: number, barIndex: number,
   for (let t = 0; t < 14; t++) {
     const rhythm = barRhythm("continuation", difficulty, vorgabe);
     if (!rhythm) continue;
-    const line = buildLine(rhythm, barIndex, startDegree, target, false, previousDegree, schema, key, difficulty);
+    const line = buildLine(rhythm, barIndex, startDegree, target, false, previousDegree, schema, key, difficulty,
+                           false, beforePrevious);
     if (!line) continue;
     if (longestCommonRun(stepPattern(line), motifSteps) < 4) {
       return { rhythm, degrees: line };
     }
   }
 
-  return formulaBar(target, continuationFormulas, "continuation", barIndex, previousDegree, difficulty, schema, key);
+  return formulaBar(target, continuationFormulas, "continuation", barIndex, previousDegree, difficulty, schema, key,
+                    beforePrevious);
 }
 
 /** Takt 3: das Motiv wird aufgegriffen — meist wörtlich transponiert. */
@@ -433,7 +473,8 @@ function restatementBar(motif: Motif, start: number, previousDegree: number | nu
   if (literal) {
     const degrees = motif.steps.map((s) => start + s);
     if (isValidBar(degrees, previousDegree, key, difficulty)
-        && barControlled(degrees, motif.rhythm, 2, schema, difficulty)) {
+        && barControlled(degrees, motif.rhythm, 2, schema, difficulty)
+        && sprungGefangen([], degrees, difficulty)) {
       return { rhythm: motif.rhythm, degrees };
     }
   }
@@ -450,7 +491,8 @@ function restatementBar(motif: Motif, start: number, previousDegree: number | nu
       mirrored.push(mirrored[k - 1] - (motif.steps[k] - motif.steps[k - 1]));
     }
     if (isValidBar(mirrored, previousDegree, key, difficulty)
-        && barControlled(mirrored, motif.rhythm, 2, schema, difficulty)) {
+        && barControlled(mirrored, motif.rhythm, 2, schema, difficulty)
+        && sprungGefangen([], mirrored, difficulty)) {
       return { rhythm: motif.rhythm, degrees: mirrored };
     }
   }
@@ -462,6 +504,7 @@ function restatementBar(motif: Motif, start: number, previousDegree: number | nu
 
   if (!isValidBar(degrees, previousDegree, key, difficulty)) return null;
   if (!barControlled(degrees, motif.rhythm, 2, schema, difficulty)) return null;
+  if (!sprungGefangen([], degrees, difficulty)) return null;
   return { rhythm: motif.rhythm, degrees };
 }
 
@@ -492,6 +535,7 @@ function parallelBar(motif: Motif, start: number, vordersatzMax: number, tonic: 
   if (Math.abs(degrees[degrees.length - 1] - degrees[degrees.length - 2]) > 2) return null;
   if (!isValidBar(degrees, previousDegree, key, difficulty)) return null;
   if (!barControlled(degrees, motif.rhythm, 2, schema, difficulty)) return null;
+  if (!sprungGefangen([], degrees, difficulty)) return null;
   return { rhythm: motif.rhythm, degrees };
 }
 
@@ -605,6 +649,11 @@ const cadenceFormulas: readonly (readonly number[])[] = [
   [4, 3, 2, 1, 0], [5, 3, 2, 1, 0], [3, 2, 1, -1, 0], [4, 2, 1, -1, 0], [3, 4, 2, 1, 0],
   [5, 4, 3, 2, 1, 0], [4, 3, 2, 1, -1, 0], [5, 3, 2, 1, -1, 0], [4, 5, 3, 2, 1, 0],
   [6, 5, 4, 3, 2, 1, 0], [5, 4, 3, 2, 1, -1, 0], [6, 4, 3, 2, 1, -1, 0],
+  // hoch beginnend — Takt 4 knüpft am Gipfel an (siehe Swift)
+  [5, 3, 1, 0],
+  [6, 4, 3, 1, 0], [7, 5, 3, 1, 0], [6, 5, 3, 1, 0],
+  [7, 5, 4, 2, 1, 0], [6, 5, 3, 2, 1, 0], [7, 6, 4, 2, 1, 0], [7, 5, 3, 2, 1, 0],
+  [7, 6, 5, 4, 2, 1, 0], [7, 5, 4, 3, 2, 1, 0], [8, 7, 5, 4, 2, 1, 0], [8, 6, 5, 3, 2, 1, 0],
 ];
 
 /** Wege zum Halbschluss, relativ zum Zielton, der immer zuletzt steht. */
@@ -618,15 +667,15 @@ const continuationFormulas: readonly (readonly number[])[] = [
 ];
 
 /** Takt 4: fallende Schlussformel zum Grundton. */
-function cadenceBar(target: number, previousDegree: number | null, difficulty: Difficulty,
-                    schema: readonly number[], key: MusicKey): Bar | null {
-  return formulaBar(target, cadenceFormulas, "cadence", 3, previousDegree, difficulty, schema, key);
+function cadenceBar(target: number, previousDegree: number | null, beforePrevious: number | null,
+                    difficulty: Difficulty, schema: readonly number[], key: MusicKey): Bar | null {
+  return formulaBar(target, cadenceFormulas, "cadence", 3, previousDegree, difficulty, schema, key, beforePrevious);
 }
 
 /** Baut einen Takt aus einem festen Formelvorrat statt Ton für Ton. */
 function formulaBar(target: number, formulas: readonly (readonly number[])[], role: BarRole,
                     barIndex: number, previousDegree: number | null, difficulty: Difficulty,
-                    schema: readonly number[], key: MusicKey): Bar | null {
+                    schema: readonly number[], key: MusicKey, beforePrevious: number | null = null): Bar | null {
   for (let t = 0; t < 16; t++) {
     const rhythm = barRhythm(role, difficulty);
     if (!rhythm) continue;
@@ -638,6 +687,8 @@ function formulaBar(target: number, formulas: readonly (readonly number[])[], ro
 
       if (!isValidBar(degrees, previousDegree, key, difficulty)) continue;
       if (!barControlled(degrees, rhythm, barIndex, schema, difficulty)) continue;
+      const davor = [beforePrevious, previousDegree].filter((d): d is number => d !== null);
+      if (!sprungGefangen(davor, degrees, difficulty)) continue;
 
       let hits = 0;
       let total = 0;
@@ -719,6 +770,12 @@ function passesMusicalChecks(bars: readonly Bar[], form: Form, schema: readonly 
   }
 
   if (mod7(tonic) !== 0) return false;
+
+  // Sprünge ab der Quarte je Phrase aufgefangen.
+  if (difficulty.gefangeneSpruenge) {
+    if (!spruengeGefangen([...bars[0].degrees, ...bars[1].degrees])) return false;
+    if (!spruengeGefangen([...bars[2].degrees, ...bars[3].degrees])) return false;
+  }
 
   // Dissonanzen geführt — auch über die Taktgrenzen und nach der Figur.
   if (difficulty.kontrollierteDissonanz) {
@@ -921,7 +978,7 @@ export const MelodyGenerator = {
     diff.profile = profile;
 
     const pool = MusicData.keyCatalog.filter((k) => !diff.simpleKeysOnly || Math.abs(k.acc) <= 1);
-    for (let t = 0; t < 120; t++) {
+    for (let t = 0; t < diff.anlaeufe; t++) {
       const key = verlauf.ziehe(pool, "tonarten", (k) => k.name, (k) => Profile.key(profile, k.name));
       const dictation = MelodyGenerator.tryGenerateMelody(key, level, profile);
       if (dictation) return dictation;
@@ -980,6 +1037,7 @@ export const MelodyGenerator = {
 
     // --- Ebene 3: Ableitungen
     const bar2 = continuationBar(halfCadence, start1, 1, bar1Degrees[bar1Degrees.length - 1],
+                                 bar1Degrees.length >= 2 ? bar1Degrees[bar1Degrees.length - 2] : null,
                                  stepPattern(bar1Degrees), motifRhythm, schema, keyCopy, diff);
     if (!bar2) return null;
 
@@ -989,7 +1047,9 @@ export const MelodyGenerator = {
                     bar2.degrees[bar2.degrees.length - 1], schema, keyCopy, diff);
     if (!bar3) return null;
 
-    const bar4 = cadenceBar(finalTarget, bar3.degrees[bar3.degrees.length - 1], diff, schema, keyCopy);
+    const bar4 = cadenceBar(finalTarget, bar3.degrees[bar3.degrees.length - 1],
+                            bar3.degrees.length >= 2 ? bar3.degrees[bar3.degrees.length - 2] : null,
+                            diff, schema, keyCopy);
     if (!bar4) return null;
 
     const bars: Bar[] = [{ rhythm: motifRhythm, degrees: bar1Degrees }, bar2, bar3, bar4];
