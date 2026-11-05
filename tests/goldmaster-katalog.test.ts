@@ -5,6 +5,7 @@ import { MusicData } from "../src/kern/MusicData";
 import { AbcNotation } from "../src/kern/AbcNotation";
 import { DictationLevels, type DictationLevel } from "../src/kern/DictationLevel";
 import { MelodicContours, MelodicMoves } from "../src/kern/MelodicMove";
+import { Performance } from "../src/klang/Performance";
 import { fixture, stabil } from "./fixtures";
 
 interface Katalog {
@@ -12,6 +13,7 @@ interface Katalog {
   moveTitles: Record<string, string>; contourTitles: Record<string, string>; figureNames: Record<string, string>;
   noteNames: string[]; germanNames: Record<string, string[]>; abcNotes: Record<string, string[]>;
   durations: Record<string, string>; levelCells: Record<string, string[]>;
+  kadenzen: Record<string, number[][]>;
 }
 
 describe("katalog.json", () => {
@@ -44,6 +46,12 @@ describe("katalog.json", () => {
     for (const [d, abc] of Object.entries(k.durations)) {
       expect(AbcNotation.durationToAbc(Number(d)), d).toBe(abc);
     }
+  });
+  it("Satz der Kadenz je Tonart", () => {
+    for (const key of MusicData.keyCatalog) {
+      expect(Performance.cadenceVoicing(key), key.name).toEqual(k.kadenzen[key.name]);
+    }
+    expect(Object.keys(k.kadenzen).length).toBe(MusicData.keyCatalog.length);
   });
   it("Zellvorrat je Niveau", () => {
     for (const level of DictationLevels.all as DictationLevel[]) {

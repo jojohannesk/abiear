@@ -28,6 +28,15 @@ function isHeavyBeat(position: number): boolean {
   return Math.floor(position) % 1 === 0;
 }
 
+/** Der Satz der Kadenz I – IV – V – I in diatonischen Stufen, je Akkord Bass,
+ *  Tenor, Alt, Sopran: enge Lage, Grundstellung, Quintlage. Stufe 0 ist `key.root`. */
+const cadenceDegrees: readonly (readonly number[])[] = [
+  [-7, 0, 2, 4],   // I
+  [-4, 0, 3, 5],   // IV
+  [-3, -1, 1, 4],  // V
+  [-7, 0, 2, 4],   // I
+];
+
 function addCountIn(score: ScoreBuffer, start: number, beat: number): number {
   for (let c = 0; c < 4; c++) {
     ToneRenderer.addMetronomeClick(score, start + c * beat, c === 0);
@@ -49,28 +58,22 @@ export const Performance = {
 
   // MARK: - Kadenz
 
+  /** Die Akkorde der Kadenz als MIDI-Töne, je Akkord tiefste Stimme zuerst. */
+  cadenceVoicing(key: MusicKey): number[][] {
+    return cadenceDegrees.map((akkord) => akkord.map((d) => midiOfDegree(d, key)));
+  },
+
   addCadence(score: ScoreBuffer, key: MusicKey, startTime: number, bank: SampleBank | null): number {
-    const fixedSchema = [1, 4, 5, 1];
     let t = startTime;
 
-    for (let b = 0; b < 4; b++) {
-      const deg = fixedSchema[b];
-      const intervals: Record<number, number[]> = key.isMajor
-        ? { 1: [0, 4, 7], 4: [5, 9, 12], 5: [7, 11, 14] }
-        : { 1: [0, 3, 7], 4: [5, 8, 12], 5: [7, 11, 14] };
-
-      const chordMidiArr: number[] = [];
-      for (const iv of intervals[deg] ?? []) {
-        for (let oct = -1; oct <= 0; oct++) chordMidiArr.push(key.root + iv + 12 * oct);
-      }
-
+    Performance.cadenceVoicing(key).forEach((akkord, b) => {
       const dur = b < 3 ? 0.7 : 0.9;
-      const gain = Performance.polyphonyGain(chordMidiArr.length);
-      for (const m of chordMidiArr) {
+      const gain = Performance.polyphonyGain(akkord.length);
+      for (const m of akkord) {
         ToneRenderer.addPianoTone(score, m, t, dur, true, bank, "nonLegato", gain);
       }
       t += b < 3 ? 0.8 : 1.2;
-    }
+    });
     return t;
   },
 
